@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=6 format=3 uid="uid://de6px0k44uu2s"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_nw4yd"]
+[ext_resource type="Resource" uid="uid://bgh0jxp7xly8m" path="res://sounds/voice_resources/catching/help_pt1.tres" id="2_4ilpo"]
+[ext_resource type="Resource" uid="uid://bchwwmwu2xmlp" path="res://sounds/voice_resources/catching/help_pt2.tres" id="3_b64ty"]
+[ext_resource type="Resource" uid="uid://cowb7hv3hmdtw" path="res://sounds/voice_resources/catching/help_pt3.tres" id="4_i6h0i"]
+[ext_resource type="Resource" uid="uid://gudhnt4qvrde" path="res://sounds/voice_resources/catching/help_pt4.tres" id="5_qa7f5"]
+
+[resource]
+script = ExtResource("1_nw4yd")
+voice_array = [ExtResource("2_4ilpo"), ExtResource("3_b64ty"), ExtResource("4_i6h0i"), ExtResource("5_qa7f5")]
+is_number = false
+number = 0

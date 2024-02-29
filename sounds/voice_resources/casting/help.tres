@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://unlufwayutd4"]
+
+[ext_resource type="AudioStream" uid="uid://d1btfol6kbevc" path="res://sounds/voice_resources/casting/intro_help_cast.mp3" id="1_7d0gv"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="3_rljuq"]
+
+[resource]
+script = ExtResource("3_rljuq")
+audio = [ExtResource("1_7d0gv")]
+audio_touchscreen = []
+help = true

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=4 format=3 uid="uid://cs15a3a71wgow"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_jnpsa"]
+[ext_resource type="Resource" uid="uid://1fn3inq4j2o" path="res://sounds/voice_resources/catching/help_bubblefish_pt1.tres" id="2_b0pbd"]
+[ext_resource type="Resource" uid="uid://gudhnt4qvrde" path="res://sounds/voice_resources/catching/help_pt4.tres" id="3_lcfnb"]
+
+[resource]
+script = ExtResource("1_jnpsa")
+voice_array = [ExtResource("2_b0pbd"), ExtResource("3_lcfnb")]
+is_number = false
+number = 0

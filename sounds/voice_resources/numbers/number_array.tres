@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=2 format=3 uid="uid://smd1xpe1r8wm"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_o20g8"]
+
+[resource]
+script = ExtResource("1_o20g8")
+voice_array = []
+is_number = true
+number = 0

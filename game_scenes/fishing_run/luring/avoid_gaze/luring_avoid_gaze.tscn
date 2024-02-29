@@ -1,0 +1,633 @@
+[gd_scene load_steps=17 format=3 uid="uid://8hdwm383seom"]
+
+[ext_resource type="PackedScene" uid="uid://cr2ry11y5isyr" path="res://game_scenes/fishing_run/luring/luring.tscn" id="1_injeg"]
+[ext_resource type="Script" path="res://game_scenes/fishing_run/luring/avoid_gaze/luring_avoid_gaze.gd" id="2_w2ijv"]
+[ext_resource type="AudioStream" uid="uid://d0h7p0yb5ym68" path="res://sounds/effects/bubbles_loop.mp3" id="3_tcdp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6urp2"]
+size = Vector2(50, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrc1"]
+size = Vector2(10, 400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyk2e"]
+size = Vector2(10, 400)
+
+[sub_resource type="Gradient" id="Gradient_oqxvq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jseiv"]
+gradient = SubResource("Gradient_oqxvq")
+width = 20
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwxsj"]
+size = Vector2(4, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnkdx"]
+size = Vector2(1, 30)
+
+[sub_resource type="Animation" id="Animation_oyjkt"]
+resource_name = "Docirami"
+length = 3.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sound2DNodes/Sound2DCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(450, 360), Vector2(1300, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SafeAreas/Safe1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(637, 332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SafeAreas/Safe2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(787, 331)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SafeAreas/Safe3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(884, 593)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SafeAreas/Safe4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(991, 329)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SafeAreas/Safe5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1109, 604)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goal/GoalArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1274, 362)]
+}
+
+[sub_resource type="Animation" id="Animation_a8ynw"]
+resource_name = "Fretfish"
+length = 6.5
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sound2DNodes/Sound2DCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(350, 360), Vector2(1300, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SafeAreas/Safe1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(637, 332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SafeAreas/Safe2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(767, 333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SafeAreas/Safe3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 330)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SafeAreas/Safe4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1025, 330)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SafeAreas/Safe5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1149, 331)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goal/GoalArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1274, 362)]
+}
+
+[sub_resource type="Animation" id="Animation_w55dx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sound2DNodes/Sound2DCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SafeAreas/Safe1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(637, 332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SafeAreas/Safe2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(767, 333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SafeAreas/Safe3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 330)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SafeAreas/Safe4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1025, 330)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SafeAreas/Safe5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1149, 331)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goal/GoalArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1274, 362)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Walls/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0e5l4"]
+resource_name = "Distinctuna"
+length = 1.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sound2DNodes/Sound2DCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(450, 360), Vector2(1300, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SafeAreas/Safe1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(637, 332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SafeAreas/Safe2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(776, 618)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SafeAreas/Safe3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(835, 331)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SafeAreas/Safe4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1029, 622)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SafeAreas/Safe5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1019, 332)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goal/GoalArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1274, 362)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Walls/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qxkes"]
+resource_name = "Raybellion"
+length = 2.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sound2DNodes/Sound2DCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 360), Vector2(1400, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SafeAreas/Safe1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(637, 332)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SafeAreas/Safe2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(776, 618)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SafeAreas/Safe3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(835, 331)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SafeAreas/Safe4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1029, 622)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SafeAreas/Safe5:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1019, 332)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goal/GoalArea:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1274, 362)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yq074"]
+_data = {
+"Distinctuna": SubResource("Animation_0e5l4"),
+"Docirami": SubResource("Animation_oyjkt"),
+"Fretfish": SubResource("Animation_a8ynw"),
+"RESET": SubResource("Animation_w55dx"),
+"Raybellion": SubResource("Animation_qxkes")
+}
+
+[node name="LuringAvoidGaze" instance=ExtResource("1_injeg")]
+script = ExtResource("2_w2ijv")
+speed = 70
+friction = 0.5
+acceleration = 0.5
+sound_succeed = ExtResource("3_tcdp5")
+
+[node name="SafeAreas" type="Node2D" parent="." index="0"]
+
+[node name="Safe1" type="Area2D" parent="SafeAreas" index="0"]
+position = Vector2(637, 332)
+collision_layer = 8
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeAreas/Safe1" index="0"]
+shape = SubResource("RectangleShape2D_6urp2")
+debug_color = Color(0, 0.635294, 0.407843, 0.419608)
+
+[node name="Safe2" type="Area2D" parent="SafeAreas" index="1"]
+position = Vector2(767, 333)
+collision_layer = 8
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeAreas/Safe2" index="0"]
+shape = SubResource("RectangleShape2D_6urp2")
+debug_color = Color(0, 0.635294, 0.407843, 0.419608)
+
+[node name="Safe3" type="Area2D" parent="SafeAreas" index="2"]
+position = Vector2(900, 330)
+collision_layer = 8
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeAreas/Safe3" index="0"]
+shape = SubResource("RectangleShape2D_6urp2")
+debug_color = Color(0, 0.635294, 0.407843, 0.419608)
+
+[node name="Safe4" type="Area2D" parent="SafeAreas" index="3"]
+position = Vector2(1025, 330)
+collision_layer = 8
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeAreas/Safe4" index="0"]
+shape = SubResource("RectangleShape2D_6urp2")
+debug_color = Color(0, 0.635294, 0.407843, 0.419608)
+
+[node name="Safe5" type="Area2D" parent="SafeAreas" index="4"]
+position = Vector2(1149, 331)
+collision_layer = 8
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeAreas/Safe5" index="0"]
+shape = SubResource("RectangleShape2D_6urp2")
+debug_color = Color(0, 0.635294, 0.407843, 0.419608)
+
+[node name="Goal" type="Node2D" parent="." index="1"]
+
+[node name="GoalArea" type="Area2D" parent="Goal" index="0"]
+position = Vector2(1274, 362)
+collision_layer = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/GoalArea" index="0"]
+shape = SubResource("RectangleShape2D_qlrc1")
+debug_color = Color(1, 0.917647, 0, 0.862745)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goal/GoalArea" index="1"]
+position = Vector2(-713, -28)
+shape = SubResource("RectangleShape2D_qlrc1")
+debug_color = Color(1, 0.917647, 0, 0.862745)
+
+[node name="Sound2DCenter" parent="Sound2DNodes" index="2"]
+position = Vector2(640, 360)
+
+[node name="Area2D" type="Area2D" parent="Sound2DNodes/Sound2DCenter" index="6"]
+collision_layer = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DCenter/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_hyk2e")
+debug_color = Color(0.992157, 0, 0.266667, 0.419608)
+
+[node name="Player" parent="." index="3"]
+collision_mask = 15
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" index="0"]
+scale = Vector2(1, 30)
+texture = SubResource("GradientTexture1D_jseiv")
+
+[node name="CollisionShape2D" parent="Player" index="2"]
+shape = SubResource("RectangleShape2D_cwxsj")
+
+[node name="Hitbox" type="Area2D" parent="Player" index="3"]
+collision_mask = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_lnkdx")
+debug_color = Color(1, 0, 0.294118, 0.870588)
+
+[node name="Walls" parent="." index="4"]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" parent="Walls" index="0"]
+position = Vector2(590, 365)
+
+[node name="FishHPCooldown" parent="." index="5"]
+wait_time = 0.5
+
+[node name="BubbleSoundTimer" type="Timer" parent="." index="6"]
+autostart = true
+
+[node name="RodHPCooldown" parent="." index="7"]
+wait_time = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_yq074")
+}

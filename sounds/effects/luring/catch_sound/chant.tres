@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundEffectResource" load_steps=7 format=3 uid="uid://bffjtrmf00mmv"]
+
+[ext_resource type="AudioStream" uid="uid://cncj3lck7s7r5" path="res://sounds/effects/luring/catch_sound/chant0.mp3" id="1_me478"]
+[ext_resource type="Script" path="res://game_resources/se_resource.gd" id="1_xirvj"]
+[ext_resource type="AudioStream" uid="uid://4llvtqlf2lhc" path="res://sounds/effects/luring/catch_sound/chant1.mp3" id="2_uqjkt"]
+[ext_resource type="AudioStream" uid="uid://bstu2qob3mid3" path="res://sounds/effects/luring/catch_sound/chant2.mp3" id="3_nc2an"]
+[ext_resource type="AudioStream" uid="uid://bhxlfw454rm04" path="res://sounds/effects/luring/catch_sound/chant3.mp3" id="4_t3hvp"]
+[ext_resource type="AudioStream" uid="uid://cw5xqnu7wcjo3" path="res://sounds/effects/luring/catch_sound/chant4.mp3" id="5_451h1"]
+
+[resource]
+script = ExtResource("1_xirvj")
+audio = [ExtResource("1_me478"), ExtResource("2_uqjkt"), ExtResource("3_nc2an"), ExtResource("4_t3hvp"), ExtResource("5_451h1")]

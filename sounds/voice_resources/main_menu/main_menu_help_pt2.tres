@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://i216ke7v27ei"]
+
+[ext_resource type="AudioStream" uid="uid://cyfb40dhn1fil" path="res://sounds/voice_resources/main_menu/main_menu_help_pt2_0.mp3" id="1_luixn"]
+[ext_resource type="AudioStream" uid="uid://qg3w8igjk2tn" path="res://sounds/voice_resources/main_menu/main_menu_help_touch_pt2.mp3" id="3_6jm2w"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="5_mce13"]
+
+[resource]
+script = ExtResource("5_mce13")
+audio = [ExtResource("1_luixn")]
+audio_touchscreen = [ExtResource("3_6jm2w")]
+help = true

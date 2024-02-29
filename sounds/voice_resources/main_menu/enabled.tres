@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://hl2s463siq4t"]
+
+[ext_resource type="AudioStream" uid="uid://dtelxs27bg7jx" path="res://sounds/voice_resources/main_menu/enabled0.mp3" id="1_201fj"]
+[ext_resource type="AudioStream" uid="uid://cg2vnqn5ndfhr" path="res://sounds/voice_resources/main_menu/enabled1.mp3" id="2_icyc6"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="3_oqqmo"]
+
+[resource]
+script = ExtResource("3_oqqmo")
+audio = [ExtResource("1_201fj"), ExtResource("2_icyc6")]
+audio_touchscreen = []
+help = false
+play_once = false
+is_number = false

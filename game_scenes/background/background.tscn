@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://dffqatpq07nq8"]
+
+[ext_resource type="Script" path="res://game_scenes/background/background.gd" id="1_aoh84"]
+[ext_resource type="Texture2D" uid="uid://dosn35nkibt1f" path="res://game_scenes/background/light_particle_big0.png" id="1_qc343"]
+[ext_resource type="Theme" uid="uid://dx46ipfpncddl" path="res://game_theme.tres" id="1_rvpf7"]
+[ext_resource type="Texture2D" uid="uid://bemo54gtuawji" path="res://game_scenes/background/sourroundings.png" id="2_5cegu"]
+[ext_resource type="Texture2D" uid="uid://efcakr7rgp6c" path="res://game_scenes/background/vegetals_scaled.png" id="3_an802"]
+
+[sub_resource type="Gradient" id="Gradient_uqbmw"]
+colors = PackedColorArray(0.054902, 0.0156863, 0.121569, 1, 0.054902, 0.0156863, 0.121569, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jsgik"]
+gradient = SubResource("Gradient_uqbmw")
+
+[sub_resource type="Curve" id="Curve_uymm4"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.155629, 1.64211), 0.0, 0.0, 0, 0, Vector2(0.268212, 1.6), 0.0, 0.0, 0, 0, Vector2(0.387417, 1.81053), 0.0, 0.0, 0, 0, Vector2(0.546358, 1.49474), 0.0, 0.0, 0, 0, Vector2(0.728477, 1.57895), 0.0, 0.0, 0, 0, Vector2(0.86755, 1.74737), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 8
+
+[sub_resource type="Gradient" id="Gradient_bcd08"]
+offsets = PackedFloat32Array(0, 0.0774908, 0.431734, 0.523985, 0.583026, 0.922509, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.772549, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Background" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1_aoh84")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_jsgik")
+
+[node name="Sourroundings" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_5cegu")
+expand_mode = 5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(642, 344)
+amount = 10
+lifetime = 20.0
+texture = ExtResource("1_qc343")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 250)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_uymm4")
+color_ramp = SubResource("Gradient_bcd08")
+
+[node name="Vegetals" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 400)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+texture = ExtResource("3_an802")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_rvpf7")
+theme_override_font_sizes/font_size = 33
+text = "[Fish in the Dark]"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_rvpf7")
+theme_override_font_sizes/font_size = 22
+text = "v.0.1"
+horizontal_alignment = 2
+vertical_alignment = 2

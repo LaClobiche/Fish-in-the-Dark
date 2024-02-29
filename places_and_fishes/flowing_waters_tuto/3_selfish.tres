@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://dycf4ipu3pga0"]
+
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_bycsk"]
+[ext_resource type="Animation" uid="uid://c71pidx7jqrmk" path="res://places_and_fishes/flowing_waters_tuto/selfish_catching_sequence.res" id="1_sq255"]
+[ext_resource type="AudioStream" uid="uid://deuxnpsx684a8" path="res://sounds/voice_resources/fish_resource/flowing_waters/selfish_description.mp3" id="2_dn2na"]
+[ext_resource type="PackedScene" uid="uid://bhpn3lx7b22w2" path="res://game_scenes/fishing_run/luring/follow_sound/luring_follow_sound.tscn" id="2_mf08m"]
+[ext_resource type="AudioStream" uid="uid://n7rabfe6o4um" path="res://sounds/voice_resources/fish_resource/flowing_waters/selfish.mp3" id="3_46tlj"]
+[ext_resource type="AudioStream" uid="uid://brm7hww2u4rjg" path="res://sounds/voice_resources/fish_resource/flowing_waters/selfish_caught.mp3" id="4_qpphg"]
+
+[resource]
+script = ExtResource("1_bycsk")
+name = "Selfish"
+voice_name = ExtResource("3_46tlj")
+voice_name_caught = ExtResource("4_qpphg")
+description = "Hiding in the depths, it has built up a fortress of various debris. Feeding on the few fragments he allows to percolate, it is a monarch in its kingdom of solitude."
+voice_description = ExtResource("2_dn2na")
+rarity = 2
+luring_scene = ExtResource("2_mf08m")
+catching_sequence = ExtResource("1_sq255")

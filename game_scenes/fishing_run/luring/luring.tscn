@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr2ry11y5isyr"]
+
+[ext_resource type="Script" path="res://game_scenes/fishing_run/luring/luring.gd" id="1_ld5ck"]
+[ext_resource type="PackedScene" uid="uid://c672i6lia8s81" path="res://sounds/sound_2d.tscn" id="3_iu3nc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pghau"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woqm8"]
+size = Vector2(42, 729)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4g67"]
+size = Vector2(1354, 80.5)
+
+[node name="Luring" type="Node2D"]
+script = ExtResource("1_ld5ck")
+
+[node name="Sound2DNodes" type="Node2D" parent="."]
+
+[node name="Sound2DLeft" parent="Sound2DNodes" instance=ExtResource("3_iu3nc")]
+
+[node name="Sound2DRight" parent="Sound2DNodes" instance=ExtResource("3_iu3nc")]
+
+[node name="Sound2DCenter" parent="Sound2DNodes" instance=ExtResource("3_iu3nc")]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(640, 360)
+collision_mask = 3
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_pghau")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-21, 354.5)
+shape = SubResource("RectangleShape2D_woqm8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1302, 363)
+shape = SubResource("RectangleShape2D_woqm8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(639, 404.25)
+shape = SubResource("RectangleShape2D_t4g67")
+
+[node name="FishHPCooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="RodHPCooldown" type="Timer" parent="."]

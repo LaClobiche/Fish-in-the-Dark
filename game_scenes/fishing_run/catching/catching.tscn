@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3grxtgv1a1kv"]
+
+[ext_resource type="Script" path="res://game_scenes/fishing_run/catching/catching.gd" id="1_d18iw"]
+[ext_resource type="AnimationLibrary" uid="uid://dmkbvbwxe2kqy" path="res://game_scenes/fishing_run/catching/catching_sequences_library_editor.res" id="3_gn5om"]
+[ext_resource type="PackedScene" uid="uid://c672i6lia8s81" path="res://sounds/sound_2d.tscn" id="4_iehmg"]
+[ext_resource type="AnimationLibrary" uid="uid://lww83elwybbo" path="res://game_scenes/fishing_run/catching/catching_sequences_library_ingame.res" id="4_kfrsw"]
+
+[sub_resource type="Gradient" id="Gradient_7jxbd"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rlypw"]
+gradient = SubResource("Gradient_7jxbd")
+width = 25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pghau"]
+size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woqm8"]
+size = Vector2(42, 729)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4g67"]
+size = Vector2(1354, 80.5)
+
+[node name="Catching" type="Node2D"]
+script = ExtResource("1_d18iw")
+rod_damage = 1
+fish_damage = 4
+fish_min_vol = -5
+
+[node name="Sound2DNodes" type="Node2D" parent="."]
+
+[node name="Sound2DLeft" parent="Sound2DNodes" instance=ExtResource("4_iehmg")]
+
+[node name="Sound2DRight" parent="Sound2DNodes" instance=ExtResource("4_iehmg")]
+
+[node name="Sound2DFish" parent="Sound2DNodes" instance=ExtResource("4_iehmg")]
+position = Vector2(640, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sound2DNodes/Sound2DFish"]
+scale = Vector2(1, 19.5)
+texture = SubResource("GradientTexture1D_rlypw")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(640, 360)
+collision_mask = 3
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+current = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_pghau")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-21, 354.5)
+shape = SubResource("RectangleShape2D_woqm8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1302, 363)
+shape = SubResource("RectangleShape2D_woqm8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(639, 404.25)
+shape = SubResource("RectangleShape2D_t4g67")
+
+[node name="RodHPCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PullingInputTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ReelingInputTimer" type="Timer" parent="."]
+wait_time = 0.09
+one_shot = true
+
+[node name="ReelingSoundTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"catching_sequences_editor_library": ExtResource("3_gn5om"),
+"catching_sequences_library_ingame": ExtResource("4_kfrsw")
+}
+
+[connection signal="timeout" from="PullingInputTimer" to="." method="_on_pulling_input_timer_timeout"]
+[connection signal="timeout" from="ReelingSoundTimer" to="." method="_on_reeling_sound_timer_timeout"]

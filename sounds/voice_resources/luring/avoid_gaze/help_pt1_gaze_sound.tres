@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://215dfydvu3rl"]
+
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_6gr6a"]
+[ext_resource type="AudioStream" uid="uid://vf8i3bi2r6py" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt1_gaze_sound.wav" id="1_b7jj6"]
+
+[resource]
+script = ExtResource("1_6gr6a")
+audio = [ExtResource("1_b7jj6")]
+audio_touchscreen = []
+help = true

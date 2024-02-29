@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://cfpfxtw1oirlb"]
+
+[ext_resource type="AudioStream" uid="uid://d17ostfalalt" path="res://sounds/voice_resources/casting/lure_landed_help_pt1_0.mp3" id="1_4nu3s"]
+[ext_resource type="AudioStream" uid="uid://d147kjuqafutq" path="res://sounds/voice_resources/casting/lure_landed_help_pt1_1.mp3" id="2_3ay0i"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="3_vxdd6"]
+
+[resource]
+script = ExtResource("3_vxdd6")
+audio = [ExtResource("1_4nu3s"), ExtResource("2_3ay0i")]
+audio_touchscreen = []
+help = true

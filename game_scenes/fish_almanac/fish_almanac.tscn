@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c641kpw42vqjv"]
+
+[ext_resource type="Script" path="res://game_scenes/fish_almanac/fish_almanac.gd" id="1_rip00"]
+
+[node name="FishAlmanac" type="Node2D"]
+script = ExtResource("1_rip00")

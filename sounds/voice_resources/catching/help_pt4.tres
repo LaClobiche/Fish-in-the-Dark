@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://gudhnt4qvrde"]
+
+[ext_resource type="AudioStream" uid="uid://b4sfxth7v6gvu" path="res://sounds/voice_resources/catching/help_pt4.mp3" id="1_blb5d"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_r47m3"]
+
+[resource]
+script = ExtResource("2_r47m3")
+audio = [ExtResource("1_blb5d")]
+audio_touchscreen = []
+help = true

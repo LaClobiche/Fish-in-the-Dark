@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://bvv3icyi8qdw8"]
+
+[ext_resource type="Animation" uid="uid://ny65xftlgsrf" path="res://places_and_fishes/everwatching_cove/distinctuna_catching_sequence.res" id="1_h4vsm"]
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_o2v1e"]
+[ext_resource type="PackedScene" uid="uid://8hdwm383seom" path="res://game_scenes/fishing_run/luring/avoid_gaze/luring_avoid_gaze.tscn" id="2_8iqgo"]
+[ext_resource type="AudioStream" uid="uid://dmtwfef2kval5" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_description.mp3" id="2_haso0"]
+[ext_resource type="AudioStream" uid="uid://c055uyofjojnp" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna.mp3" id="3_82fhr"]
+[ext_resource type="AudioStream" uid="uid://ckd05ikqpderv" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_caught.mp3" id="4_tp6h8"]
+
+[resource]
+script = ExtResource("1_o2v1e")
+name = "Distinctuna"
+voice_name = ExtResource("3_82fhr")
+voice_name_caught = ExtResource("4_tp6h8")
+description = "The \"distinctuna\" learned a lot from the gaze. It understands its purpose and motives more clearly, but it has no desire to follow this path. It has decided to venture into new waters. Perhaps it will return with its findings? It will depend on the gaze."
+voice_description = ExtResource("2_haso0")
+rarity = 4
+luring_scene = ExtResource("2_8iqgo")
+catching_sequence = ExtResource("1_h4vsm")

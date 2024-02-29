@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://dc5gqbgff01xy"]
+
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_gnsjc"]
+[ext_resource type="Animation" uid="uid://c3xmdvq4a7tdh" path="res://places_and_fishes/lonely_waters/preacheel_catching_sequence.res" id="1_sb8oa"]
+[ext_resource type="PackedScene" uid="uid://b77jcx07c33su" path="res://game_scenes/fishing_run/luring/catch_sound/luring_catch_sound.tscn" id="2_r2qba"]
+[ext_resource type="AudioStream" uid="uid://bn4q1vsdxbqd7" path="res://sounds/voice_resources/fish_resource/lonely_waters/preacheel_description.mp3" id="2_uwmlf"]
+[ext_resource type="AudioStream" uid="uid://bk54et4qvh0lt" path="res://sounds/voice_resources/fish_resource/lonely_waters/preacheel.mp3" id="3_2coyr"]
+[ext_resource type="AudioStream" uid="uid://ftpd6byvxq2o" path="res://sounds/voice_resources/fish_resource/lonely_waters/preacheel_caught.mp3" id="4_yhnvk"]
+
+[resource]
+script = ExtResource("1_gnsjc")
+name = "Preacheel"
+voice_name = ExtResource("3_2coyr")
+voice_name_caught = ExtResource("4_yhnvk")
+description = "The Preacheel guides the inhabitants of the Lonely Waters to find their inner light. This mission sometimes leads to obsession, as the Preacheel never leaves its waters and may reject those who do not embrace their light."
+voice_description = ExtResource("2_uwmlf")
+rarity = 3
+luring_scene = ExtResource("2_r2qba")
+catching_sequence = ExtResource("1_sb8oa")

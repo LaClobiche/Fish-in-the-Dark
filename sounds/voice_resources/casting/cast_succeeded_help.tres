@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=4 format=3 uid="uid://iljl30acdk5f"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_rgkg0"]
+[ext_resource type="Resource" uid="uid://cfpfxtw1oirlb" path="res://sounds/voice_resources/casting/lure_landed_help_pt1.tres" id="2_na77l"]
+[ext_resource type="Resource" uid="uid://3ipg3rtal7cq" path="res://sounds/voice_resources/casting/lure_landed_help_pt2.tres" id="3_ci4oy"]
+
+[resource]
+script = ExtResource("1_rgkg0")
+voice_array = [ExtResource("2_na77l"), ExtResource("3_ci4oy")]
+is_number = false
+number = 0

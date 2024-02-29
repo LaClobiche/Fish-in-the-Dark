@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://c6fjybfly6vvm"]
+
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_f37b7"]
+[ext_resource type="Animation" uid="uid://ceg0tbrceoboy" path="res://places_and_fishes/flowing_waters_tuto/bubblefish_catching_sequence.res" id="1_ujttf"]
+[ext_resource type="PackedScene" uid="uid://bhpn3lx7b22w2" path="res://game_scenes/fishing_run/luring/follow_sound/luring_follow_sound.tscn" id="2_lj7rb"]
+[ext_resource type="AudioStream" uid="uid://bm84xaa0qidul" path="res://sounds/voice_resources/fish_resource/flowing_waters/bubblefish_description.mp3" id="2_qu0c5"]
+[ext_resource type="AudioStream" uid="uid://dbddxoiaagab4" path="res://sounds/voice_resources/fish_resource/flowing_waters/bubblefish.mp3" id="3_hicqp"]
+[ext_resource type="AudioStream" uid="uid://di7roer4jo5kv" path="res://sounds/voice_resources/fish_resource/flowing_waters/bubblefish_caught.mp3" id="4_bo6vh"]
+
+[resource]
+script = ExtResource("1_f37b7")
+name = "Bubblefish"
+voice_name = ExtResource("3_hicqp")
+voice_name_caught = ExtResource("4_bo6vh")
+description = "To avoid being disturbed by the currents, it has taken refuge in a bubble."
+voice_description = ExtResource("2_qu0c5")
+rarity = 2
+luring_scene = ExtResource("2_lj7rb")
+catching_sequence = ExtResource("1_ujttf")

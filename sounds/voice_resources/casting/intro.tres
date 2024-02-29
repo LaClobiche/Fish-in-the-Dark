@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=4 format=3 uid="uid://dyffccvu84sog"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_l21ri"]
+[ext_resource type="Resource" uid="uid://bq6badewv7b3w" path="res://sounds/voice_resources/casting/intro_pt1.tres" id="2_ngubs"]
+[ext_resource type="Resource" uid="uid://cy8jckblygg0s" path="res://sounds/voice_resources/casting/intro_pt2.tres" id="3_2akwo"]
+
+[resource]
+script = ExtResource("1_l21ri")
+voice_array = [ExtResource("2_ngubs"), ExtResource("3_2akwo")]
+is_number = false
+number = 0

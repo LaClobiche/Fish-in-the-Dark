@@ -1,0 +1,104 @@
+[gd_scene load_steps=19 format=3 uid="uid://bhpn3lx7b22w2"]
+
+[ext_resource type="PackedScene" uid="uid://cr2ry11y5isyr" path="res://game_scenes/fishing_run/luring/luring.tscn" id="1_t5ggg"]
+[ext_resource type="Script" path="res://game_scenes/fishing_run/luring/follow_sound/luring_follow_sound.gd" id="2_x2fxh"]
+[ext_resource type="AudioStream" uid="uid://cg2oaqrhuhsfv" path="res://sounds/effects/luring/river_loop.mp3" id="3_8wv14"]
+[ext_resource type="AudioStream" uid="uid://cidigekv32j62" path="res://sounds/voice_resources/luring/follow_flowing_water/voice_intro.mp3" id="3_gep5j"]
+[ext_resource type="AudioStream" uid="uid://bdjn5amfj2cst" path="res://sounds/voice_resources/luring/follow_flowing_water/voice_help.mp3" id="4_l2osq"]
+[ext_resource type="AudioStream" uid="uid://d0h7p0yb5ym68" path="res://sounds/effects/bubbles_loop.mp3" id="5_5o2st"]
+[ext_resource type="Animation" uid="uid://dfmk7t277dlv0" path="res://game_scenes/fishing_run/luring/follow_sound/Flowfish.res" id="7_ct8fn"]
+[ext_resource type="Animation" uid="uid://cel5bmvojpplr" path="res://game_scenes/fishing_run/luring/follow_sound/Bubblefish.res" id="8_j3ed1"]
+[ext_resource type="Animation" uid="uid://d3vwxwtq1mewl" path="res://game_scenes/fishing_run/luring/follow_sound/Selfish.res" id="9_ovn5l"]
+[ext_resource type="Animation" uid="uid://dkbu64rilppad" path="res://game_scenes/fishing_run/luring/follow_sound/Homeyfish.res" id="10_aebm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyk2e"]
+size = Vector2(50, 40)
+
+[sub_resource type="Gradient" id="Gradient_t0o8t"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h0oxw"]
+gradient = SubResource("Gradient_t0o8t")
+width = 40
+
+[sub_resource type="Gradient" id="Gradient_oqxvq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jseiv"]
+gradient = SubResource("Gradient_oqxvq")
+width = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwxsj"]
+size = Vector2(30, 30)
+
+[sub_resource type="Animation" id="Animation_jxpdt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sound2DNodes/Sound2DCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_legkb"]
+_data = {
+"Bubblefish": ExtResource("8_j3ed1"),
+"Flowfish": ExtResource("7_ct8fn"),
+"Homeyfish": ExtResource("10_aebm6"),
+"RESET": SubResource("Animation_jxpdt"),
+"Selfish": ExtResource("9_ovn5l")
+}
+
+[node name="LuringFollowSound" instance=ExtResource("1_t5ggg")]
+script = ExtResource("2_x2fxh")
+sound_to_follow = ExtResource("3_8wv14")
+speed = 600
+friction = 0.3
+acceleration = 0.01
+voice_intro = ExtResource("3_gep5j")
+voice_help = ExtResource("4_l2osq")
+sound_succeed = ExtResource("5_5o2st")
+
+[node name="Sound2DCenter" parent="Sound2DNodes" index="2"]
+position = Vector2(640, 360)
+
+[node name="Area2D" type="Area2D" parent="Sound2DNodes/Sound2DCenter" index="6"]
+collision_layer = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DCenter/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_hyk2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sound2DNodes/Sound2DCenter/Area2D" index="1"]
+position = Vector2(0, -12.75)
+scale = Vector2(1, 26.5)
+texture = SubResource("GradientTexture1D_h0oxw")
+
+[node name="Player" parent="." index="1"]
+collision_mask = 7
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" index="0"]
+scale = Vector2(1, 30)
+texture = SubResource("GradientTexture1D_jseiv")
+
+[node name="CollisionShape2D" parent="Player" index="2"]
+shape = SubResource("RectangleShape2D_cwxsj")
+
+[node name="FishHPCooldown" parent="." index="3"]
+wait_time = 0.5
+
+[node name="RodHPCooldown" parent="." index="4"]
+wait_time = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_legkb")
+}

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Place" load_steps=7 format=3 uid="uid://cnb7p8wy0aosj"]
+
+[ext_resource type="Resource" uid="uid://ccgp26uv07mxx" path="res://places_and_fishes/flowing_waters_tuto/1_flowfish.tres" id="1_47cny"]
+[ext_resource type="Script" path="res://game_resources/place.gd" id="1_oeqai"]
+[ext_resource type="Resource" uid="uid://c6fjybfly6vvm" path="res://places_and_fishes/flowing_waters_tuto/2_bubblefish.tres" id="2_xvkmt"]
+[ext_resource type="Resource" uid="uid://dycf4ipu3pga0" path="res://places_and_fishes/flowing_waters_tuto/3_selfish.tres" id="3_8vtpw"]
+[ext_resource type="Resource" uid="uid://8s2nw2uy38dq" path="res://places_and_fishes/flowing_waters_tuto/4_homeyfish.tres" id="4_j7m6y"]
+[ext_resource type="AudioStream" uid="uid://c634kam4xgpxn" path="res://sounds/voice_resources/place_resource/flowing_waters.mp3" id="6_fnqm4"]
+
+[resource]
+script = ExtResource("1_oeqai")
+name = 0
+voice_name = ExtResource("6_fnqm4")
+fishes_by_rarity = {
+0: ExtResource("1_47cny"),
+1: ExtResource("2_xvkmt"),
+2: ExtResource("3_8vtpw"),
+3: ExtResource("4_j7m6y")
+}

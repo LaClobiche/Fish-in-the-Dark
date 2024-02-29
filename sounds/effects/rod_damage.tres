@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffectResource" load_steps=5 format=3 uid="uid://f1d0s4y06u33"]
+
+[ext_resource type="AudioStream" uid="uid://oexwxosysx1p" path="res://sounds/effects/rod_damage0.wav" id="1_asv4g"]
+[ext_resource type="AudioStream" uid="uid://bw6hjt5turhkb" path="res://sounds/effects/rod_damage1.wav" id="2_vglj1"]
+[ext_resource type="AudioStream" uid="uid://bk2yqau2j4yvh" path="res://sounds/effects/rod_damage2.wav" id="3_4xjh8"]
+[ext_resource type="Script" path="res://game_resources/se_resource.gd" id="3_umtjr"]
+
+[resource]
+script = ExtResource("3_umtjr")
+audio = [ExtResource("1_asv4g"), ExtResource("2_vglj1"), ExtResource("3_4xjh8")]

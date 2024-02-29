@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://cv70ovpgb8i3i"]
+
+[ext_resource type="AudioStream" uid="uid://krp84kogwobp" path="res://sounds/voice_resources/main_menu/disabled0.mp3" id="1_waxg4"]
+[ext_resource type="AudioStream" uid="uid://bqpnxrekknre0" path="res://sounds/voice_resources/main_menu/disabled1.mp3" id="2_u4v1l"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="5_g74kh"]
+
+[resource]
+script = ExtResource("5_g74kh")
+audio = [ExtResource("1_waxg4"), ExtResource("2_u4v1l")]
+audio_touchscreen = []
+help = false
+play_once = false
+is_number = false

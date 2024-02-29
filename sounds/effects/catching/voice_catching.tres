@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffectResource" load_steps=5 format=3 uid="uid://mvse4dbngnca"]
+
+[ext_resource type="AudioStream" uid="uid://dc013pjnk7ve0" path="res://sounds/effects/catching/voice_catching0.wav" id="1_0lb2x"]
+[ext_resource type="Script" path="res://game_resources/se_resource.gd" id="1_rvmmo"]
+[ext_resource type="AudioStream" uid="uid://j3d6gwx7jpdy" path="res://sounds/effects/catching/voice_catching1.wav" id="2_254im"]
+[ext_resource type="AudioStream" uid="uid://qkiby5ocofhj" path="res://sounds/effects/catching/voice_catching2.wav" id="3_tebfe"]
+
+[resource]
+script = ExtResource("1_rvmmo")
+audio = [ExtResource("1_0lb2x"), ExtResource("2_254im"), ExtResource("3_tebfe")]

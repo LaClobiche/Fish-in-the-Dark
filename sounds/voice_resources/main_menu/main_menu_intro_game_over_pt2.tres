@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://2me30u4fmvko"]
+
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_01v5t"]
+[ext_resource type="AudioStream" uid="uid://by0yfgl5s7ci7" path="res://sounds/voice_resources/main_menu/main_menu_intro_game_over_pt2.mp3" id="1_ckvgt"]
+
+[resource]
+script = ExtResource("1_01v5t")
+audio = [ExtResource("1_ckvgt")]
+audio_touchscreen = []
+help = false

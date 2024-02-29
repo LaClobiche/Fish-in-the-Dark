@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bok2x8q007gap"]
+
+[ext_resource type="Script" path="res://game_scenes/fishing_run/run_finished/run_finished.gd" id="1_76ydg"]
+
+[node name="RunFinished" type="Node2D"]
+script = ExtResource("1_76ydg")

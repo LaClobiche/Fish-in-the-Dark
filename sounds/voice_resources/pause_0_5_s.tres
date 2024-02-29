@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dshpa48scebyr"]
+
+[ext_resource type="AudioStream" uid="uid://b0inkqesybop0" path="res://sounds/voice_resources/pause_0_5_s.mp3" id="1_7bk4b"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_r7uaw"]
+
+[resource]
+script = ExtResource("1_r7uaw")
+audio = [ExtResource("1_7bk4b")]
+audio_touchscreen = []
+help = false

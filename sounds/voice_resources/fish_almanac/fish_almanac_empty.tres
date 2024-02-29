@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://c5h6vc0thsl2c"]
+
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_vwn5c"]
+[ext_resource type="AudioStream" uid="uid://c01rrxj1g2ad2" path="res://sounds/voice_resources/fish_almanac/fish_almanac_empty0.mp3" id="1_w7x0q"]
+[ext_resource type="AudioStream" uid="uid://bqkhqh4e00knp" path="res://sounds/voice_resources/fish_almanac/fish_almanac_empty1.mp3" id="2_s20ox"]
+
+[resource]
+script = ExtResource("1_vwn5c")
+audio = [ExtResource("1_w7x0q"), ExtResource("2_s20ox")]
+audio_touchscreen = []
+help = false

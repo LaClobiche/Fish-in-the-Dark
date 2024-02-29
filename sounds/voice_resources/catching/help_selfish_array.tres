@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=4 format=3 uid="uid://d4f8kioh1mld7"]
+
+[ext_resource type="Resource" uid="uid://blok35f6secal" path="res://sounds/voice_resources/catching/help_selfish_pt1.tres" id="1_rw0ba"]
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_sel61"]
+[ext_resource type="Resource" uid="uid://gudhnt4qvrde" path="res://sounds/voice_resources/catching/help_pt4.tres" id="2_crpe5"]
+
+[resource]
+script = ExtResource("1_sel61")
+voice_array = [ExtResource("1_rw0ba"), ExtResource("2_crpe5")]
+is_number = false
+number = 0

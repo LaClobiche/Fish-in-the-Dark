@@ -1,0 +1,128 @@
+[gd_scene load_steps=18 format=3 uid="uid://b77jcx07c33su"]
+
+[ext_resource type="PackedScene" uid="uid://cr2ry11y5isyr" path="res://game_scenes/fishing_run/luring/luring.tscn" id="1_v4nh8"]
+[ext_resource type="Script" path="res://game_scenes/fishing_run/luring/catch_sound/luring_catch_sound.gd" id="2_uaqw8"]
+[ext_resource type="AudioStream" uid="uid://d0h7p0yb5ym68" path="res://sounds/effects/bubbles_loop.mp3" id="3_5fi61"]
+[ext_resource type="Animation" uid="uid://dt1eok81kmit3" path="res://game_scenes/fishing_run/luring/catch_sound/Preacheel.res" id="4_tp656"]
+[ext_resource type="Animation" uid="uid://bxdkh3h0u6u5k" path="res://game_scenes/fishing_run/luring/catch_sound/Enlighteel.res" id="5_hqo2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyk2e"]
+size = Vector2(50, 40)
+
+[sub_resource type="Gradient" id="Gradient_t0o8t"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h0oxw"]
+gradient = SubResource("Gradient_t0o8t")
+width = 40
+
+[sub_resource type="Gradient" id="Gradient_qkud2"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wd7an"]
+gradient = SubResource("Gradient_qkud2")
+width = 40
+
+[sub_resource type="Gradient" id="Gradient_hlh5o"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5js66"]
+gradient = SubResource("Gradient_hlh5o")
+width = 40
+
+[sub_resource type="Gradient" id="Gradient_oqxvq"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jseiv"]
+gradient = SubResource("Gradient_oqxvq")
+width = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwxsj"]
+size = Vector2(30, 30)
+
+[sub_resource type="Animation" id="Animation_jxpdt"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_legkb"]
+_data = {
+"Enlighteel": ExtResource("5_hqo2x"),
+"Preacheel": ExtResource("4_tp656"),
+"RESET": SubResource("Animation_jxpdt")
+}
+
+[node name="LuringCatchSound" instance=ExtResource("1_v4nh8")]
+script = ExtResource("2_uaqw8")
+speed = 800
+friction = 0.1
+acceleration = 0.08
+rod_damage = 10
+fish_damage = 30
+sound_succeed = ExtResource("3_5fi61")
+
+[node name="Area2D" type="Area2D" parent="Sound2DNodes/Sound2DLeft" index="6"]
+collision_layer = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DLeft/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_hyk2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sound2DNodes/Sound2DLeft/Area2D" index="1"]
+position = Vector2(0, -12.75)
+scale = Vector2(1, 26.5)
+texture = SubResource("GradientTexture1D_h0oxw")
+
+[node name="Area2D" type="Area2D" parent="Sound2DNodes/Sound2DRight" index="6"]
+collision_layer = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DRight/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_hyk2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sound2DNodes/Sound2DRight/Area2D" index="1"]
+position = Vector2(0, -12.75)
+scale = Vector2(1, 26.5)
+texture = SubResource("GradientTexture1D_wd7an")
+
+[node name="Sound2DCenter" parent="Sound2DNodes" index="2"]
+position = Vector2(6, -2)
+
+[node name="Area2D" type="Area2D" parent="Sound2DNodes/Sound2DCenter" index="6"]
+collision_layer = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DCenter/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_hyk2e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sound2DNodes/Sound2DCenter/Area2D" index="1"]
+position = Vector2(0, -12.75)
+scale = Vector2(1, 26.5)
+texture = SubResource("GradientTexture1D_5js66")
+
+[node name="Player" parent="." index="1"]
+collision_mask = 7
+motion_mode = 1
+platform_on_leave = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" index="0"]
+scale = Vector2(1, 30)
+texture = SubResource("GradientTexture1D_jseiv")
+
+[node name="CollisionShape2D" parent="Player" index="2"]
+shape = SubResource("RectangleShape2D_cwxsj")
+
+[node name="FishHPCooldown" parent="." index="3"]
+wait_time = 1.5
+one_shot = true
+
+[node name="RodHPCooldown" parent="." index="4"]
+wait_time = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_legkb")
+}

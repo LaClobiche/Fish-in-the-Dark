@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://1fn3inq4j2o"]
+
+[ext_resource type="AudioStream" uid="uid://c3rcviu03u1t6" path="res://sounds/voice_resources/catching/help_bubblefish_pt1.mp3" id="1_edktk"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_gcqn2"]
+
+[resource]
+script = ExtResource("2_gcqn2")
+audio = [ExtResource("1_edktk")]
+audio_touchscreen = []
+help = true

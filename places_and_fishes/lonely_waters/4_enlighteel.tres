@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://blfoncuyg8ceh"]
+
+[ext_resource type="Animation" uid="uid://ci22w0n2h2uyt" path="res://places_and_fishes/lonely_waters/enlighteel_catching_sequence.res" id="1_4adom"]
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_5mswq"]
+[ext_resource type="AudioStream" uid="uid://c3acfo68gp4v8" path="res://sounds/voice_resources/fish_resource/lonely_waters/enlighteel_description.mp3" id="2_21h81"]
+[ext_resource type="PackedScene" uid="uid://b77jcx07c33su" path="res://game_scenes/fishing_run/luring/catch_sound/luring_catch_sound.tscn" id="2_lobap"]
+[ext_resource type="AudioStream" uid="uid://dupv34ewh8q4u" path="res://sounds/voice_resources/fish_resource/lonely_waters/enlighteel.mp3" id="3_7gawo"]
+[ext_resource type="AudioStream" uid="uid://dkb8513o56f7b" path="res://sounds/voice_resources/fish_resource/lonely_waters/enlighteel_caught.mp3" id="4_n8yub"]
+
+[resource]
+script = ExtResource("1_5mswq")
+name = "Enlighteel"
+voice_name = ExtResource("3_7gawo")
+voice_name_caught = ExtResource("4_n8yub")
+description = "The Enlighteel light is not strong enough to help it escape the Lonely Waters. But it does allow it to see the other inhabitants. The Enlighteel has acknowledged the boundaries of its existence. It has great respect for the way everyone lives in these waters. Are they really lonely?"
+voice_description = ExtResource("2_21h81")
+rarity = 4
+luring_scene = ExtResource("2_lobap")
+catching_sequence = ExtResource("1_4adom")

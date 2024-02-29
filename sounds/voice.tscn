@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dupe8uc321u30"]
+
+[node name="Voice" type="AudioStreamPlayer2D"]
+bus = &"Voices"

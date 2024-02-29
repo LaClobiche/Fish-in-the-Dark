@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=6 format=3 uid="uid://biq8wlll5todo"]
+
+[ext_resource type="AudioStream" uid="uid://c4ghlg0h2rv8j" path="res://sounds/voice_resources/casting/lure_moved0.mp3" id="1_3s0q7"]
+[ext_resource type="AudioStream" uid="uid://bw20y8xe280qs" path="res://sounds/voice_resources/casting/lure_moved1.mp3" id="2_2x1gy"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_xasl1"]
+[ext_resource type="AudioStream" uid="uid://cme1d651f6r1o" path="res://sounds/voice_resources/casting/lure_moved2.mp3" id="3_2a6h3"]
+[ext_resource type="AudioStream" uid="uid://dpef6s08fw2rk" path="res://sounds/voice_resources/casting/lure_moved3.mp3" id="4_wwjal"]
+
+[resource]
+script = ExtResource("2_xasl1")
+audio = [ExtResource("1_3s0q7"), ExtResource("2_2x1gy"), ExtResource("3_2a6h3"), ExtResource("4_wwjal")]
+audio_touchscreen = []
+help = false

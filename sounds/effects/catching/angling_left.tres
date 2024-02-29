@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffectResource" load_steps=5 format=3 uid="uid://bjr8ryghys25j"]
+
+[ext_resource type="AudioStream" uid="uid://dpwsxi1acuhvg" path="res://sounds/effects/catching/angling_left0.wav" id="1_jnq6m"]
+[ext_resource type="AudioStream" uid="uid://bwugihlhip8ts" path="res://sounds/effects/catching/angling_left1.wav" id="2_fuwef"]
+[ext_resource type="AudioStream" uid="uid://c1q0lk24s8ijw" path="res://sounds/effects/catching/angling_left2.wav" id="3_gwlv7"]
+[ext_resource type="Script" path="res://game_resources/se_resource.gd" id="4_njoc4"]
+
+[resource]
+script = ExtResource("4_njoc4")
+audio = [ExtResource("1_jnq6m"), ExtResource("2_fuwef"), ExtResource("3_gwlv7")]

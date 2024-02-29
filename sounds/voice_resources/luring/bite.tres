@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=6 format=3 uid="uid://bvwou3thewgfl"]
+
+[ext_resource type="AudioStream" uid="uid://cg2lisnloge" path="res://sounds/voice_resources/luring/bite0.mp3" id="1_p8j5q"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_vtfy5"]
+[ext_resource type="AudioStream" uid="uid://dsiospoxvj1ho" path="res://sounds/voice_resources/luring/bite1.mp3" id="2_rof4n"]
+[ext_resource type="AudioStream" uid="uid://cguw0k2txc4jw" path="res://sounds/voice_resources/luring/bite2.mp3" id="3_ok5p5"]
+[ext_resource type="AudioStream" uid="uid://twyq3v8ajhl1" path="res://sounds/voice_resources/luring/bite3.mp3" id="4_jh2v2"]
+
+[resource]
+script = ExtResource("1_vtfy5")
+audio = [ExtResource("1_p8j5q"), ExtResource("2_rof4n"), ExtResource("3_ok5p5"), ExtResource("4_jh2v2")]
+audio_touchscreen = []
+help = false

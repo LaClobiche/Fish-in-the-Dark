@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://c2c726wwsgw7v"]
+
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_jwkvb"]
+[ext_resource type="Animation" uid="uid://dard8wjgihlcf" path="res://places_and_fishes/everwatching_cove/raybellion_catching_sequence.res" id="1_kerl7"]
+[ext_resource type="PackedScene" uid="uid://8hdwm383seom" path="res://game_scenes/fishing_run/luring/avoid_gaze/luring_avoid_gaze.tscn" id="2_bb3ij"]
+[ext_resource type="AudioStream" uid="uid://82f4hpxluqt2" path="res://sounds/voice_resources/fish_resource/everwatching_cove/raybellion_description.mp3" id="2_h0soc"]
+[ext_resource type="AudioStream" uid="uid://nvpmj0s8rkn4" path="res://sounds/voice_resources/fish_resource/everwatching_cove/raybellion.mp3" id="3_2nrsq"]
+[ext_resource type="AudioStream" uid="uid://iv6kvp1djlkc" path="res://sounds/voice_resources/fish_resource/everwatching_cove/raybellion_caught.mp3" id="4_i060f"]
+
+[resource]
+script = ExtResource("1_jwkvb")
+name = "Raybellion"
+voice_name = ExtResource("3_2nrsq")
+voice_name_caught = ExtResource("4_i060f")
+description = "At first, the \"raybellion\" enjoys the freedom of spaces out of sight. In these moments, it transforms and rediscovers itself. After some time, it no longer wants to pretend, even if it means confronting the gaze."
+voice_description = ExtResource("2_h0soc")
+rarity = 3
+luring_scene = ExtResource("2_bb3ij")
+catching_sequence = ExtResource("1_kerl7")

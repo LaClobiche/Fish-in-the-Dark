@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://blok35f6secal"]
+
+[ext_resource type="AudioStream" uid="uid://vg7cbtjnfweu" path="res://sounds/voice_resources/catching/help_selfish_pt1.mp3" id="1_p2y0g"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_wsirw"]
+
+[resource]
+script = ExtResource("2_wsirw")
+audio = [ExtResource("1_p2y0g")]
+audio_touchscreen = []
+help = true

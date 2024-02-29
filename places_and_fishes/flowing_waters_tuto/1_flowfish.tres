@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://ccgp26uv07mxx"]
+
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_6185g"]
+[ext_resource type="Animation" uid="uid://dgjrvjjjebjen" path="res://places_and_fishes/flowing_waters_tuto/flowfish_catching_sequence.res" id="1_tlj36"]
+[ext_resource type="PackedScene" uid="uid://bhpn3lx7b22w2" path="res://game_scenes/fishing_run/luring/follow_sound/luring_follow_sound.tscn" id="2_0h2ep"]
+[ext_resource type="AudioStream" uid="uid://vsde0r2kgytd" path="res://sounds/voice_resources/fish_resource/flowing_waters/flowfish_description.mp3" id="2_m1enk"]
+[ext_resource type="AudioStream" uid="uid://d0mjop2irdf86" path="res://sounds/voice_resources/fish_resource/flowing_waters/flowfish.mp3" id="3_t2tce"]
+[ext_resource type="AudioStream" uid="uid://bx0ignh56pgfj" path="res://sounds/voice_resources/fish_resource/flowing_waters/flowfish_caught.mp3" id="4_wv3de"]
+
+[resource]
+script = ExtResource("1_6185g")
+name = "Flowfish"
+voice_name = ExtResource("3_t2tce")
+voice_name_caught = ExtResource("4_wv3de")
+description = "Always pushed by the water's currents. It seems that the Flowfish is continually transforming itself to comply with external pressures."
+voice_description = ExtResource("2_m1enk")
+rarity = 1
+luring_scene = ExtResource("2_0h2ep")
+catching_sequence = ExtResource("1_tlj36")

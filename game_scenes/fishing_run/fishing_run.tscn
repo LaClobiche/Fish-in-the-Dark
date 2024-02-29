@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c274xl86rhnpt"]
+
+[ext_resource type="Script" path="res://game_scenes/fishing_run/fishing_run.gd" id="1_5cpj5"]
+
+[node name="FishRun" type="Node2D"]
+script = ExtResource("1_5cpj5")

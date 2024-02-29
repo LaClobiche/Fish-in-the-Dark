@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://cjltx71w0ae03"]
+
+[ext_resource type="AudioStream" uid="uid://jpqix6stmfi2" path="res://sounds/voice_resources/pause_menu/tips0.mp3" id="1_f47bt"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_ml7go"]
+[ext_resource type="AudioStream" uid="uid://cn5spqk41dy6j" path="res://sounds/voice_resources/pause_menu/tips1.mp3" id="2_ige25"]
+
+[resource]
+script = ExtResource("1_ml7go")
+audio = [ExtResource("1_f47bt"), ExtResource("2_ige25")]
+audio_touchscreen = []
+help = false
