@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://bejqn8q3cyufc"]
+
+[ext_resource type="PackedScene" uid="uid://4a367bw1f5q8" path="res://game_scenes/fishing_run/luring/surf_vortex/luring_surf_vortex.tscn" id="1_6myk2"]
+[ext_resource type="Animation" uid="uid://cwkemuehsddss" path="res://places_and_fishes/swallowing_vortex/ogurnard_catching_sequence.res" id="1_od4yl"]
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_pga0v"]
+[ext_resource type="Resource" uid="uid://dc1jn7s3821eo" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/ogurnard_description.tres" id="2_mhkrk"]
+[ext_resource type="Resource" uid="uid://cnmu2mkd5vgp" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/ogurnard.tres" id="3_dfe6f"]
+[ext_resource type="Texture2D" uid="uid://cjwyxljwlwfnn" path="res://places_and_fishes/swallowing_vortex/ogurnard.png" id="3_lpikg"]
+[ext_resource type="Resource" uid="uid://d3eslf6kly1op" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/ogurnard_caught.tres" id="4_bxcc0"]
+
+[resource]
+script = ExtResource("1_pga0v")
+name = "Ogurnard"
+voice_name = ExtResource("3_dfe6f")
+voice_name_caught = ExtResource("4_bxcc0")
+picture = ExtResource("3_lpikg")
+description = "The Ogurnard was not afraid to sacrifice others to ensure its domination of the vortex. With no enemies left, it seeks out anything that will satisfy its appetite. Thinking itself invincible, its devouring desire drives it to explore the Breach, the source of the vortex, from which none of its fellows have returned."
+voice_description = ExtResource("2_mhkrk")
+rarity = 3
+luring_scene = ExtResource("1_6myk2")
+catching_sequence = ExtResource("1_od4yl")

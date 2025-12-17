@@ -4,7 +4,6 @@ extends Node2D
 enum Menu { # "Night has fallen and you're sitting in front of a mysterious pond. You intend to start fishing. You want to start fishing.You're ready to/ You're eager to/ You're set to/ You're prepared to start fishing"
 	START_FISHING,  # "start fishing" -> (help) -> "let's get some fish in the dark!"
 	FISH_ALMANAC, # "Open your fish almanac" -> (help) -> open fish_alamanac_scene -> open_book sound effect 
-	SCORE_BOARD, # "Open your score board" -> (help)  -> open score_board_scene -> open_book sound effect
 	TOGGLE_HELP, # "Enable/disable game controls & contextual help." -> (help) ->  open toggle_help_scene ->Disabled/Enabled
 	AUDIO_SETTINGS, # "Adjust the audio for the best fishing experience." -> (help) -> open audio_settings_scene -> open_book sound effect 
 	CREDITS, # "Listen to the credits" -> (help) -> open credits_scene -> open_book sound effect 
@@ -13,7 +12,6 @@ enum Menu { # "Night has fallen and you're sitting in front of a mysterious pond
 
 var scenes :={
 	Menu.START_FISHING : "fishing_run",
-	Menu.SCORE_BOARD : "score_board",
 	Menu.FISH_ALMANAC : "fish_almanac",
 	Menu.TOGGLE_HELP : "toggle_help",
 	Menu.AUDIO_SETTINGS : "audio_settings",
@@ -23,12 +21,20 @@ var scenes :={
 
 var voice_describe := {
 	Menu.START_FISHING : load("res://sounds/voice_resources/main_menu/main_menu_select_start.tres"),
-	Menu.SCORE_BOARD : load("res://sounds/voice_resources/main_menu/main_menu_select_score_board.tres"),
 	Menu.FISH_ALMANAC : load("res://sounds/voice_resources/main_menu/main_menu_select_fish_almanac.tres"),
 	Menu.TOGGLE_HELP : load("res://sounds/voice_resources/main_menu/main_menu_select_help_disabler.tres"),# if Saves.data["options"]["helper"] else load("res://sounds/voice_resources/main_menu/main_menu_select_help_enabler.tres"),
 	Menu.AUDIO_SETTINGS : load("res://sounds/voice_resources/main_menu/main_menu_select_audio_settings.tres"),
 	Menu.CREDITS : load("res://sounds/voice_resources/main_menu/main_menu_select_credits.tres"),
 	Menu.QUIT : load("res://sounds/voice_resources/main_menu/main_menu_select_quit.tres"),
+}
+
+var text_menu := {
+	Menu.START_FISHING : "start fishing",
+	Menu.FISH_ALMANAC : "fish almanac",
+	Menu.TOGGLE_HELP : "toggle help",
+	Menu.AUDIO_SETTINGS : "audio settings",
+	Menu.CREDITS : "credits",
+	Menu.QUIT : "quit",
 }
 
 var voice_intro: VoiceArray = load("res://sounds/voice_resources/main_menu/main_menu_intro_array.tres")
@@ -40,9 +46,14 @@ var menu_size: int:
 	get:
 		return get_menu_size()
 var intro := true
+var inputs := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Signals.glitch_hide.emit()
+	Signals.fade_out_black.emit()
+	Signals.free_floating_text.emit()
+	Sound.play_ambience(Sound.ambiences["pond_night"], true)
 	Sound.stop_voice_array_and_queue()
 	get_last_menu_item()
 	if current_menu == Menu.START_FISHING:
@@ -50,14 +61,13 @@ func _ready():
 	else: 
 		intro = false
 		describe_menu_item(current_menu)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+		set_text_menu()
+	inputs = true
 
 
 func _unhandled_input(event):
+	if not inputs:
+		return
 	# if it's the main menu intro, only stop the voice and explain the current menu.
 	if intro and (event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("top")):
 		Sound.stop_voice_array_and_queue()
@@ -68,12 +78,17 @@ func _unhandled_input(event):
 		if event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("top"):
 			Sound.stop_voice_array_and_queue()
 		if event.is_action_pressed("left"):
+			Signals.menu_selected.emit()
+			inputs = false
+			await Signals.menu_closed
 			select_menu_item(current_menu)
 		if event.is_action_pressed("right"):
 			iterate_through_menu()
+			Signals.menu_index_changed.emit(int(current_menu))
 			describe_menu_item(current_menu)
 		if event.is_action_pressed("top"):
 			current_menu = Menu.START_FISHING
+			Signals.menu_index_changed.emit(int(current_menu))
 			describe_menu_item(current_menu)
 
 
@@ -95,22 +110,27 @@ func select_menu_item(item: Menu):
 	var scene_string: String = scenes[item]
 	Global.last_menu_item = current_menu
 	Signals.scene_requested.emit(scene_string)
+	inputs = true
+
 
 func set_intro(setter: bool):
 	if Sound.all_voices_finished.is_connected(set_intro.bind(false)):
 		Sound.all_voices_finished.disconnect(set_intro.bind(false))
 	intro = setter
+	set_text_menu()
+
+
+func set_text_menu():
+	var text_menu_array: Array[String] = []
+	for item in text_menu:
+		text_menu_array.append(text_menu[item])
+	print(str(text_menu_array) + " " + str(current_menu))
+	Signals.menu_requested.emit(text_menu_array, current_menu)
+	await Signals.menu_opened
 
 
 func iterate_through_menu():
 	current_menu = (current_menu + 1) % menu_size
-	# enabler for SCORE_BOARD menu
-	if current_menu == Menu.SCORE_BOARD:
-		# enable this menu for specified current_scene class_name
-		if Saves.data["game_finished"]:
-			pass
-		else:
-			iterate_through_menu()
 
 
 func get_menu_size() -> int:

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dgn5b2qsko4n6"]
+
+[ext_resource type="AudioStream" uid="uid://g1dm7t73n7l0" path="res://sounds/voice_resources/final_scene/4_intro.mp3" id="1_we15w"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_0s3aq"]
+
+[resource]
+script = ExtResource("2_0s3aq")
+audio = [ExtResource("1_we15w")]
+audio_touchscreen = []
+help = false
+subtitle = "The mass seems to be approaching. It is growing on all sides. Your sense of existence seems slowly sucked away, diluted."
+subtitle_touchscreen = ""

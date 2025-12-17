@@ -11,5 +11,5 @@ script = ExtResource("3_k5ihb")
 audio = [ExtResource("1_puaxr"), ExtResource("2_qbv3i")]
 audio_touchscreen = [ExtResource("3_lr0vc"), ExtResource("4_opr88")]
 help = true
-play_once = false
-is_number = false
+subtitle = "Press any \"left\" button to follow this thought. Press any \"right\" button to explore other ideas."
+subtitle_touchscreen = "Touch any \"left\" part of your screen to follow this thought. Touch any \"right\"  part of your screen to explore other ideas."

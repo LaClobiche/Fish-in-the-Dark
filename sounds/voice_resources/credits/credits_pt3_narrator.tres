@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://budbalxrkkn78"]
+
+[ext_resource type="AudioStream" uid="uid://yx7cg3v3b5kc" path="res://sounds/voice_resources/credits/credits_pt3_narrator.mp3" id="1_6exvl"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_4y4xv"]
+
+[resource]
+script = ExtResource("2_4y4xv")
+audio = [ExtResource("1_6exvl")]
+audio_touchscreen = []
+help = false
+subtitle = "Narrator voices made with ElevenLabs"
+subtitle_touchscreen = ""

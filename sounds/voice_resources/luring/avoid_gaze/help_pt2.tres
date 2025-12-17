@@ -8,3 +8,5 @@ script = ExtResource("1_ndsvq")
 audio = [ExtResource("1_mjjhq")]
 audio_touchscreen = []
 help = true
+subtitle = "You're protected when you're in a shelter. A shelter sounds like this:"
+subtitle_touchscreen = ""

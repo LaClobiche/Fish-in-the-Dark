@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dew258rf2uo4j"]
+
+[ext_resource type="AudioStream" uid="uid://bm84xaa0qidul" path="res://sounds/voice_resources/fish_resource/flowing_waters/bubblefish_description.mp3" id="1_jr8e5"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_0n72n"]
+
+[resource]
+script = ExtResource("2_0n72n")
+audio = [ExtResource("1_jr8e5")]
+audio_touchscreen = []
+help = false
+subtitle = "To avoid being disturbed by the currents, it has taken refuge in a bubble."
+subtitle_touchscreen = ""

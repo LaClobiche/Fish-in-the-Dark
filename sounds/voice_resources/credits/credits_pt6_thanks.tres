@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cfd2tos3f088"]
+
+[ext_resource type="AudioStream" uid="uid://mx4ucyk1y23o" path="res://sounds/voice_resources/credits/credits_pt6_thanks.mp3" id="1_k4n3w"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_lmpph"]
+
+[resource]
+script = ExtResource("2_lmpph")
+audio = [ExtResource("1_k4n3w")]
+audio_touchscreen = []
+help = false
+subtitle = "Thank you for playing Fish in the Dark!"
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://brw1nf0j3mx4k"]
+
+[ext_resource type="AudioStream" uid="uid://82f4hpxluqt2" path="res://sounds/voice_resources/fish_resource/everwatching_cove/raybellion_description.mp3" id="1_71t3g"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_3kv4r"]
+
+[resource]
+script = ExtResource("2_3kv4r")
+audio = [ExtResource("1_71t3g")]
+audio_touchscreen = []
+help = false
+subtitle = "At first, the Raybellion enjoys the freedom of spaces out of sight. In these moments, it transforms and rediscovers itself. After some time, it no longer wants to pretend, even if it means confronting the gaze."
+subtitle_touchscreen = ""

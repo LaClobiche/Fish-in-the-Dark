@@ -9,3 +9,5 @@ script = ExtResource("5_mce13")
 audio = [ExtResource("1_luixn")]
 audio_touchscreen = [ExtResource("3_6jm2w")]
 help = true
+subtitle = "While you're fishing, you can stop and reconsider your options by pressing \"escape\" or \"start\""
+subtitle_touchscreen = "While you're fishing, you can stop and reconsider your options by touching the upper part of your screen."

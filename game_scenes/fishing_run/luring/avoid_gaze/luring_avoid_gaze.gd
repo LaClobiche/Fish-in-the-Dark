@@ -16,7 +16,6 @@ extends Luring
 @export_range(0.0, 1.0) var friction = 0.5
 @export_range(0.0 , 1.0) var acceleration = 0.5
 
-var voice_help_array: VoiceArray = load("res://sounds/voice_resources/luring/avoid_gaze/voice_help_array.tres")
 var gaze_sound: AudioStream = load("res://sounds/effects/luring/avoid_gaze/gaze.mp3")
 var sound_interval := load("res://sounds/effects/bubbles_loop_low.wav")
 var underwater_sound := load("res://sounds/effects/luring/avoid_gaze/underwater.wav")
@@ -39,11 +38,12 @@ var bus_numbers := [AudioServer.get_bus_index("SoundEffects"), AudioServer.get_b
 func _ready():
 	hide()
 	player.position = Global.get_viewport_directed_position(DIR.CENTER)
-	voice_intro = load("res://sounds/voice_resources/luring/avoid_gaze/voice_intro.mp3")
-#	Global.current_fish = load("res://places_and_fishes/everwatching_cove/4_distinctuna.tres") #debug
-#	Sound.play_ambience(load("res://sounds/ambience/pond_night_loop.wav")) #debug
+	voice_intro = load("res://sounds/voice_resources/luring/avoid_gaze/voice_intro.tres")
+	if Global.debug:
+		show()
+#		Global.current_fish = load("res://places_and_fishes/everwatching_cove/3_raybellion.tres")
+#		Sound.play_ambience(load("res://sounds/ambience/pond_night_loop.wav"))
 	rod_hp_cooldown.timeout.connect(_on_rod_hp_cooldown_timeout)
-	bubble_sound_timer.timeout.connect(_on_bubble_sound_timer_timeout)
 	for area in safe_areas:
 		area.body_entered.connect(_on_safe_area_2d_body_entered)
 		area.body_exited.connect(_on_safe_area_2d_body_exited)
@@ -57,7 +57,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if inputs:
+	if inputs and current_state == State.LURING:
 		player.velocity.y += delta
 		var dir = Input.get_axis("left", "right")
 		if dir != 0:
@@ -65,7 +65,8 @@ func _physics_process(delta):
 		else:
 			player.velocity.x = lerp(player.velocity.x, 0.0, friction)
 		player.move_and_slide()
-		set_bubble_sound_timer(player, 640.0, goal_area.position.x, 4.0)
+		Signals.lure_position.emit(Vector2(320 + (player.global_position.x / 2), 570))
+#		set_bubble_sound_timer(player, 640.0, goal_area.position.x, 4.0)
 
 
 func _unhandled_input(event):
@@ -73,15 +74,16 @@ func _unhandled_input(event):
 	if inputs:
 		if current_state == State.INTRO:
 			if event.is_action_pressed("left") or event.is_action_pressed("right"):
-				Sound.stop_voice_array_and_queue()
-				scene_luring()
+				Sound.play_next_voice()
 		elif current_state == State.OUTRO:
 			pass
 		else:#current_state == State.LURING
 			if event.is_action_pressed("left") and not Sound.is_se_playing(Sound.effects["move_left"]):
 				Sound.play_se(Sound.effects["move_left"])
+				Signals.rod_state.emit("left")
 			if event.is_action_pressed("right") and not Sound.is_se_playing(Sound.effects["move_right"]):
 				Sound.play_se(Sound.effects["move_right"])
+				Signals.rod_state.emit("right")
 
 
 # wait_time decreasing when getting from strat_post_x to end_pos_x
@@ -92,13 +94,6 @@ func set_bubble_sound_timer(player_node: Node2D, start_pos_x: float, end_pos_x: 
 	var frequency = ease((1 - progression), 2.0) * first_time_interval
 	frequency = clampf(frequency, 0.2, first_time_interval)
 	bubble_sound_timer.wait_time = frequency
-
-
-
-## return the value associated with the given progression (all values between 0 & 1)
-func ease_out(progression: float) -> float:
-	progression = clampf(progression, 0.0, 1.0)
-	return 1.0 - sqrt(1.0 - pow(progression - 1, 5.0))
 
 
 func play_bubble_success():
@@ -113,7 +108,7 @@ func scene_intro():
 	for bus_idx in bus_numbers:
 		AudioServer.set_bus_mute(bus_idx, true)
 	Sound.play_voice(voice_intro)
-	Sound.play_voice(voice_help_array)
+	Sound.play_voice(voice_help)
 	Sound.all_voices_finished.connect(scene_luring)
 	inputs = true
 
@@ -147,6 +142,7 @@ func scene_outro():
 	rod_hp_cooldown.stop()
 	bubble_sound_timer.stop()
 	Sound.stop_se()
+	Sound.play_ambience(Sound.ambiences["pond_night"])
 	play_bubble_success()
 	super.scene_outro()
 
@@ -183,17 +179,17 @@ func _on_safe_area_2d_body_entered(body):
 	if body is CharacterBody2D:
 		set_audio_effect(true)
 		Sound.play_se(underwater_sound)
+		Sound.stop_ambience()
 		hitbox.set_deferred("monitorable", false)
-#		gaze_area.set_deferred("monitoring", false)
 
 
 func _on_safe_area_2d_body_exited(body):
 	if body is CharacterBody2D:
 		print("gaze_on")
 		set_audio_effect(false)
+		Sound.play_ambience(Sound.ambiences["pond_night"])
 		Sound.stop_se_specified(underwater_sound)
 		hitbox.set_deferred("monitorable", true)
-#		gaze_area.set_deferred("monitoring", true)
 
 
 func _on_gaze_area_2d_area_entered(area):
@@ -220,9 +216,9 @@ func _on_rod_hp_cooldown_timeout():
 	## tip enabler for distinctuna
 	if Global.current_fish.name == "Distinctuna":
 		retry_index += 1
-		if retry_index == 4:
-			Sound.play_voice(load("res://sounds/voice_resources/luring/avoid_gaze/path_tip1.mp3"))
-		if retry_index > 8:
-			Sound.play_voice(load("res://sounds/voice_resources/luring/avoid_gaze/path_tip1.mp3"))
+		if retry_index == 4 and not Sound.is_voices_playing():
+			Sound.play_voice(load("res://sounds/voice_resources/luring/avoid_gaze/path_tip1.tres"))
+		if retry_index > 8 and not Sound.is_voices_playing():
+			Sound.play_voice(load("res://sounds/voice_resources/luring/avoid_gaze/path_tip2.tres"))
 	inputs = true
 	player.position = Vector2(640, 360)

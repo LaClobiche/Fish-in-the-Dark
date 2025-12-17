@@ -5,12 +5,13 @@
 [ext_resource type="Resource" uid="uid://cbhksxjbj2xk" path="res://places_and_fishes/everwatching_cove/2_docirami.tres" id="2_gxasu"]
 [ext_resource type="Resource" uid="uid://c2c726wwsgw7v" path="res://places_and_fishes/everwatching_cove/3_raybellion.tres" id="3_iwdoc"]
 [ext_resource type="Resource" uid="uid://bvv3icyi8qdw8" path="res://places_and_fishes/everwatching_cove/4_distinctuna.tres" id="4_u0s3q"]
-[ext_resource type="AudioStream" uid="uid://frnaqoctj5ri" path="res://sounds/voice_resources/place_resource/everwatching_cove.mp3" id="6_8256i"]
+[ext_resource type="Resource" uid="uid://ci67hojpadbfi" path="res://sounds/voice_resources/place_resource/everwatching_cove.tres" id="6_k852h"]
 
 [resource]
 script = ExtResource("1_srufh")
 name = 2
-voice_name = ExtResource("6_8256i")
+text_menu_name = "Everwatching Cove"
+voice_name = ExtResource("6_k852h")
 fishes_by_rarity = {
 0: ExtResource("1_f22yj"),
 1: ExtResource("2_gxasu"),

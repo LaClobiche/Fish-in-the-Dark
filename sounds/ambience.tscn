@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc02keyyiod64"]
-
-[ext_resource type="AudioStream" uid="uid://b2kmeehq8i2ed" path="res://sounds/ambience/pond_night_loop.wav" id="1_dlo71"]
-
-[node name="Ambience" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_dlo71")
-volume_db = -80.0
-bus = &"Ambience"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dlmfmn48gvre"]
+
+[ext_resource type="AudioStream" uid="uid://8uje4tkoccy7" path="res://sounds/voice_resources/final_scene/2_1_reaction.mp3" id="1_nus00"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_xurxi"]
+
+[resource]
+script = ExtResource("2_xurxi")
+audio = [ExtResource("1_nus00")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Warmseeker, you swim in search of lost light and warmth. But the darkness seems to thicken. "
+subtitle_touchscreen = ""

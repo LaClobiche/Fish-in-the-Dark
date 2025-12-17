@@ -15,6 +15,7 @@ func _unhandled_input(event):
 
 
 func introduction():
+	Sound.play_voice(pause)
 	Sound.play_voice(intro)
 	Sound.play_voice(pause)
 	Sound.all_voices_finished.connect(main_menu)
@@ -24,8 +25,8 @@ func introduction():
 func main_menu():
 	if Sound.all_voices_finished.is_connected(main_menu):
 		Sound.all_voices_finished.disconnect(main_menu)
-	Sound.play_ambience(Sound.ambiences["pond_night"])
+	Signals.downsize_logo.emit()
 	var fade_in := create_tween()
-	fade_in.tween_property(Sound.ambience, "volume_db", -5.0, 1.0).from_current()
+	fade_in.tween_interval(1.0)
 	fade_in.tween_callback(func(): Signals.scene_requested.emit("main_menu"))
 	

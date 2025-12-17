@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://gsdrmc2aruu0"]
+
+[ext_resource type="AudioStream" uid="uid://d3mka11fmn785" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker_description.mp3" id="1_4ym1n"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_7yldh"]
+
+[resource]
+script = ExtResource("2_7yldh")
+audio = [ExtResource("1_4ym1n")]
+audio_touchscreen = []
+help = false
+subtitle = "The Warmseeker is trapped in the Lonely Waters. It's always looking for the warmth it believes it once received."
+subtitle_touchscreen = ""

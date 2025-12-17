@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://xe82vygvdlcw"]
+
+[ext_resource type="AudioStream" uid="uid://l07ks1clptnc" path="res://sounds/voice_resources/audio_settings/intro.mp3" id="1_8yun7"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_ajiuy"]
+
+[resource]
+script = ExtResource("2_ajiuy")
+audio = [ExtResource("1_8yun7")]
+audio_touchscreen = []
+help = false
+subtitle = "Here you can change the volume of sounds. You're currently on my voice volume setting."
+subtitle_touchscreen = ""

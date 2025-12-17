@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://defvu368rnmel"]
+
+[ext_resource type="Script" path="res://global/sound.gd" id="1_8a5gp"]
+[ext_resource type="PackedScene" uid="uid://dupe8uc321u30" path="res://global/sound_scenes/voice.tscn" id="2_02572"]
+[ext_resource type="PackedScene" uid="uid://c8st4ijgnww6m" path="res://global/sound_scenes/sound_effects.tscn" id="2_a7k8i"]
+[ext_resource type="PackedScene" uid="uid://cexx1hy64247f" path="res://global/sound_scenes/music.tscn" id="3_gqm5t"]
+[ext_resource type="PackedScene" uid="uid://bc02keyyiod64" path="res://global/sound_scenes/ambience.tscn" id="4_3swvx"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_8a5gp")
+
+[node name="Voice" parent="." instance=ExtResource("2_02572")]
+
+[node name="Music" parent="." instance=ExtResource("3_gqm5t")]
+
+[node name="Ambience" parent="." instance=ExtResource("4_3swvx")]
+
+[node name="SoundEffects" parent="." instance=ExtResource("2_a7k8i")]

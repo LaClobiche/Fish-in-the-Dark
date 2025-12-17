@@ -47,22 +47,18 @@ var state_shortcut := {
 
 var voice_intro: VoiceResource = load("res://sounds/voice_resources/catching/intro.tres")
 var voice_help = load("res://sounds/voice_resources/catching/help_array.tres")
-# voice_help_pt1 : If the fish moves towards one direction, press left or right to move your rod in the opposite way. 
+# voice_help_pt1 : If the fish moves towards one direction, press "left" or "right" to move your rod in the opposite way. 
 # voice_help_pt2 :If the fish is facing you and struggling, do nothing and let it get tired.
-# voice_help_pt3 : If the fish doesn't make any noise, you can reel it by alternately pressing left and right.
+# voice_help_pt3 : If the fish doesn't make any noise, you can reel it by alternately pressing "left" and "right".
 # voice_help_pt4 :When you're doing right, you can hear bubbles.
 # When you're doing wrong, you will hear your rod creak.
-var voice_help_flowfish: AudioStream = load("res://sounds/voice_resources/catching/help_flowfish.mp3")
+var voice_help_flowfish: VoiceResource = load("res://sounds/voice_resources/catching/help_flowfish.tres")
 # If the fish doesn't make any noise, you can reel it by alternately pressing left and right.
 # Bubbles can be heard if you do this correctly.
 var voice_help_bubblefish: VoiceArray = load("res://sounds/voice_resources/catching/help_bubblefish_array.tres")
 # If the fish is facing you and struggling, do nothing and let it get tired.
 # When it stops making noise, reel it by alternately pressing left and right. 
-# + voice_help_pt4
-var voice_help_selfish: VoiceArray = load("res://sounds/voice_resources/catching/help_selfish_array.tres")
-# If the fish moves towards one direction, press left or right to move your rod in the opposite way.
-# + voice_help pt4
-var voice_end: AudioStream = load("res://sounds/voice_resources/catching/end.mp3")
+var voice_end: VoiceResource = load("res://sounds/voice_resources/catching/end.tres")
 #You note your catch in your almanac and prepare to hook another fish.
 
 var fish_catched_soudn: AudioStream = Sound.effects["fish_catched"]
@@ -70,6 +66,7 @@ var fish_pulling_sound: AudioStream = Sound.effects["splashes_loop"]
 var fish_fighting_sound: AudioStream = Sound.effects["splashes_loop_fast"]
 var rod_pulled_sound: AudioStream = Sound.effects["reeling_super_slow"]
 var rod_fighted_sound: AudioStream = Sound.effects["splashes_loop"]
+var bubble_sound := load("res://sounds/effects/bubbles_loop.mp3")
 
 ## stock the sound_node currently modified here
 var current_sound_node: Sound2D
@@ -78,6 +75,7 @@ var current_state: State = State.INTRO:
 	set(value):
 		previous_state = current_state
 		current_state = value
+		debug_state.text = str(State.keys()[current_state])
 var previous_state: State
 ## if true, inputs are allowed
 var inputs: bool = false
@@ -93,7 +91,7 @@ var fish_hp: int = fish_max_hp:
 		else:
 			var target_volume: float = ((float(value)) / 100.0) * fish_min_vol
 			fish_tween = create_tween()
-			fish_tween.tween_callback(func(): fish.volume_db = target_volume)
+			fish_tween.tween_callback(func(): fish_sound.volume_db = target_volume)
 		fish_hp = value
 ## associate the input pressed with a timing, while state == State.REELING. False for left, True for Right.
 var reeling_dict: Dictionary = {}
@@ -101,6 +99,7 @@ var reeling_dict: Dictionary = {}
 var reeling_sound: AudioStream
 
 
+@onready var debug_state := $Debug/VBoxContainer/HBoxContainer/State
 @onready var anim_player := $AnimationPlayer
 @onready var rod_hp_cooldown := $RodHPCooldown
 @onready var reeling_sound_timer := $ReelingSoundTimer
@@ -108,7 +107,7 @@ var reeling_sound: AudioStream
 @onready var pulling_input_timer := $PullingInputTimer
 @onready var player := $Player
 @onready var player_listener := $Player/AudioListener2D
-@onready var fish := $Sound2DNodes/Sound2DFish
+@onready var fish_sound := $Sound2DNodes/Sound2DFish
 @onready var sound_node := {
 	"LEFT" : $Sound2DNodes/Sound2DLeft,
 	"CENTER" : $Sound2DNodes/Sound2DFish,
@@ -119,40 +118,42 @@ var reeling_sound: AudioStream
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hide()
-#	Global.current_fish = load("res://places_and_fishes/everwatching_cove/4_distinctuna.tres") #debug
+	if Global.debug:
+#		Global.current_fish = load("res://places_and_fishes/swallowing_vortex/4_magnimahi.tres")
+		show()
+		debug_state.show()
 	set_sound_nodes_position()
 	player.position = Global.get_viewport_directed_position(DIR.CENTER)
 	for sound_player in sound_node:
 		sound_node[sound_player].set_panning_strength(15.0)
-	fish.set_panning_strength(20.0)
-	fish.volume_db = fish_min_vol
+	fish_sound.set_panning_strength(20.0)
+	fish_sound.volume_db = fish_min_vol
+	Global.current_fishing_rod.hp = Global.current_fishing_rod.hp + 10
 	set_tuto_help()
 	set_state(current_state)
 
 
-func _physics_process(delta):
-	pass
-
-
 func _unhandled_input(event):
+	if not inputs:
+		return
 	if event.is_action_pressed("top"):
 		Signals.scene_requested.emit("toggle_pause")
-	elif not inputs:
-		return
 	else:
-		var reeling = is_reeling_input()
 		if current_state == State.INTRO:
 			if event.is_action_pressed("left") or event.is_action_pressed("right"):
-				Sound.stop_voice_array_and_queue()
-				set_state(State.SET_SEQUENCE)
+				Sound.play_next_voice()
+				#set_state(State.SET_SEQUENCE)
 		elif current_state == State.PULLING_LEFT or current_state == State.PULLING_RIGHT:
 			# the input is checked in the on_rog_hp_cooldown_time_out() func.
 			play_pulling_rod_sound(event)
 		elif current_state == State.REELING:
-			if reeling:
+			if is_reeling_input():
+				Signals.rod_state.emit("idle")
+				print("success reeling")
 				play_success_sound()
 				fish_hp -= fish_damage
 		elif current_state == State.FIGHTING:
+			play_pulling_rod_sound(event)
 			if not is_fighting_input_correct() and rod_hp_cooldown.is_stopped():
 				Global.current_fishing_rod.take_damage(rod_damage)
 				print("fighting -> damage")
@@ -193,11 +194,12 @@ func is_fighting_input_correct() -> bool:
 		return true
 
 
+
 ## return true if the player has alternately pressed left and right.
 ## call play_reeling_sound with the input timing.
 func is_reeling_input() -> bool:
 	var bool_to_return: bool = false
-	if reeling_input_timer.is_stopped() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		# pair a bool (false = left or true = right) with a timing
 		var key_to_erase: bool = false
 		if Input.is_action_pressed("left"):
@@ -220,11 +222,13 @@ func is_reeling_input() -> bool:
 			if timing <= 800:
 				play_reeling_sound(timing)
 				bool_to_return = true
-		reeling_input_timer.start()
+#		reeling_input_timer.start()
 	return bool_to_return
 
 
 func play_reeling_sound(timing_msec: int):
+	if current_state != State.REELING:
+		print("not reeling, play reeling sound")
 	reeling_sound_timer.start()
 	if timing_msec > 500:
 		reeling_sound = Sound.effects["reeling_super_slow"]
@@ -239,31 +243,30 @@ func play_reeling_sound(timing_msec: int):
 	if not Sound.is_se_playing(reeling_sound):
 		Sound.stop_se()
 		Sound.play_se(reeling_sound)
-		print("play reeling sound: " + reeling_sound.resource_path)
 
 
 
-func play_reeling_intermittent(play: bool):
-	if pull_sound_tween != null:
-		pull_sound_tween.kill()
-	if play:
-		pull_sound_tween = create_tween().set_loops(0)
-		pull_sound_tween.tween_callback(func():Sound.play_se(Sound.effects["reeling_super_slow"]))
-		pull_sound_tween.tween_interval(0.3)
-		pull_sound_tween.tween_callback(func():Sound.stop_se_specified(Sound.effects["reeling_super_slow"]))
-		pull_sound_tween.tween_interval(0.3)
-	else:
-		Sound.stop_se_specified(Sound.effects["reeling_super_slow"])
+#func play_reeling_intermittent(play: bool):
+#	if pull_sound_tween != null:
+#		pull_sound_tween.kill()
+#	if play:
+#		pull_sound_tween = create_tween().set_loops(0)
+#		pull_sound_tween.tween_callback(func():Sound.play_se(Sound.effects["reeling_super_slow"]))
+#		pull_sound_tween.tween_interval(0.3)
+#		pull_sound_tween.tween_callback(func():Sound.stop_se_specified(Sound.effects["reeling_super_slow"]))
+#		pull_sound_tween.tween_interval(0.3)
+#	else:
+#		Sound.stop_se_specified(Sound.effects["reeling_super_slow"])
 
 
 func play_success_sound():
-	if fish.is_playing_specific(Sound.effects["bubbles_loop_low"]):
+	if fish_sound.is_playing_specific(Sound.effects["bubbles_loop_low"]):
 		return
 	else:
 		var sound_tween := create_tween()
-		sound_tween.tween_callback(func(): fish.play(Sound.effects["bubbles_loop_super_low"], randf_range(0.0, 4.0)))
+		sound_tween.tween_callback(func(): fish_sound.play(Sound.effects["bubbles_loop_low"], randf_range(0.0, 4.0)))
 		sound_tween.tween_interval(0.2)
-		sound_tween.tween_callback(func(): fish.stop_specified(Sound.effects["bubbles_loop_super_low"]))
+		sound_tween.tween_callback(func(): fish_sound.stop_specified(Sound.effects["bubbles_loop_low"]))
 
 
 func play_pulling_rod_sound(event: InputEvent):
@@ -272,15 +275,21 @@ func play_pulling_rod_sound(event: InputEvent):
 		Sound.play_se(Sound.effects["move_left"])
 		if not Sound.is_se_playing(Sound.effects["pull_left"]):
 			Sound.play_se(Sound.effects["pull_left"])
+		Signals.rod_state.emit("left")
 	if event.is_action_pressed("right"):
 		Sound.stop_se_specified(reeling_sound)
 		Sound.play_se(Sound.effects["move_right"])
 		if not Sound.is_se_playing(Sound.effects["pull_right"]):
 			Sound.play_se(Sound.effects["pull_right"])
-	if event.is_action_released("left") and Sound.is_se_playing(Sound.effects["pull_left"]):
-		Sound.stop_se_specified(Sound.effects["pull_left"])
-	if event.is_action_released("right") and Sound.is_se_playing(Sound.effects["pull_right"]):
-		Sound.stop_se_specified(Sound.effects["pull_right"])
+		Signals.rod_state.emit("right")
+	if event.is_action_released("left"):
+		if Sound.is_se_playing(Sound.effects["pull_left"]):
+			Sound.stop_se_specified(Sound.effects["pull_left"])
+		Signals.rod_state.emit("idle")
+	if event.is_action_released("right"):
+		if Sound.is_se_playing(Sound.effects["pull_right"]):
+			Sound.stop_se_specified(Sound.effects["pull_right"])
+		Signals.rod_state.emit("idle")
 
 
 func set_sound_nodes_position():
@@ -346,37 +355,32 @@ func scene_angling_right():
 	print("angling right")
 	stop_se_and_timers()
 	pulling_input_timer.start()
-	fish_tween = create_tween()
-	fish_tween.tween_callback(func(): fish.play(fish_pulling_sound))
-	fish_tween.tween_property(fish, "position", Vector2(Global.get_viewport_directed_position(DIR.LEFT).x, fish.position.y), 0.1).from_current()
-
+	fish_sound.position = Vector2(Global.get_viewport_directed_position(DIR.LEFT).x, fish_sound.position.y)
+	fish_sound.play(fish_pulling_sound)
 
 func scene_angling_left():
 	print("angling left")
 	stop_se_and_timers()
 	pulling_input_timer.start()
-	fish_tween = create_tween()
-	fish_tween.tween_callback(func(): fish.play(fish_pulling_sound))
-	fish_tween.tween_property(fish, "position", Vector2(Global.get_viewport_directed_position(DIR.RIGHT).x, fish.position.y), 0.1).from_current()
-
+	fish_sound.position = Vector2(Global.get_viewport_directed_position(DIR.RIGHT).x, fish_sound.position.y)
+	fish_sound.play(fish_pulling_sound)
 
 func scene_fighting():
 	print("fighting")
 	stop_se_and_timers()
-	Sound.stop_se_specified(reeling_sound)
 	inputs = false
-	fish_tween = create_tween()
-	fish_tween.tween_callback(func(): fish.play(fish_fighting_sound))
-	fish_tween.tween_property(fish, "position", Vector2(Global.get_viewport_directed_position(DIR.CENTER).x, fish.position.y), 0.1).from_current()
-	fish_tween.tween_callback(func(): inputs = true)
-	fish_tween.tween_callback(func(): rod_hp_cooldown.start())
+	fish_sound.play(fish_fighting_sound)
+	fish_sound.position = Vector2(Global.get_viewport_directed_position(DIR.CENTER).x, fish_sound.position.y)
+	inputs = true
+	rod_hp_cooldown.start()
 
 
 func scene_reeling():
 	print("reeling")
+	reeling_dict.clear()
 	stop_se_and_timers()
 	fish_tween = create_tween()
-	fish_tween.tween_property(fish, "position", Vector2(Global.get_viewport_directed_position(DIR.CENTER).x, fish.position.y), 0.1).from_current()
+	fish_tween.tween_property(fish_sound, "position", Vector2(Global.get_viewport_directed_position(DIR.CENTER).x, fish_sound.position.y), 0.1).from_current()
 
 
 func scene_outro():
@@ -384,12 +388,17 @@ func scene_outro():
 	anim_player.stop()
 	stop_se_and_timers()
 	inputs = false
-	Global.add_to_fish_almanac(Global.current_place.name, Global.current_fish.name)
+	# The magnimahi (last fish before the last zone) is not registered to avoid a bug if the game is over before the ending. 
+	# It is registered in the "final_scene-Breach.gd"
+	if Global.current_fish.name != "Magnimahi":
+		Global.add_to_fish_almanac(Global.current_place.name, Global.current_fish.name)
 	for sound_player in sound_node:
 		sound_node[sound_player].stop()
 	fish_hp = 100
 	Sound.play_voice(Sound.voices["pause_0_5_s"])
 	await Sound.all_voices_finished
+	Signals.rod_state.emit("hidden")
+	Signals.fish_show.emit(Global.current_fish)
 	Sound.play_se(Sound.effects["fish_catched"])
 	Sound.play_se(Sound.effects["voice_catching"])
 	Sound.play_voice(Sound.voices["pause_1_s"])
@@ -399,40 +408,42 @@ func scene_outro():
 	Sound.play_voice(Global.current_fish.voice_description)
 	Sound.play_voice(Sound.voices["pause_1_s"])
 	await Sound.all_voices_finished
-	Sound.play_se(Sound.effects["write"])
-	Sound.play_voice(voice_end)
-	await Sound.all_voices_finished
+	Signals.fish_hide.emit()
+	if Global.current_fish.name != "Magnimahi":
+		Sound.play_se(Sound.effects["write"])
+		Sound.play_voice(voice_end)
+		await Sound.all_voices_finished
 	inputs = true
 	scene_handler_emit()
 
 
 
 func scene_handler_emit():
-	# if all the fish are caught & the demo wasn't finished:
-	if Global.get_places_not_completed().is_empty() and not Saves.data["game_finished"]:
-		Saves.data["game_finished"] = true
-		Saves.save_game()
-		Signals.scene_requested.emit("run_finished", "game_finished")
-	# else, continue fishing
+	if Global.current_fish.name == "Magnimahi":
+		Signals.scene_requested.emit("final_scene_breach")
 	else:
 		Signals.scene_requested.emit("casting", "run_continue")
+	
 
 
 func stop_se_and_timers():
+	_on_reeling_sound_timer_timeout()
 	pulling_input_timer.stop()
-	fish.stop()
-	if previous_state != State.PULLING_LEFT and previous_state != State.PULLING_RIGHT:
+	fish_sound.stop()
+	if (previous_state == State.PULLING_LEFT or previous_state == State.PULLING_RIGHT) and (current_state != State.PULLING_LEFT or current_state != State.PULLING_RIGHT) :
 		Sound.stop_se_specified(Sound.effects["pull_right"])
 		Sound.stop_se_specified(Sound.effects["pull_left"])
 
 
 ## stops the reeling sound after 1 sec without reeling input.
 func _on_reeling_sound_timer_timeout():
-	Sound.stop_se_specified(reeling_sound)
+	if reeling_sound != null:
+		Sound.stop_se_specified(reeling_sound)
 
 
 ## checks if the input is pressed.
 func _on_pulling_input_timer_timeout():
+	print("pulling_timer_off")
 	if is_pulling_input_correct():
 		play_success_sound()
 		print("success pull")
@@ -450,9 +461,14 @@ func set_tuto_help():
 			voice_help = voice_help_flowfish
 		elif Global.current_fish.name == "Bubblefish":
 			voice_help = voice_help_bubblefish
-		elif Global.current_fish.name == "Selfish":
-			voice_help = voice_help_selfish
 		else:
 			pass
 	else:
 		pass
+
+
+func play_bubble():
+	var tween = create_tween()
+	tween.tween_callback(func(): Sound.play_se(bubble_sound))
+	tween.tween_interval(0.5)
+	tween.tween_callback(func(): Sound.stop_se_specified(bubble_sound))

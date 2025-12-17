@@ -10,3 +10,5 @@ script = ExtResource("1_fockr")
 audio = [ExtResource("1_5dd1n"), ExtResource("2_3mm5w"), ExtResource("3_w04uo")]
 audio_touchscreen = []
 help = false
+subtitle = "Let's reel and catch it!"
+subtitle_touchscreen = ""

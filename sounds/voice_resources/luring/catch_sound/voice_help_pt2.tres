@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://gdvdfdjnpkey"]
+
+[ext_resource type="AudioStream" uid="uid://bf320e2hprnng" path="res://sounds/voice_resources/luring/catch_sound/voice_help_pt2.mp3" id="1_sl3hf"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_37lgm"]
+
+[resource]
+script = ExtResource("2_37lgm")
+audio = [ExtResource("1_sl3hf")]
+audio_touchscreen = []
+help = true
+subtitle = "If you succeed, you'll hear bubbles."
+subtitle_touchscreen = ""

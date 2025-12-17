@@ -8,5 +8,5 @@ script = ExtResource("3_x27rd")
 audio = [ExtResource("1_4q6ur")]
 audio_touchscreen = []
 help = false
-play_once = false
-is_number = false
+subtitle = "Enable or disable gameplay instructions"
+subtitle_touchscreen = ""

@@ -9,3 +9,5 @@ script = ExtResource("1_yh3ii")
 audio = [ExtResource("1_bnfy2"), ExtResource("2_apt3n")]
 audio_touchscreen = []
 help = false
+subtitle = "You should be fishing, not hurting. Take a deep breath and try again. "
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bsnrgjo2p2nxe"]
+
+[ext_resource type="AudioStream" uid="uid://bewpd8f75x0li" path="res://sounds/voice_resources/final_scene/1_3_thought.mp3" id="1_bud20"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_gc0um"]
+
+[resource]
+script = ExtResource("2_gc0um")
+audio = [ExtResource("1_bud20")]
+audio_touchscreen = []
+help = false
+subtitle = "Head for the bottom with the help of the current."
+subtitle_touchscreen = ""

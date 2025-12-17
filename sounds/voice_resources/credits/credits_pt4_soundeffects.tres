@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bbvlgcs2nlesw"]
+
+[ext_resource type="AudioStream" uid="uid://d1oh3b8kiewiv" path="res://sounds/voice_resources/credits/credits_pt4_soundeffects.mp3" id="1_lcw8s"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_ejt5l"]
+
+[resource]
+script = ExtResource("2_ejt5l")
+audio = [ExtResource("1_lcw8s")]
+audio_touchscreen = []
+help = false
+subtitle = "Sound effects by Pixabay, SoundReality, Floraphonic and Zapslat"
+subtitle_touchscreen = ""

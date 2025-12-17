@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cpaq633sdv1vl"]
+
+[ext_resource type="AudioStream" uid="uid://bqsdqendukrrb" path="res://sounds/voice_resources/final_scene/1_4_reaction.mp3" id="1_p7gys"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_6v7ny"]
+
+[resource]
+script = ExtResource("2_6v7ny")
+audio = [ExtResource("1_p7gys")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Homeyfish, you hope for a return to calm and realize the futility of struggling. You notice that the current is taking you towards a huge mass."
+subtitle_touchscreen = ""

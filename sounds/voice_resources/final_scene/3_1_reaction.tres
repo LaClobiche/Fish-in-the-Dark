@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cfwjqku0qbxir"]
+
+[ext_resource type="AudioStream" uid="uid://ds743kwab2ogl" path="res://sounds/voice_resources/final_scene/3_1_reaction.mp3" id="1_qrfen"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_d88et"]
+
+[resource]
+script = ExtResource("2_d88et")
+audio = [ExtResource("1_qrfen")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Fretfish, you feel insignificant and are terrified of the one observing you. Part of you hopes to be darker than pitch black, but another part knows that this thing owns you."
+subtitle_touchscreen = ""

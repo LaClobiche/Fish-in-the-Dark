@@ -9,3 +9,5 @@ script = ExtResource("1_4ih78")
 audio = [ExtResource("1_5wtxc"), ExtResource("2_x3aet")]
 audio_touchscreen = []
 help = false
+subtitle = "It seems your lure has landed in..."
+subtitle_touchscreen = ""

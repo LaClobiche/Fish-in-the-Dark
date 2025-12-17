@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://uyr7u1d6fpb4"]
+
+[ext_resource type="Script" path="res://game_scenes/scene_handler_text/text_menu.gd" id="1_tat1e"]
+
+[node name="TextMenu" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_tat1e")

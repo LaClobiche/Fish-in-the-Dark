@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://das31r2e3klst"]
+
+[ext_resource type="AudioStream" uid="uid://c3ceke6qdoamv" path="res://sounds/voice_resources/audio_settings/set_to_min.mp3" id="1_0q7i0"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_ykt81"]
+
+[resource]
+script = ExtResource("2_ykt81")
+audio = [ExtResource("1_0q7i0")]
+audio_touchscreen = []
+help = false
+subtitle = "Set to minimum"
+subtitle_touchscreen = ""

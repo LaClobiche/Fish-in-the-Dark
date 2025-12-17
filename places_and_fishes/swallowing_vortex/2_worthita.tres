@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://udnl53nej32"]
+
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_exa0i"]
+[ext_resource type="PackedScene" uid="uid://4a367bw1f5q8" path="res://game_scenes/fishing_run/luring/surf_vortex/luring_surf_vortex.tscn" id="1_hbjp3"]
+[ext_resource type="Animation" uid="uid://c6kgcyn7rlhjh" path="res://places_and_fishes/swallowing_vortex/worthita_catching_sequence.res" id="1_vsxgy"]
+[ext_resource type="Resource" uid="uid://dxrkuoc1n4fgd" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/worthita_description.tres" id="2_uh72w"]
+[ext_resource type="Resource" uid="uid://ctrdlydcuhh8" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/worthita.tres" id="3_lla4x"]
+[ext_resource type="Texture2D" uid="uid://cv61avqoin3y7" path="res://places_and_fishes/swallowing_vortex/worthita.png" id="3_sgvno"]
+[ext_resource type="Resource" uid="uid://pjy1snfhbplx" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/worthita_caught.tres" id="4_2w3o2"]
+
+[resource]
+script = ExtResource("1_exa0i")
+name = "Worthita"
+voice_name = ExtResource("3_lla4x")
+voice_name_caught = ExtResource("4_2w3o2")
+picture = ExtResource("3_sgvno")
+description = "The Worthita quickly had to learn to eat rather than be eaten. In this world of predatory competition, it convinces himself that it deserves its place, despising the weak and in awe of the strong."
+voice_description = ExtResource("2_uh72w")
+rarity = 2
+luring_scene = ExtResource("1_hbjp3")
+catching_sequence = ExtResource("1_vsxgy")

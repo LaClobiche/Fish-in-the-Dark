@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://deluw5r7vcqrs"]
+[gd_scene load_steps=6 format=3 uid="uid://deluw5r7vcqrs"]
 
 [ext_resource type="Script" path="res://game_scenes/scenes_handler.gd" id="1_mpngu"]
+[ext_resource type="PackedScene" uid="uid://dffqatpq07nq8" path="res://game_scenes/background/visuals.tscn" id="2_erp8a"]
 [ext_resource type="PackedScene" uid="uid://oqdxo40h6bgj" path="res://game_scenes/ui_touchscreen.tscn" id="2_lca0s"]
+[ext_resource type="PackedScene" uid="uid://c1ou0jrvyphvl" path="res://game_scenes/scene_handler_text/scenes_handler_text.tscn" id="2_p1ish"]
 [ext_resource type="PackedScene" uid="uid://dr1gvhvvot05d" path="res://game_scenes/pause.tscn" id="3_crkyw"]
-[ext_resource type="PackedScene" uid="uid://dffqatpq07nq8" path="res://game_scenes/background/background.tscn" id="4_nbhuj"]
 
 [node name="ScenesHandler" type="Node2D"]
 script = ExtResource("1_mpngu")
 
 [node name="CurrentScene" type="Node" parent="."]
 
-[node name="Background" parent="." instance=ExtResource("4_nbhuj")]
+[node name="Visuals" parent="." instance=ExtResource("2_erp8a")]
 
 [node name="UITouchscreen" parent="." instance=ExtResource("2_lca0s")]
 visible = false
 
 [node name="Pause" parent="." instance=ExtResource("3_crkyw")]
+
+[node name="TextLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="SceneHandlerText" parent="TextLayer" instance=ExtResource("2_p1ish")]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://4a367bw1f5q8"]
+
+[ext_resource type="PackedScene" uid="uid://cr2ry11y5isyr" path="res://game_scenes/fishing_run/luring/luring.tscn" id="1_ifwk1"]
+[ext_resource type="Script" path="res://game_scenes/fishing_run/luring/surf_vortex/luring_surf_vortex.gd" id="2_nvj78"]
+[ext_resource type="Resource" uid="uid://cwrnf6bmliyli" path="res://sounds/voice_resources/luring/surf_vortex/voice_intro.tres" id="3_n4rw3"]
+[ext_resource type="PackedScene" uid="uid://c672i6lia8s81" path="res://game_scenes/sound_2d/sound_2d.tscn" id="3_vukie"]
+[ext_resource type="Resource" uid="uid://cpn3fogejxg0y" path="res://sounds/voice_resources/luring/surf_vortex/voice_help.tres" id="4_rqghs"]
+[ext_resource type="AudioStream" uid="uid://h8qovh3pg8i2" path="res://sounds/effects/luring/surf_vortex/vortex.mp3" id="4_vpppm"]
+[ext_resource type="AudioStream" uid="uid://d0h7p0yb5ym68" path="res://sounds/effects/bubbles_loop.mp3" id="5_mqn2w"]
+[ext_resource type="Animation" uid="uid://b5tbwp1ltsrrs" path="res://game_scenes/fishing_run/luring/surf_vortex/4_magnimahi_sequence.res" id="6_187a7"]
+[ext_resource type="Animation" uid="uid://c15bctussvl71" path="res://game_scenes/fishing_run/luring/surf_vortex/1_gonnby_sequence.res" id="7_xe5iv"]
+[ext_resource type="Animation" uid="uid://yx1u3jt3ic7j" path="res://game_scenes/fishing_run/luring/surf_vortex/3_ogurnard_sequence.res" id="8_ptrps"]
+[ext_resource type="Animation" uid="uid://de5cp54kaiku8" path="res://game_scenes/fishing_run/luring/surf_vortex/2_worthita_sequence.res" id="9_3phoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wj80x"]
+size = Vector2(51, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs4bj"]
+size = Vector2(461, 162)
+
+[sub_resource type="Animation" id="Animation_j1oy4"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5xpw"]
+_data = {
+"Gonnby": ExtResource("7_xe5iv"),
+"Magnimahi": ExtResource("6_187a7"),
+"Ogurnard": ExtResource("8_ptrps"),
+"RESET": SubResource("Animation_j1oy4"),
+"Worthita": ExtResource("9_3phoa")
+}
+
+[node name="LuringSurfVortex" instance=ExtResource("1_ifwk1")]
+script = ExtResource("2_nvj78")
+fish_damage = 9
+voice_intro = ExtResource("3_n4rw3")
+voice_help = ExtResource("4_rqghs")
+sound_succeed = ExtResource("5_mqn2w")
+
+[node name="Swarms" type="Node" parent="." index="0"]
+
+[node name="Sound2DLeft" parent="Sound2DNodes" index="0"]
+position = Vector2(-42, 315)
+panning_strength = 10.0
+max_distance = 350.0
+
+[node name="WaterArea2D" type="Area2D" parent="Sound2DNodes/Sound2DLeft" index="6"]
+position = Vector2(92, -1)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DLeft/WaterArea2D" index="0"]
+position = Vector2(-24.5, 0)
+shape = SubResource("RectangleShape2D_wj80x")
+debug_color = Color(1, 0, 0.12549, 0.419608)
+
+[node name="Sound2DRight" parent="Sound2DNodes" index="1"]
+visible = false
+position = Vector2(1280, 315)
+
+[node name="WarningArea2D" type="Area2D" parent="Sound2DNodes/Sound2DRight" index="6"]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DRight/WarningArea2D" index="0"]
+position = Vector2(70.5, 0)
+shape = SubResource("RectangleShape2D_rs4bj")
+debug_color = Color(0.945098, 0.780392, 0, 0.419608)
+
+[node name="Sound2DCenter" parent="Sound2DNodes" index="2"]
+position = Vector2(1323, 314)
+panning_strength = 10.0
+max_distance = 350.0
+
+[node name="BreachArea2D" type="Area2D" parent="Sound2DNodes/Sound2DCenter" index="6"]
+position = Vector2(-68, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sound2DNodes/Sound2DCenter/BreachArea2D" index="0"]
+shape = SubResource("RectangleShape2D_wj80x")
+debug_color = Color(1, 0.0117647, 0.00784314, 0.419608)
+
+[node name="VortexSound" type="AudioStreamPlayer2D" parent="." index="2"]
+position = Vector2(640, 360)
+stream = ExtResource("4_vpppm")
+volume_db = -25.737
+
+[node name="Sound2D" parent="Player" index="2" instance=ExtResource("3_vukie")]
+
+[node name="FishHPCooldown" parent="." index="5"]
+wait_time = 1.0
+
+[node name="RodHPCooldown" parent="." index="6"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_u5xpw")
+}

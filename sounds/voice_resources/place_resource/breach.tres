@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cjt8jp3s1k3sh"]
+
+[ext_resource type="AudioStream" uid="uid://ch7ghyyw53uim" path="res://sounds/voice_resources/place_resource/breach.mp3" id="1_4y1uv"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_3pstm"]
+
+[resource]
+script = ExtResource("2_3pstm")
+audio = [ExtResource("1_4y1uv")]
+audio_touchscreen = []
+help = false
+subtitle = "the Breach"
+subtitle_touchscreen = ""

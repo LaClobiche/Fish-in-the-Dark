@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=4 format=3 uid="uid://bua4r8cmvctut"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_p43hd"]
+[ext_resource type="Resource" uid="uid://cfxiuyi0n3y2j" path="res://sounds/voice_resources/final_scene/1_intro_00.tres" id="2_7iu8y"]
+[ext_resource type="Resource" uid="uid://bbv60r6ef8b4c" path="res://sounds/voice_resources/final_scene/1_intro_01.tres" id="3_2c00s"]
+
+[resource]
+script = ExtResource("1_p43hd")
+voice_array = [ExtResource("2_7iu8y"), ExtResource("3_2c00s")]
+is_number = false
+number = 0

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Place" load_steps=4 format=3 uid="uid://bj0y37ur3blgo"]
+
+[ext_resource type="Resource" uid="uid://dbr7q4wopl1nt" path="res://places_and_fishes/breach/1_wholefish.tres" id="1_68erg"]
+[ext_resource type="Resource" uid="uid://cjt8jp3s1k3sh" path="res://sounds/voice_resources/place_resource/breach.tres" id="3_t55a1"]
+[ext_resource type="Script" path="res://game_resources/place.gd" id="5_wpjud"]
+
+[resource]
+script = ExtResource("5_wpjud")
+name = 4
+text_menu_name = "The Breach"
+voice_name = ExtResource("3_t55a1")
+fishes_by_rarity = {
+0: ExtResource("1_68erg"),
+1: null,
+2: null,
+3: null
+}

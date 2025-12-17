@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bxn46k87wxcgn"]
+
+[ext_resource type="AudioStream" uid="uid://cee6shegj1fda" path="res://sounds/voice_resources/final_scene/3_intro.mp3" id="1_l2f1b"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_sstcf"]
+
+[resource]
+script = ExtResource("2_sstcf")
+audio = [ExtResource("1_l2f1b")]
+audio_touchscreen = []
+help = false
+subtitle = "A huge mass looms in the deep black. An indiscernible, unnameable form, staring into each of your cells..."
+subtitle_touchscreen = ""

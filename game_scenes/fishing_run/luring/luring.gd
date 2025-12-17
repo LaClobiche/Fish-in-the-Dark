@@ -28,10 +28,9 @@ const DIR := {
 			scene_outro()
 		fish_hp = value
 
-@export var voice_intro: AudioStream
-@export var voice_help: AudioStream
+@export var voice_intro: VoiceResource
+@export var voice_help: Resource
 @export var sound_succeed: AudioStream
-@export var sound_fail: AudioStream
 
 ## stock the sound_node currently modified here
 var current_sound_node: Sound2D
@@ -62,10 +61,12 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("top"):
-		Signals.scene_requested.emit("toggle_pause")
+	if event == null:
+		return
 	elif not inputs:
 		return
+	if event.is_action_pressed("top") and current_state == State.LURING:
+		Signals.scene_requested.emit("toggle_pause")
 	else:
 		pass
 
@@ -75,7 +76,6 @@ func damage(succeeded: bool):
 		Sound.play_se(sound_succeed)
 		fish_hp -= fish_damage
 	else:
-		Sound.play_se(sound_fail)
 		Global.current_fishing_rod.take_damage(rod_damage)
 
 
@@ -118,9 +118,9 @@ func scene_outro():
 		sound_node[sound_player].stop()
 	fish_hp = 100
 	Sound.play_se(Sound.effects["luring_catched"])
+	Signals.rod_state.emit("idle")
 	Sound.play_voice(Sound.voices["pause_0_5_s"])
 	Sound.play_voice(load("res://sounds/voice_resources/luring/bite.tres"))
 	await Sound.all_voices_finished
-	inputs = true
 	Signals.scene_requested.emit("catching")
 

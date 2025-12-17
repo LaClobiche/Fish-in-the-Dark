@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" path="res://game_resources/place.gd" id="1_ibdvt"]
 [ext_resource type="Resource" uid="uid://bqyax3s5atn77" path="res://places_and_fishes/lonely_waters/1_warmseeker.tres" id="1_iw72h"]
-[ext_resource type="AudioStream" uid="uid://djafcs4hcd7i2" path="res://sounds/voice_resources/place_resource/lonely_waters.mp3" id="2_4nkxb"]
 [ext_resource type="Resource" uid="uid://d3jkrbhh5i3pf" path="res://places_and_fishes/lonely_waters/2_receiveel.tres" id="2_t3kia"]
 [ext_resource type="Resource" uid="uid://dc5gqbgff01xy" path="res://places_and_fishes/lonely_waters/3_preacheel.tres" id="3_2cotf"]
 [ext_resource type="Resource" uid="uid://blfoncuyg8ceh" path="res://places_and_fishes/lonely_waters/4_enlighteel.tres" id="4_fw6w2"]
+[ext_resource type="Resource" uid="uid://cxa0fdvkrcov0" path="res://sounds/voice_resources/place_resource/lonely_waters.tres" id="6_e88d1"]
 
 [resource]
 script = ExtResource("1_ibdvt")
 name = 1
-voice_name = ExtResource("2_4nkxb")
+text_menu_name = "Lonely Waters"
+voice_name = ExtResource("6_e88d1")
 fishes_by_rarity = {
 0: ExtResource("1_iw72h"),
 1: ExtResource("2_t3kia"),

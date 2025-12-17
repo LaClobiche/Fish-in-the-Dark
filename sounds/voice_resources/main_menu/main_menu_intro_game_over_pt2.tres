@@ -8,3 +8,5 @@ script = ExtResource("1_01v5t")
 audio = [ExtResource("1_ckvgt")]
 audio_touchscreen = []
 help = false
+subtitle = "You're thinking about fishing again."
+subtitle_touchscreen = ""

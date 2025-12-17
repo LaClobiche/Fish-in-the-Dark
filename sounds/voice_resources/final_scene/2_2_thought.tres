@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cyftye5uohttj"]
+
+[ext_resource type="AudioStream" uid="uid://cqq7ctno5onhw" path="res://sounds/voice_resources/final_scene/2_2_thought.mp3" id="1_hqcev"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_mtryt"]
+
+[resource]
+script = ExtResource("2_mtryt")
+audio = [ExtResource("1_hqcev")]
+audio_touchscreen = []
+help = false
+subtitle = "Try to keep calm."
+subtitle_touchscreen = ""

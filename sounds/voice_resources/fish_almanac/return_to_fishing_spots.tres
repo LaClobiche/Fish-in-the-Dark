@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dg2fvpje0xndt"]
+
+[ext_resource type="AudioStream" uid="uid://belcmd4w1qgjb" path="res://sounds/voice_resources/fish_almanac/return_to_fishing_spots.mp3" id="1_3ter5"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_0pimn"]
+
+[resource]
+script = ExtResource("2_0pimn")
+audio = [ExtResource("1_3ter5")]
+audio_touchscreen = []
+help = false
+subtitle = "Return to the fishing spots listed in your almanac"
+subtitle_touchscreen = ""

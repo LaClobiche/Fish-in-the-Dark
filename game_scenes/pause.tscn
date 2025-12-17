@@ -1,11 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr1gvhvvot05d"]
+[gd_scene load_steps=8 format=3 uid="uid://dr1gvhvvot05d"]
 
 [ext_resource type="Script" path="res://game_scenes/pause.gd" id="1_uuij0"]
-[ext_resource type="PackedScene" uid="uid://defvu368rnmel" path="res://sounds/sound.tscn" id="2_aeaqr"]
+[ext_resource type="PackedScene" uid="uid://defvu368rnmel" path="res://global/sound_scenes/sound.tscn" id="2_aeaqr"]
+[ext_resource type="Theme" uid="uid://dx46ipfpncddl" path="res://game_theme.tres" id="2_c5x3w"]
+[ext_resource type="PackedScene" uid="uid://c641kpw42vqjv" path="res://game_scenes/fish_almanac/fish_almanac.tscn" id="3_eumhy"]
+[ext_resource type="Script" path="res://game_scenes/pause_fish_almanac.gd" id="4_rxpip"]
+
+[sub_resource type="Gradient" id="Gradient_wctf3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x6tc1"]
+gradient = SubResource("Gradient_wctf3")
 
 [node name="Pause" type="Node2D"]
 process_mode = 2
 visible = false
 script = ExtResource("1_uuij0")
 
+[node name="PauseImage" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="PauseImage"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_x6tc1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Pause" type="Label" parent="PauseImage"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 20.0
+offset_right = -89.0
+offset_bottom = 35.0
+grow_horizontal = 2
+scale = Vector2(6, 6)
+size_flags_vertical = 1
+theme = ExtResource("2_c5x3w")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 11
+text = "[[ PAUSE ]]"
+horizontal_alignment = 1
+
 [node name="Sound" parent="." instance=ExtResource("2_aeaqr")]
+
+[node name="FishAlmanac" parent="." instance=ExtResource("3_eumhy")]
+script = ExtResource("4_rxpip")

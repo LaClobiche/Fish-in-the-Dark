@@ -1,0 +1,628 @@
+[gd_scene load_steps=50 format=3 uid="uid://dffqatpq07nq8"]
+
+[ext_resource type="Script" path="res://game_scenes/background/visuals.gd" id="1_3f3d4"]
+[ext_resource type="Texture2D" uid="uid://dosn35nkibt1f" path="res://game_scenes/background/light_particle_big0.png" id="1_qc343"]
+[ext_resource type="Texture2D" uid="uid://bemo54gtuawji" path="res://game_scenes/background/sourroundings.png" id="2_5cegu"]
+[ext_resource type="Shader" path="res://game_scenes/background/water.gdshader" id="2_5t7hx"]
+[ext_resource type="Shader" path="res://game_scenes/background/pixelization.gdshader" id="2_ot22a"]
+[ext_resource type="Texture2D" uid="uid://efcakr7rgp6c" path="res://game_scenes/background/vegetals_scaled.png" id="3_an802"]
+[ext_resource type="Shader" path="res://game_scenes/background/ghost.gdshader" id="5_0362c"]
+[ext_resource type="Texture2D" uid="uid://n8o34wgifgr3" path="res://places_and_fishes/flowing_waters_tuto/selfish.png" id="6_xbean"]
+[ext_resource type="Script" path="res://game_scenes/background/FishingRodStateMachine.gd" id="7_5nbt8"]
+[ext_resource type="Shader" path="res://game_scenes/background/glitch.gdshader" id="7_h2u16"]
+[ext_resource type="Texture2D" uid="uid://d065blvdcumwj" path="res://game_scenes/background/eye_opening_animation/eye_opening1.png" id="7_jwweg"]
+[ext_resource type="Texture2D" uid="uid://b8diqk2rwn2b0" path="res://game_scenes/background/fishing_rod_animation/rod6.png" id="7_rq5w0"]
+[ext_resource type="Texture2D" uid="uid://b3c2kq6mpc4ip" path="res://game_scenes/background/eye_opening_animation/eye_opening2.png" id="8_hbpa6"]
+[ext_resource type="Texture2D" uid="uid://k4j4ycnpk8ua" path="res://game_scenes/background/eye_opening_animation/eye_opening3.png" id="9_rc7eu"]
+[ext_resource type="Texture2D" uid="uid://bt4oapaoigqm0" path="res://game_scenes/background/eye_opening_animation/eye_opening4.png" id="10_frjs8"]
+[ext_resource type="Texture2D" uid="uid://bvbhmeeknw4jl" path="res://game_scenes/background/eye_opening_animation/eye_opening5.png" id="11_ht82o"]
+[ext_resource type="Texture2D" uid="uid://dqvf37gbihem0" path="res://game_scenes/background/fishing_rod_animation/rod1.png" id="14_mou2x"]
+[ext_resource type="Texture2D" uid="uid://baa1ou0y87kck" path="res://game_scenes/background/fishing_rod_animation/rod2.png" id="15_wolaw"]
+[ext_resource type="Texture2D" uid="uid://bum1bf0rd2tcj" path="res://game_scenes/background/fishing_rod_animation/rod3.png" id="16_eg477"]
+[ext_resource type="Texture2D" uid="uid://erevqnl8f1oc" path="res://game_scenes/background/fishing_rod_animation/rod4.png" id="17_yke2x"]
+[ext_resource type="Texture2D" uid="uid://dbjqvnivuvkix" path="res://game_scenes/background/fishing_rod_animation/rod5.png" id="18_rajih"]
+[ext_resource type="Texture2D" uid="uid://o80w5au6bcjt" path="res://game_scenes/background/fishing_rod_animation/rod7.png" id="19_qn1uq"]
+
+[sub_resource type="Gradient" id="Gradient_35jnn"]
+colors = PackedColorArray(0, 0, 0, 1, 0.721569, 0.588235, 0.921569, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8l0fo"]
+gradient = SubResource("Gradient_35jnn")
+fill_from = Vector2(0, 0.34188)
+fill_to = Vector2(0, 0.692308)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_usvs8"]
+shader = ExtResource("2_5t7hx")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/wavelet_color = Color(1, 1, 1, 0)
+shader_parameter/amplitude = 2.0
+shader_parameter/frequency = 5.0
+shader_parameter/compress = 1.0
+shader_parameter/add_light = 0.0
+shader_parameter/scale = 1.0
+shader_parameter/speed = 0.0999776
+shader_parameter/x_angle = 1.57
+shader_parameter/y_angle = -1.57
+shader_parameter/base_alpha = 0.88
+shader_parameter/refraction_ratio = 10.0
+shader_parameter/clear = 1.0
+shader_parameter/surf_sinpowder = 8.0
+shader_parameter/surf_speed = 1.0
+shader_parameter/surf_angle = 1.57
+shader_parameter/surf_magnitude = 0.0
+shader_parameter/s11 = 2.221
+shader_parameter/sinpowder = 8.0
+
+[sub_resource type="Gradient" id="Gradient_nh3ro"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0ckm1"]
+gradient = SubResource("Gradient_nh3ro")
+
+[sub_resource type="Curve" id="Curve_kcbwe"]
+_data = [Vector2(0, 1), 0.0, -1.3624, 0, 1, Vector2(0.254967, 0.652632), 0.0, 0.0, 0, 0, Vector2(0.513245, 0.863158), 0.0, 0.0, 0, 0, Vector2(0.880795, 0.621053), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.17895, 0.0, 1, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_bcd08"]
+offsets = PackedFloat32Array(0, 0.0774908, 0.431734, 0.523985, 0.583026, 0.922509, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.772549, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_uymm4"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.155629, 1.64211), 0.0, 0.0, 0, 0, Vector2(0.268212, 1.6), 0.0, 0.0, 0, 0, Vector2(0.387417, 1.81053), 0.0, 0.0, 0, 0, Vector2(0.546358, 1.49474), 0.0, 0.0, 0, 0, Vector2(0.728477, 1.57895), 0.0, 0.0, 0, 0, Vector2(0.86755, 1.74737), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t8366"]
+shader = ExtResource("5_0362c")
+shader_parameter/shaking = true
+shader_parameter/amplitude = 3.0
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise_speed = 1.0
+shader_parameter/opacity = 0.6
+shader_parameter/saturation = 1.5
+
+[sub_resource type="Animation" id="Animation_blqje"]
+length = 0.001
+
+[sub_resource type="Gradient" id="Gradient_gapqo"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0gycw"]
+gradient = SubResource("Gradient_gapqo")
+
+[sub_resource type="Animation" id="Animation_vnjqi"]
+resource_name = "eye_opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/TransitionLayer:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_jwweg"), ExtResource("8_hbpa6"), ExtResource("9_rc7eu"), ExtResource("10_frjs8"), ExtResource("11_ht82o"), SubResource("GradientTexture1D_0gycw")]
+}
+
+[sub_resource type="Animation" id="Animation_dduac"]
+resource_name = "rod_catch"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_eg477"), ExtResource("15_wolaw"), ExtResource("14_mou2x"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroungViewport/FishingRod/Line:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingRodTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(595, 206), Vector2(536, 49), Vector2(381, -395), Vector2(-499, 653)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lure:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(640, 570), Vector2(598, 252), Vector2(40, -89)]
+}
+
+[sub_resource type="Animation" id="Animation_bc7rv"]
+resource_name = "rod_idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("16_eg477")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroungViewport/FishingRod/Line:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingRodTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(595, 206)]
+}
+
+[sub_resource type="Animation" id="Animation_r1mmd"]
+resource_name = "rod_launch"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("14_mou2x"), ExtResource("15_wolaw"), ExtResource("16_eg477")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishingRodTip:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-499, 653), Vector2(381, -395), Vector2(536, 49), Vector2(595, 206)]
+}
+
+[sub_resource type="Animation" id="Animation_jx4hf"]
+resource_name = "rod_left_from_idle"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_rq5w0"), ExtResource("19_qn1uq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroungViewport/FishingRod/Line:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingRodTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(513, 238), Vector2(464, 249)]
+}
+
+[sub_resource type="Animation" id="Animation_aj22d"]
+resource_name = "rod_left_from_right"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_yke2x"), ExtResource("16_eg477"), ExtResource("7_rq5w0"), ExtResource("19_qn1uq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroungViewport/FishingRod/Line:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingRodTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(658, 230), Vector2(594, 205), Vector2(513, 238), Vector2(463, 250)]
+}
+
+[sub_resource type="Animation" id="Animation_51nnm"]
+resource_name = "rod_right_from_idle"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("17_yke2x"), ExtResource("18_rajih")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroungViewport/FishingRod/Line:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingRodTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(656, 228), Vector2(745, 244)]
+}
+
+[sub_resource type="Animation" id="Animation_ehkw1"]
+resource_name = "rod_right_from_left"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroungViewport/FishingRod:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_rq5w0"), ExtResource("16_eg477"), ExtResource("17_yke2x"), ExtResource("18_rajih")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroungViewport/FishingRod/Line:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishingRodTip:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(514, 239), Vector2(594, 206), Vector2(657, 234), Vector2(745, 244)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_48iag"]
+_data = {
+"RESET": SubResource("Animation_blqje"),
+"eye_opening": SubResource("Animation_vnjqi"),
+"rod_catch": SubResource("Animation_dduac"),
+"rod_idle": SubResource("Animation_bc7rv"),
+"rod_launch": SubResource("Animation_r1mmd"),
+"rod_left_from_idle": SubResource("Animation_jx4hf"),
+"rod_left_from_right": SubResource("Animation_aj22d"),
+"rod_right_from_idle": SubResource("Animation_51nnm"),
+"rod_right_from_left": SubResource("Animation_ehkw1")
+}
+
+[sub_resource type="Curve" id="Curve_3lnb3"]
+min_value = 0.2
+_data = [Vector2(0, 0.309474), 0.0, 0.0, 0, 0, Vector2(0.0684039, 0.225263), 0.0, 0.0, 0, 0, Vector2(0.127036, 0.343158), 0.0, 0.0, 0, 0, Vector2(0.201954, 0.2), 0.0, 0.0, 0, 0, Vector2(0.270358, 0.410526), 0.0, 0.0, 0, 0, Vector2(0.325733, 0.242105), 0.0, 0.0, 0, 0, Vector2(0.394137, 0.494737), 0.0, 0.0, 0, 0, Vector2(0.465798, 0.2), 0.0, 0.0, 0, 0, Vector2(0.521173, 0.587368), 0.0, 0.0, 0, 0, Vector2(0.583062, 0.2), 0.0, 0.0, 0, 0, Vector2(0.635179, 0.705263), 0.0, 0.0, 0, 0, Vector2(0.680782, 0.216842), 0.0, 0.0, 0, 0, Vector2(0.742671, 1), 0.0, 0.0, 0, 0, Vector2(0.788274, 0.2), 0.0, 0.0, 0, 0, Vector2(0.850163, 1), 0.0, 0.0, 0, 0, Vector2(0.895765, 0.2), 0.0, 0.0, 0, 0, Vector2(0.934853, 1), 0.0, 0.0, 0, 0, Vector2(0.983713, 0.2), 0.0, 0.0, 0, 0]
+point_count = 18
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3n7q"]
+shader = ExtResource("2_ot22a")
+shader_parameter/pixel_size = 2.5
+shader_parameter/mix_sampling = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gboop"]
+viewport_path = NodePath("BackgroungViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_25lb7"]
+shader = ExtResource("7_h2u16")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.104
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 100.0
+shader_parameter/shake_color_rate = 0.016
+
+[sub_resource type="Gradient" id="Gradient_tl6ya"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_srss8"]
+gradient = SubResource("Gradient_tl6ya")
+
+[node name="Visuals" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1_3f3d4")
+
+[node name="BackgroungViewport" type="SubViewport" parent="."]
+size = Vector2i(1300, 730)
+
+[node name="BackgroundColor" type="ColorRect" parent="BackgroungViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.74902, 0.376471, 0.376471, 1)
+
+[node name="BackgroundGradient" type="TextureRect" parent="BackgroungViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_8l0fo")
+
+[node name="WaterSFX" type="TextureRect" parent="BackgroungViewport"]
+material = SubResource("ShaderMaterial_usvs8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_0ckm1")
+
+[node name="Sourroundings" type="TextureRect" parent="BackgroungViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_5cegu")
+expand_mode = 5
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="BackgroungViewport"]
+position = Vector2(642, 344)
+amount = 5
+lifetime = 20.0
+texture = ExtResource("1_qc343")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 250)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_kcbwe")
+color_ramp = SubResource("Gradient_bcd08")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BackgroungViewport"]
+position = Vector2(642, 344)
+amount = 5
+lifetime = 20.0
+texture = ExtResource("1_qc343")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 250)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_uymm4")
+color_ramp = SubResource("Gradient_bcd08")
+
+[node name="Breach" type="ColorRect" parent="BackgroungViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fish" type="TextureRect" parent="BackgroungViewport"]
+material = SubResource("ShaderMaterial_t8366")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 720.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_xbean")
+stretch_mode = 3
+
+[node name="Vegetals" type="TextureRect" parent="BackgroungViewport"]
+custom_minimum_size = Vector2(0, 400)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+texture = ExtResource("3_an802")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="FishingRod" type="TextureRect" parent="BackgroungViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_5nbt8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroungViewport/FishingRod"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_48iag")
+}
+
+[node name="Line" type="Line2D" parent="BackgroungViewport/FishingRod"]
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+antialiased = true
+
+[node name="TransitionLayer" type="TextureRect" parent="BackgroungViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_jwweg")
+
+[node name="VortexParticle" type="CPUParticles2D" parent="BackgroungViewport"]
+visible = false
+position = Vector2(642, 344)
+amount = 10
+lifetime = 10.0
+texture = ExtResource("1_qc343")
+emission_shape = 3
+emission_rect_extents = Vector2(640, 360)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 37.27
+initial_velocity_max = 37.27
+orbit_velocity_min = 0.05
+orbit_velocity_max = 0.05
+linear_accel_min = 59.17
+linear_accel_max = 59.17
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_3lnb3")
+color = Color(1, 0, 1, 0.392157)
+color_ramp = SubResource("Gradient_bcd08")
+
+[node name="PixelatedBackground" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_a3n7q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_gboop")
+stretch_mode = 3
+
+[node name="Glitch" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_25lb7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_srss8")
+
+[node name="Flash" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.588235)
+
+[node name="FishingRodTip" type="Marker2D" parent="."]
+position = Vector2(-499, 653)
+gizmo_extents = 54.6
+
+[node name="Lure" type="Marker2D" parent="."]
+position = Vector2(259, -100)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_48iag")
+}

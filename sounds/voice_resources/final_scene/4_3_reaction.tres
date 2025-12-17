@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bs5antywtlk07"]
+
+[ext_resource type="AudioStream" uid="uid://dve78x6bn8yt5" path="res://sounds/voice_resources/final_scene/4_3_reaction.mp3" id="1_s2aku"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_1cdxl"]
+
+[resource]
+script = ExtResource("2_1cdxl")
+audio = [ExtResource("1_s2aku")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Ogurnard, your desire for superiority overwhelms you. You try to swallow the mass! Your mouth becomes an all-consuming abyss, yet emptiness is the only thing you taste..."
+subtitle_touchscreen = ""

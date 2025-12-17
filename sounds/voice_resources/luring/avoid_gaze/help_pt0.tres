@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bdnocml3q3o7f"]
+
+[ext_resource type="AudioStream" uid="uid://cbjj8jefv4eeg" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt0.mp3" id="1_2fp5q"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_rsqjx"]
+
+[resource]
+script = ExtResource("1_rsqjx")
+audio = [ExtResource("1_2fp5q")]
+audio_touchscreen = []
+help = true
+subtitle = "You can move your lure left or right by holding the left or right button. If the Gaze sees you, you'll hear your rod snap. And you will have to start all over again."
+subtitle_touchscreen = ""

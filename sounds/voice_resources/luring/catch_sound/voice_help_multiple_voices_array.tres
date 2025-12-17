@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=7 format=3 uid="uid://ci587lvvaywtn"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_anhnt"]
+[ext_resource type="Resource" uid="uid://b3b8i1sx36sa6" path="res://sounds/voice_resources/luring/catch_sound/voice_help_pt1_multiple_voices.tres" id="2_q63d0"]
+[ext_resource type="Resource" uid="uid://gdvdfdjnpkey" path="res://sounds/voice_resources/luring/catch_sound/voice_help_pt2.tres" id="3_joshp"]
+[ext_resource type="Resource" uid="uid://bahuqehnhcidp" path="res://sounds/voice_resources/luring/catch_sound/voice_help_pt2_bubble.tres" id="4_w3noj"]
+[ext_resource type="Resource" uid="uid://dnxicg1wjg6gu" path="res://sounds/voice_resources/luring/catch_sound/voice_help_pt3.tres" id="5_gmhna"]
+[ext_resource type="Resource" uid="uid://wdkoar8xbqbt" path="res://sounds/voice_resources/luring/catch_sound/voice_help_pt3_crack.tres" id="6_3tpvw"]
+
+[resource]
+script = ExtResource("1_anhnt")
+voice_array = [ExtResource("2_q63d0"), ExtResource("3_joshp"), ExtResource("4_w3noj"), ExtResource("5_gmhna"), ExtResource("6_3tpvw")]
+is_number = false
+number = 0

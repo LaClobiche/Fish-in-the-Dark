@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://trb0eava1jet"]
+
+[ext_resource type="AudioStream" uid="uid://cb18ltdi4s7mb" path="res://sounds/voice_resources/final_scene/2_4_thought.mp3" id="1_j0yoj"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_r7spr"]
+
+[resource]
+script = ExtResource("2_r7spr")
+audio = [ExtResource("1_j0yoj")]
+audio_touchscreen = []
+help = false
+subtitle = "Focus on senses other than vision."
+subtitle_touchscreen = ""

@@ -9,3 +9,5 @@ script = ExtResource("1_14ncr")
 audio = [ExtResource("1_hhtvo"), ExtResource("2_g7t3u")]
 audio_touchscreen = []
 help = false
+subtitle = "Night has fallen. And you're sitting in front of a mysterious pond."
+subtitle_touchscreen = ""

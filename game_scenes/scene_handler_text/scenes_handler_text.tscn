@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1ou0jrvyphvl"]
+
+[ext_resource type="Script" path="res://game_scenes/scene_handler_text/scenes_handler_text.gd" id="1_vhd2p"]
+[ext_resource type="Texture2D" uid="uid://dwprc1bhye3iq" path="res://game_scenes/scene_handler_text/logo.png" id="2_jousi"]
+[ext_resource type="Theme" uid="uid://dx46ipfpncddl" path="res://game_theme.tres" id="3_k5hgd"]
+[ext_resource type="PackedScene" uid="uid://c4jpq0r12iwwt" path="res://game_scenes/scene_handler_text/subtitles.tscn" id="4_kwfrr"]
+[ext_resource type="PackedScene" uid="uid://uyr7u1d6fpb4" path="res://game_scenes/scene_handler_text/text_menu.tscn" id="5_piudr"]
+
+[node name="ScenesHandlerText" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+script = ExtResource("1_vhd2p")
+metadata/_edit_use_anchors_ = true
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(640, 262)
+scale = Vector2(5, 5)
+texture = ExtResource("2_jousi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ControlExpand" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_k5hgd")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 20
+
+[node name="Subtitles" parent="VBoxContainer/MarginContainer" instance=ExtResource("4_kwfrr")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Version" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_k5hgd")
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_font_sizes/font_size = 22
+text = "v.1.0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TextMenu" parent="." instance=ExtResource("5_piudr")]
+position = Vector2(64, 128)
+scale = Vector2(4, 4)
+label_separation = 10.0

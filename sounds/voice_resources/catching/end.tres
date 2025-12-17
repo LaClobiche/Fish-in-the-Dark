@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bcimaddtiubw"]
+
+[ext_resource type="AudioStream" uid="uid://bxnhfdh51tiha" path="res://sounds/voice_resources/catching/end.mp3" id="1_g55vk"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_xhpf7"]
+
+[resource]
+script = ExtResource("1_xhpf7")
+audio = [ExtResource("1_g55vk")]
+audio_touchscreen = []
+help = false
+subtitle = "You note your catch in your almanac and prepare to hook another fish"
+subtitle_touchscreen = ""

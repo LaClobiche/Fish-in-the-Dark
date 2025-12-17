@@ -23,6 +23,9 @@ extends Luring
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
+	if Global.debug:
+		show()
+#		Global.current_fish = load("res://places_and_fishes/flowing_waters_tuto/1_flowfish.tres")
 	fish_hp_cooldown.timeout.connect(_on_fish_hp_cooldown_timeout)
 	rod_hp_cooldown.timeout.connect(_on_rod_hp_cooldown_timeout)
 	sound_area.body_entered.connect(_on_area_2d_body_entered)
@@ -31,14 +34,15 @@ func _ready():
 
 
 func _physics_process(delta):
-	if inputs:
-		player.velocity.y += delta
+	if inputs and current_state == State.LURING:
+		player.velocity.x += delta
 		var dir = Input.get_axis("left", "right")
 		if dir != 0:
 			player.velocity.x = lerp(player.velocity.x, dir * speed, acceleration)
 		else:
 			player.velocity.x = lerp(player.velocity.x, 0.0, friction)
 		player.move_and_slide()
+		Signals.lure_position.emit(Vector2(320 + (player.global_position.x / 2), 570))
 
 
 func _unhandled_input(event):
@@ -46,15 +50,16 @@ func _unhandled_input(event):
 	if inputs:
 		if current_state == State.INTRO:
 			if event.is_action_pressed("left") or event.is_action_pressed("right"):
-				Sound.stop_voice_array_and_queue()
-				scene_luring()
+				Sound.play_next_voice()
 		elif current_state == State.OUTRO:
 			pass
 		else:#current_state == State.LURING
 			if event.is_action_pressed("left") and not Sound.is_se_playing(Sound.effects["move_left"]):
 				Sound.play_se(Sound.effects["move_left"])
+				Signals.rod_state.emit("left")
 			if event.is_action_pressed("right") and not Sound.is_se_playing(Sound.effects["move_right"]):
 				Sound.play_se(Sound.effects["move_right"])
+				Signals.rod_state.emit("right")
 
 
 func scene_luring():

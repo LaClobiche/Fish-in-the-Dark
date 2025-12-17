@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://8h8npw2kqvvl"]
+
+[ext_resource type="Animation" uid="uid://3ar3duc0d5ah" path="res://places_and_fishes/swallowing_vortex/gonnby_catching_sequence.res" id="1_n7eyy"]
+[ext_resource type="PackedScene" uid="uid://4a367bw1f5q8" path="res://game_scenes/fishing_run/luring/surf_vortex/luring_surf_vortex.tscn" id="1_tblcs"]
+[ext_resource type="Resource" uid="uid://iyekhm388eh8" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/gonnby_description.tres" id="2_brwvi"]
+[ext_resource type="Resource" uid="uid://bi30hj20vdcgv" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/gonnby.tres" id="3_37pea"]
+[ext_resource type="Texture2D" uid="uid://c07jytpjw6w4o" path="res://places_and_fishes/swallowing_vortex/gonnby.png" id="3_dwspu"]
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="3_wem24"]
+[ext_resource type="Resource" uid="uid://brosuot05drdc" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/gonnby_caught.tres" id="4_bjwpl"]
+
+[resource]
+script = ExtResource("3_wem24")
+name = "Gonnby"
+voice_name = ExtResource("3_37pea")
+voice_name_caught = ExtResource("4_bjwpl")
+picture = ExtResource("3_dwspu")
+description = "The Gonnby is born into the tumultuous waters of the vortex and, disoriented, soon ends its life in the starving mouths of its inhabitants."
+voice_description = ExtResource("2_brwvi")
+rarity = 1
+luring_scene = ExtResource("1_tblcs")
+catching_sequence = ExtResource("1_n7eyy")

@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://bvv3icyi8qdw8"]
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://bvv3icyi8qdw8"]
 
 [ext_resource type="Animation" uid="uid://ny65xftlgsrf" path="res://places_and_fishes/everwatching_cove/distinctuna_catching_sequence.res" id="1_h4vsm"]
 [ext_resource type="Script" path="res://game_resources/fish.gd" id="1_o2v1e"]
 [ext_resource type="PackedScene" uid="uid://8hdwm383seom" path="res://game_scenes/fishing_run/luring/avoid_gaze/luring_avoid_gaze.tscn" id="2_8iqgo"]
-[ext_resource type="AudioStream" uid="uid://dmtwfef2kval5" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_description.mp3" id="2_haso0"]
-[ext_resource type="AudioStream" uid="uid://c055uyofjojnp" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna.mp3" id="3_82fhr"]
-[ext_resource type="AudioStream" uid="uid://ckd05ikqpderv" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_caught.mp3" id="4_tp6h8"]
+[ext_resource type="Texture2D" uid="uid://wsdvthufxk5u" path="res://places_and_fishes/everwatching_cove/distinctuna.png" id="3_v5lab"]
+[ext_resource type="Resource" uid="uid://cds2n1pwgjrwg" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_description.tres" id="4_a0fh8"]
+[ext_resource type="Resource" uid="uid://c6e20j4xj5jx7" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna.tres" id="5_1wm1h"]
+[ext_resource type="Resource" uid="uid://jl8haftgg573" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_caught.tres" id="6_haeli"]
 
 [resource]
 script = ExtResource("1_o2v1e")
 name = "Distinctuna"
-voice_name = ExtResource("3_82fhr")
-voice_name_caught = ExtResource("4_tp6h8")
+voice_name = ExtResource("5_1wm1h")
+voice_name_caught = ExtResource("6_haeli")
+picture = ExtResource("3_v5lab")
 description = "The \"distinctuna\" learned a lot from the gaze. It understands its purpose and motives more clearly, but it has no desire to follow this path. It has decided to venture into new waters. Perhaps it will return with its findings? It will depend on the gaze."
-voice_description = ExtResource("2_haso0")
+voice_description = ExtResource("4_a0fh8")
 rarity = 4
 luring_scene = ExtResource("2_8iqgo")
 catching_sequence = ExtResource("1_h4vsm")

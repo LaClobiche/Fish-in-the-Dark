@@ -11,3 +11,5 @@ script = ExtResource("3_p75uk")
 audio = [ExtResource("1_8x1ij"), ExtResource("2_463pi"), ExtResource("3_et3y8"), ExtResource("4_otd68")]
 audio_touchscreen = []
 help = false
+subtitle = "You're ready to start fishing."
+subtitle_touchscreen = ""

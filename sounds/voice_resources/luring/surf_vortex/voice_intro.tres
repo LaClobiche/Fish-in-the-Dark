@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cwrnf6bmliyli"]
+
+[ext_resource type="AudioStream" uid="uid://cp6a8mbxi2rr1" path="res://sounds/voice_resources/luring/surf_vortex/voice_intro.mp3" id="1_1dp3y"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_up8ww"]
+
+[resource]
+script = ExtResource("1_up8ww")
+audio = [ExtResource("1_1dp3y")]
+audio_touchscreen = []
+help = false
+subtitle = "Avoid the swarms of insects."
+subtitle_touchscreen = ""

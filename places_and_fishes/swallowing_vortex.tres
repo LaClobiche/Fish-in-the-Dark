@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Place" load_steps=7 format=3 uid="uid://unq6ujqwc155"]
+
+[ext_resource type="Resource" uid="uid://8h8npw2kqvvl" path="res://places_and_fishes/swallowing_vortex/1_gonnby.tres" id="1_chteo"]
+[ext_resource type="Resource" uid="uid://udnl53nej32" path="res://places_and_fishes/swallowing_vortex/2_worthita.tres" id="2_bmbli"]
+[ext_resource type="Resource" uid="uid://bejqn8q3cyufc" path="res://places_and_fishes/swallowing_vortex/3_ogurnard.tres" id="3_p2f6s"]
+[ext_resource type="Resource" uid="uid://ca72pl3nndq0v" path="res://places_and_fishes/swallowing_vortex/4_magnimahi.tres" id="4_m0c63"]
+[ext_resource type="Script" path="res://game_resources/place.gd" id="5_3qlk6"]
+[ext_resource type="Resource" uid="uid://btjnk5b7t5gmh" path="res://sounds/voice_resources/place_resource/swallowing_vortex.tres" id="6_n4woa"]
+
+[resource]
+script = ExtResource("5_3qlk6")
+name = 3
+text_menu_name = "Swallowing Vortex"
+voice_name = ExtResource("6_n4woa")
+fishes_by_rarity = {
+0: ExtResource("1_chteo"),
+1: ExtResource("2_bmbli"),
+2: ExtResource("3_p2f6s"),
+3: ExtResource("4_m0c63")
+}

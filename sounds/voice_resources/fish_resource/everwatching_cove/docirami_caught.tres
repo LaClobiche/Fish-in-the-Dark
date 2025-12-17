@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://duufm6unuu6jd"]
+
+[ext_resource type="AudioStream" uid="uid://bremlcimy35b6" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami_caught.mp3" id="1_ujum2"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_7klhw"]
+
+[resource]
+script = ExtResource("2_7klhw")
+audio = [ExtResource("1_ujum2")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Docirami!"
+subtitle_touchscreen = ""

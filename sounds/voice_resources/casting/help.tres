@@ -8,3 +8,5 @@ script = ExtResource("3_rljuq")
 audio = [ExtResource("1_7d0gv")]
 audio_touchscreen = []
 help = true
+subtitle = "Maintain \"right\" to raise your fishing rod and strenghten your cast. Release \"right\" to cast."
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dfl727p80pl5y"]
+
+[ext_resource type="AudioStream" uid="uid://b63eyeey0ky0x" path="res://sounds/voice_resources/final_scene/3_3_reaction.mp3" id="1_bnw6c"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_qocsc"]
+
+[resource]
+script = ExtResource("2_qocsc")
+audio = [ExtResource("1_bnw6c")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Raybellion, you choose to face whatever is in front of you. Unfortunately, your every move seems to satisfy that thing... And it's too late to turn back."
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://5368wc6qqvs4"]
+
+[ext_resource type="AudioStream" uid="uid://ftpd6byvxq2o" path="res://sounds/voice_resources/fish_resource/lonely_waters/preacheel_caught.mp3" id="1_xorh8"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_i1waf"]
+
+[resource]
+script = ExtResource("2_i1waf")
+audio = [ExtResource("1_xorh8")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Preacheel!"
+subtitle_touchscreen = ""

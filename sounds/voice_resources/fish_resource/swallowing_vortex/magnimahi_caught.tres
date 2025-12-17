@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://8g4126nrds3r"]
+
+[ext_resource type="AudioStream" uid="uid://bxawhl0iwrvh6" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_caught.mp3" id="1_ubdyr"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_4ckyn"]
+
+[resource]
+script = ExtResource("2_4ckyn")
+audio = [ExtResource("1_ubdyr")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Magni-Mahi!"
+subtitle_touchscreen = ""

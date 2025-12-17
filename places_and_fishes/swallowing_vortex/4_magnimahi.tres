@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://ca72pl3nndq0v"]
+
+[ext_resource type="Animation" uid="uid://blblf46nuajjj" path="res://places_and_fishes/swallowing_vortex/magnimahi_catching_sequence.res" id="1_ejmab"]
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_j01ra"]
+[ext_resource type="PackedScene" uid="uid://4a367bw1f5q8" path="res://game_scenes/fishing_run/luring/surf_vortex/luring_surf_vortex.tscn" id="1_u3120"]
+[ext_resource type="Texture2D" uid="uid://cm1fkhle2ch5v" path="res://places_and_fishes/swallowing_vortex/magnimahi.png" id="3_lvaaq"]
+[ext_resource type="Resource" uid="uid://dtjs5irdav1yh" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi.tres" id="3_oq1y4"]
+[ext_resource type="Resource" uid="uid://cvgmq6dxwwcoe" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_description.tres" id="4_d7hmi"]
+[ext_resource type="Resource" uid="uid://8g4126nrds3r" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_caught.tres" id="4_m7xjv"]
+
+[resource]
+script = ExtResource("1_j01ra")
+name = "Magnimahi"
+voice_name = ExtResource("3_oq1y4")
+voice_name_caught = ExtResource("4_m7xjv")
+picture = ExtResource("3_lvaaq")
+description = "The Magni-Mahi knows that its survival in the vortex results from a series of fortunate events. Born strong, in a current rich in Gonnby fish, it was able to ensure its safety. Since it willpower alone can't change the cruel laws of the vortex, its only hope is to meet other fellow creatures sharing its vision. It believes that someday, through a series of even more unlikely fortunate events, it will be possible to bring a little fairness to these waters."
+voice_description = ExtResource("4_d7hmi")
+rarity = 4
+luring_scene = ExtResource("1_u3120")
+catching_sequence = ExtResource("1_ejmab")

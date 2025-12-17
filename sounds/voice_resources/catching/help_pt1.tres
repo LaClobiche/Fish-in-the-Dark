@@ -8,3 +8,5 @@ script = ExtResource("1_pnwsa")
 audio = [ExtResource("1_x0q8l")]
 audio_touchscreen = []
 help = true
+subtitle = "If the fish moves towards one direction, press \"left\" or \"right\" to move your rod in the opposite way"
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://vp8rwi60qbmo"]
+
+[ext_resource type="AudioStream" uid="uid://cafad325ua28" path="res://sounds/voice_resources/final_scene/4_2_reaction.mp3" id="1_v27tb"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_7psu5"]
+
+[resource]
+script = ExtResource("2_7psu5")
+audio = [ExtResource("1_v27tb")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Worthita, your desire to exist leads you to fight with all your might. You're filled with pride. And then, nothing."
+subtitle_touchscreen = ""

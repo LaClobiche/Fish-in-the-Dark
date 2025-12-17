@@ -1,18 +1,18 @@
 extends Node2D
 
 var voice_credits := [
-	load("res://sounds/voice_resources/credits/credits_pt1_author.mp3"),
-	load("res://sounds/voice_resources/credits/credits_pt2_engine.mp3"),
-	load("res://sounds/voice_resources/credits/credits_pt3_narrator.mp3"),
-	load("res://sounds/voice_resources/credits/credits_pt4_soundeffects.mp3"),
-	load("res://sounds/voice_resources/credits/credits_pt5_fonts.mp3"),
-	load("res://sounds/voice_resources/credits/credits_pt6_thanks.mp3"),
+	load("res://sounds/voice_resources/credits/credits_pt1_author.tres"),
+	load("res://sounds/voice_resources/credits/credits_pt2_engine.tres"),
+	load("res://sounds/voice_resources/credits/credits_pt3_narrator.tres"),
+	load("res://sounds/voice_resources/credits/credits_pt4_soundeffects.tres"),
+	load("res://sounds/voice_resources/credits/credits_pt5_fonts.tres"),
+	load("res://sounds/voice_resources/credits/credits_pt6_thanks.tres"),
 ]
 # Game made by LaClobiche 
 # Created with GodotEngine
 # Narrator voices made with elevenlabs
 # Sound effects by Pixabay, SoundReality, Floraphonic and Zapslat
-# Fonts LanaPixel by Eishiya
+# Fonts: LanaPixel by Eishiya and TinyRPG by Tiopalada
 # Thank you for playing Fish in the Dark
 
 var inputs = false

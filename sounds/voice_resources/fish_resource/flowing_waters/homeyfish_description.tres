@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://ch75n3t88t3m1"]
+
+[ext_resource type="AudioStream" uid="uid://b63t2sgrjdp57" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish_description.mp3" id="1_rwc1q"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_kgeo8"]
+
+[resource]
+script = ExtResource("2_kgeo8")
+audio = [ExtResource("1_rwc1q")]
+audio_touchscreen = []
+help = false
+subtitle = "At heart, this fish is like a Flowfish, afraid of being tossed about too much by the currents. It lives in carefully decorated cavities, and when calm returns it explores his surroundings, grateful for all the riches and beauty it encounters."
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cm636u0j1b3ji"]
+
+[ext_resource type="AudioStream" uid="uid://b8la2gpr2wsm6" path="res://sounds/voice_resources/final_scene/1_2_thought.mp3" id="1_om4d8"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_sx4ww"]
+
+[resource]
+script = ExtResource("2_sx4ww")
+audio = [ExtResource("1_om4d8")]
+audio_touchscreen = []
+help = false
+subtitle = "Curling up on yourself."
+subtitle_touchscreen = ""

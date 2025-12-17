@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://b1piah40rfayc"]
+
+[ext_resource type="AudioStream" uid="uid://cmff5rybwufdr" path="res://sounds/voice_resources/final_scene/1_4_thought.mp3" id="1_ruuhd"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_wrqq7"]
+
+[resource]
+script = ExtResource("2_wrqq7")
+audio = [ExtResource("1_ruuhd")]
+audio_touchscreen = []
+help = false
+subtitle = " Look around and assess the situation."
+subtitle_touchscreen = ""

@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SoundEffectResource" load_steps=5 format=3 uid="uid://b0yoi2gy16ov8"]
 
 [ext_resource type="Script" path="res://game_resources/se_resource.gd" id="1_6n2gb"]
-[ext_resource type="AudioStream" uid="uid://soxpwksaabc" path="res://sounds/effects/rod_damage_crack0.wav" id="1_f4cru"]
-[ext_resource type="AudioStream" uid="uid://baxrv7csx2iep" path="res://sounds/effects/rod_damage_crack1.wav" id="2_sjv8d"]
+[ext_resource type="AudioStream" uid="uid://0bkj2tejqlfm" path="res://sounds/effects/rod_damage_crack0.wav" id="1_f4cru"]
+[ext_resource type="AudioStream" uid="uid://84b1x1w3wpir" path="res://sounds/effects/rod_damage_crack1.wav" id="2_sjv8d"]
 [ext_resource type="AudioStream" uid="uid://bxjit0n5pw0xs" path="res://sounds/effects/rod_damage_crack2.wav" id="3_78157"]
 
 [resource]

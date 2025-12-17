@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dxrkuoc1n4fgd"]
+
+[ext_resource type="AudioStream" uid="uid://dy8dla31e6c06" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/worthita_description.mp3" id="1_e7o7v"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_2kwdq"]
+
+[resource]
+script = ExtResource("2_2kwdq")
+audio = [ExtResource("1_e7o7v")]
+audio_touchscreen = []
+help = false
+subtitle = "The Worthita quickly had to learn to eat rather than be eaten. In this world of predatory competition, it convinces himself that it deserves its place, despising the weak and in awe of the strong."
+subtitle_touchscreen = ""

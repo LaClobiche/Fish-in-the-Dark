@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://8s2nw2uy38dq"]
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://8s2nw2uy38dq"]
 
 [ext_resource type="Script" path="res://game_resources/fish.gd" id="1_fpmyc"]
 [ext_resource type="Animation" uid="uid://danl45gp7wrnx" path="res://places_and_fishes/flowing_waters_tuto/homeyfish_catching_sequence.res" id="1_qjfn8"]
-[ext_resource type="AudioStream" uid="uid://b63t2sgrjdp57" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish_description.mp3" id="2_b0tl4"]
 [ext_resource type="PackedScene" uid="uid://bhpn3lx7b22w2" path="res://game_scenes/fishing_run/luring/follow_sound/luring_follow_sound.tscn" id="2_ob6hv"]
-[ext_resource type="AudioStream" uid="uid://bq7l2wq78aheb" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish.mp3" id="3_egfld"]
-[ext_resource type="AudioStream" uid="uid://1bhrk4mrwsnv" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish_caught.mp3" id="4_h6ns0"]
+[ext_resource type="Texture2D" uid="uid://dtjse6rwjv4kx" path="res://places_and_fishes/flowing_waters_tuto/homeyfish.png" id="3_lv5bm"]
+[ext_resource type="Resource" uid="uid://ch75n3t88t3m1" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish_description.tres" id="4_bq815"]
+[ext_resource type="Resource" uid="uid://b08tpgphelrlx" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish.tres" id="5_y71ym"]
+[ext_resource type="Resource" uid="uid://dpbefwr0aw50x" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish_caught.tres" id="6_krdwt"]
 
 [resource]
 script = ExtResource("1_fpmyc")
 name = "Homeyfish"
-voice_name = ExtResource("3_egfld")
-voice_name_caught = ExtResource("4_h6ns0")
+voice_name = ExtResource("5_y71ym")
+voice_name_caught = ExtResource("6_krdwt")
+picture = ExtResource("3_lv5bm")
 description = "At heart, this fish is like a Flowfish, afraid of being tossed about too much by the currents. It lives in carefully decorated cavities, and when calm returns it explores his surroundings, grateful for all the riches and beauty he encounters."
-voice_description = ExtResource("2_b0tl4")
+voice_description = ExtResource("4_bq815")
 rarity = 4
 luring_scene = ExtResource("2_ob6hv")
 catching_sequence = ExtResource("1_qjfn8")

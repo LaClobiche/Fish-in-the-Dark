@@ -20,7 +20,8 @@ var scenes = {
 	"casting" : load("res://game_scenes/fishing_run/casting/casting.tscn"),# launched in "fishing_run"
 	"luring" : Callable(set_luring_scene), # launched in "casting"
 	"catching" : load("res://game_scenes/fishing_run/catching/catching.tscn"),# launched in "luring"
-	"run_finished" : load("res://game_scenes/fishing_run/run_finished/run_finished.tscn"),# launched in "catching"
+	"run_finished" : load("res://game_scenes/fishing_run/run_finished/run_finished.tscn"),# launched in "catching" & "final_scene_breach"
+	"final_scene_breach" : load("res://game_scenes/fishing_run/final_scene_breach/final_scene_breach.tscn"),# launched in "catching" after the magnimahi is catched
 }
 
 @onready var current_scene := $CurrentScene
@@ -30,20 +31,24 @@ var scenes = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var current_os := OS.get_name()
-	if current_os == "Android" or current_os == "iOS":
-		Global.touchscreen = true
 	if Global.touchscreen:
 		ui_touchscreen.show()
+	if OS.is_debug_build():
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
 	Signals.scene_requested.connect(set_scene)
 	Signals.game_over_requested.connect(set_scene.bind("run_finished", "game_over"))
 	set_scene("intro")
-	
 
 
 # delete SceneHandler child, set a new scene as a child.
 func set_scene(scene_name: String, optional_argument: String = ""):
 	# TODO place fade out anim #
+	# clear sound effects and voices.
+	Sound.stop_voice_array_and_queue()
+	Sound.stop_se()
+	# delete the current scene and ass a new one
 	var scene = scenes[scene_name]
 	if scene is PackedScene:
 		var scene_instance: Node = scene.instantiate()
@@ -79,7 +84,10 @@ func toggle_pause():
 
 func quit_game():
 	Saves.save_game()
+	for child in current_scene.get_children():
+		child.queue_free()
 	var quit: Callable = get_tree().quit
+	Signals.fade_in_black.emit()
 	Sound.stop_voice_array_and_queue()
 	Sound.play_se(Sound.effects["walk_out"])
 	Sound.sound_effects.finished.connect(quit)

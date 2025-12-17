@@ -8,3 +8,5 @@ script = ExtResource("2_rkn7c")
 audio = [ExtResource("1_pbi3s")]
 audio_touchscreen = []
 help = false
+subtitle = "Enable game controls and contextual help."
+subtitle_touchscreen = ""

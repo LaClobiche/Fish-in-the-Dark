@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://b6jak3fmu2aj3"]
+
+[ext_resource type="AudioStream" uid="uid://c5wy67g52bcpb" path="res://sounds/voice_resources/final_scene/1_2_reaction.mp3" id="1_chv3c"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_cnnkm"]
+
+[resource]
+script = ExtResource("2_cnnkm")
+audio = [ExtResource("1_chv3c")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Bubblefish, you try to protect yourself while the current carries you away."
+subtitle_touchscreen = ""

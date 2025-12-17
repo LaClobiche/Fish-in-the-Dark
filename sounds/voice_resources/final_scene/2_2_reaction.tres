@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://ficmgy2lxpxk"]
+
+[ext_resource type="AudioStream" uid="uid://buo1fr75v3yo1" path="res://sounds/voice_resources/final_scene/2_2_reaction.mp3" id="1_4s6fu"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_hdxri"]
+
+[resource]
+script = ExtResource("2_hdxri")
+audio = [ExtResource("1_4s6fu")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Receiveel, you've been given skills that allow you to face the most radical solitude. You focus on yourself and wait for the light to return."
+subtitle_touchscreen = ""

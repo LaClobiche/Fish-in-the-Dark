@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://djub7iw1mg6ew"]
+
+[ext_resource type="AudioStream" uid="uid://dvadnadpc6hq8" path="res://sounds/voice_resources/final_scene/4_4_reaction.mp3" id="1_5rssl"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_okyqb"]
+
+[resource]
+script = ExtResource("2_okyqb")
+audio = [ExtResource("1_5rssl")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Magnimahi, you understand that your free will is insignificant. You watch the dance between your tiny self and this immense thing. From this dance emerges a singular silhouette."
+subtitle_touchscreen = ""

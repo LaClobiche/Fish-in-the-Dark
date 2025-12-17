@@ -24,16 +24,22 @@ func get_voice_array(with_helper: bool = Saves.data["options"]["helper"],
 		array_to_return.append_array(get_number())
 	else:
 		for voice_resource in voice_array:
-			if voice_resource.help and not with_helper:
-				pass
-			else:
-				var audio: AudioStream = voice_resource.get_audio(touchscreen)
-				if audio != null:
-					array_to_return.append(audio)
+			if voice_resource is AudioStream:
+				array_to_return.append([voice_resource, ""])
+			elif voice_resource is VoiceResource:
+				if voice_resource.help and not with_helper:
+					pass
 				else:
-					print("narrative_block.gd, get_narrative_block: error,
-							 tried to append a null voice_resource audio.
-							\n Empty voice_resource: " + voice_resource.resource_path)
+					var voice_resource_array = voice_resource.get_resources(touchscreen)
+					if voice_resource_array[0] != null:
+						array_to_return.append(voice_resource_array)
+					else:
+						print("voice_array.gd, get_voice_array: error,
+								 tried to append a null voice_resource audio.
+								\n Empty voice_resource: " + voice_resource.resource_path)
+			else:
+				print("voice_array.gd, get_voice_array: error, wrong resource type. Should be VoiceResource or AudioStream.\n
+						Wrong resource: " + voice_resource.resource_path)
 	return array_to_return
 
 

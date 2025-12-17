@@ -1,68 +1,85 @@
-[gd_scene load_steps=6 format=3 uid="uid://oqdxo40h6bgj"]
+[gd_scene load_steps=16 format=3 uid="uid://oqdxo40h6bgj"]
 
 [ext_resource type="Script" path="res://game_scenes/ui_touchscreen.gd" id="1_mmqvf"]
-[ext_resource type="Theme" uid="uid://dx46ipfpncddl" path="res://game_theme.tres" id="2_drvwq"]
+
+[sub_resource type="Gradient" id="Gradient_mum00"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8iei"]
+gradient = SubResource("Gradient_mum00")
+width = 1280
+height = 200
+
+[sub_resource type="Gradient" id="Gradient_r2low"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.196078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m4kqu"]
+gradient = SubResource("Gradient_r2low")
+width = 1280
+height = 200
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxwrw"]
-size = Vector2(1280, 200)
+size = Vector2(1580, 200)
+
+[sub_resource type="Gradient" id="Gradient_daaxe"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2hkqe"]
+gradient = SubResource("Gradient_daaxe")
+width = 420
+height = 520
+
+[sub_resource type="Gradient" id="Gradient_rtp3j"]
+colors = PackedColorArray(1, 1, 1, 0.196078, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tqcp3"]
+gradient = SubResource("Gradient_rtp3j")
+width = 420
+height = 520
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hb2cv"]
-size = Vector2(640, 520)
+size = Vector2(720, 520)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f3wqa"]
+gradient = SubResource("Gradient_daaxe")
+width = 420
+height = 520
+
+[sub_resource type="Gradient" id="Gradient_jm33y"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.196078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sf328"]
+gradient = SubResource("Gradient_jm33y")
+width = 420
+height = 520
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyhjw"]
-size = Vector2(640, 520)
+size = Vector2(720, 520)
 
 [node name="UITouchscreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_mmqvf")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(500, 500)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="TPanel" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme = ExtResource("2_drvwq")
-
-[node name="TButton" type="TouchScreenButton" parent="MarginContainer/VBoxContainer/TPanel"]
-position = Vector2(640, 100)
+[node name="TButton" type="TouchScreenButton" parent="."]
+texture_normal = SubResource("GradientTexture2D_n8iei")
+texture_pressed = SubResource("GradientTexture2D_m4kqu")
 shape = SubResource("RectangleShape2D_yxwrw")
 action = "\"top\""
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 1
-alignment = 1
-
-[node name="LPanel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("2_drvwq")
-
-[node name="LButton" type="TouchScreenButton" parent="MarginContainer/VBoxContainer/HBoxContainer/LPanel"]
-position = Vector2(320, 259)
+[node name="LButton" type="TouchScreenButton" parent="."]
+position = Vector2(0, 200)
+texture_normal = SubResource("GradientTexture2D_2hkqe")
+texture_pressed = SubResource("GradientTexture2D_tqcp3")
 shape = SubResource("RectangleShape2D_hb2cv")
 action = "\"left\""
 
-[node name="RPanel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("2_drvwq")
-
-[node name="RButton" type="TouchScreenButton" parent="MarginContainer/VBoxContainer/HBoxContainer/RPanel"]
-position = Vector2(320, 259)
+[node name="RButton" type="TouchScreenButton" parent="."]
+position = Vector2(860, 200)
+texture_normal = SubResource("GradientTexture2D_f3wqa")
+texture_pressed = SubResource("GradientTexture2D_sf328")
 shape = SubResource("RectangleShape2D_cyhjw")
 action = "\"right\""

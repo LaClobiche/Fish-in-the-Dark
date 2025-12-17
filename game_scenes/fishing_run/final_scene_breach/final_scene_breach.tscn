@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://g2eucrcweaqi"]
+
+[ext_resource type="Script" path="res://game_scenes/fishing_run/final_scene_breach/final_scene_breach.gd" id="1_ywx4b"]
+
+[node name="final_scene_breach" type="Node2D"]
+script = ExtResource("1_ywx4b")
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

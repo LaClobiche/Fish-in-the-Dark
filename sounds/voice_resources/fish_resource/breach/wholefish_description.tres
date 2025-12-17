@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://clro8jxybpe2s"]
+
+[ext_resource type="AudioStream" uid="uid://bluc56lcbqkjl" path="res://sounds/voice_resources/fish_resource/breach/wholefish_description.mp3" id="1_admdh"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_kincy"]
+
+[resource]
+script = ExtResource("1_kincy")
+audio = [ExtResource("1_admdh")]
+audio_touchscreen = []
+help = false
+subtitle = "An immense, indomitable mass. Its shape defies identification. As you let yourself be imbued with its presence, you perceive a patch of water on its surface. And next to it… could it be?"
+subtitle_touchscreen = ""

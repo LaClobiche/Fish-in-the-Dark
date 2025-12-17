@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://duidenj1xr5p8"]
+
+[ext_resource type="AudioStream" uid="uid://dbddxoiaagab4" path="res://sounds/voice_resources/fish_resource/flowing_waters/bubblefish.mp3" id="1_llirv"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_gnkd8"]
+
+[resource]
+script = ExtResource("2_gnkd8")
+audio = [ExtResource("1_llirv")]
+audio_touchscreen = []
+help = false
+subtitle = "the Bubblefish"
+subtitle_touchscreen = ""

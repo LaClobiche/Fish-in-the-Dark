@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://pv1ab2our3f8"]
+
+[ext_resource type="AudioStream" uid="uid://bdjn5amfj2cst" path="res://sounds/voice_resources/luring/follow_flowing_water/voice_help.mp3" id="1_24upe"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_rjdls"]
+
+[resource]
+script = ExtResource("1_rjdls")
+audio = [ExtResource("1_24upe")]
+audio_touchscreen = []
+help = true
+subtitle = "You can move your lure left or right by holding the left or right button. Follow the sound of the flowing water to track where the fish is. If you hear bubbles, you're succeeding and the fish is approaching. If you hear your rod crack, you're in the wrong place."
+subtitle_touchscreen = ""

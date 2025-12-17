@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://b77jcx07c33su"]
+[gd_scene load_steps=19 format=3 uid="uid://b77jcx07c33su"]
 
 [ext_resource type="PackedScene" uid="uid://cr2ry11y5isyr" path="res://game_scenes/fishing_run/luring/luring.tscn" id="1_v4nh8"]
 [ext_resource type="Script" path="res://game_scenes/fishing_run/luring/catch_sound/luring_catch_sound.gd" id="2_uaqw8"]
 [ext_resource type="AudioStream" uid="uid://d0h7p0yb5ym68" path="res://sounds/effects/bubbles_loop.mp3" id="3_5fi61"]
+[ext_resource type="Resource" uid="uid://c6nn5mxn3m323" path="res://sounds/voice_resources/luring/catch_sound/voice_intro.tres" id="3_hvcnt"]
 [ext_resource type="Animation" uid="uid://dt1eok81kmit3" path="res://game_scenes/fishing_run/luring/catch_sound/Preacheel.res" id="4_tp656"]
 [ext_resource type="Animation" uid="uid://bxdkh3h0u6u5k" path="res://game_scenes/fishing_run/luring/catch_sound/Enlighteel.res" id="5_hqo2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyk2e"]
-size = Vector2(50, 40)
+size = Vector2(70, 40)
 
 [sub_resource type="Gradient" id="Gradient_t0o8t"]
 offsets = PackedFloat32Array(1)
@@ -55,10 +56,10 @@ _data = {
 [node name="LuringCatchSound" instance=ExtResource("1_v4nh8")]
 script = ExtResource("2_uaqw8")
 speed = 800
-friction = 0.1
+friction = 0.2
 acceleration = 0.08
-rod_damage = 10
 fish_damage = 30
+voice_intro = ExtResource("3_hvcnt")
 sound_succeed = ExtResource("3_5fi61")
 
 [node name="Area2D" type="Area2D" parent="Sound2DNodes/Sound2DLeft" index="6"]
@@ -116,7 +117,7 @@ texture = SubResource("GradientTexture1D_jseiv")
 shape = SubResource("RectangleShape2D_cwxsj")
 
 [node name="FishHPCooldown" parent="." index="3"]
-wait_time = 1.5
+wait_time = 1.0
 one_shot = true
 
 [node name="RodHPCooldown" parent="." index="4"]

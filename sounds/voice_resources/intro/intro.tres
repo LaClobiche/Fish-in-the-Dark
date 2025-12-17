@@ -9,3 +9,5 @@ script = ExtResource("1_xa3nd")
 audio = [ExtResource("1_sccab")]
 audio_touchscreen = [ExtResource("2_hyll5")]
 help = true
+subtitle = "This game relies on spatialized stereo audio cues. Please use wired headphones. Bluetooth devices may introduce audio latency and affect gameplay."
+subtitle_touchscreen = " Please use wired headphones and hold your device in landscape mode. This game relies on spatialized stereo audio cues. Bluetooth devices may introduce latency and disrupt gameplay."

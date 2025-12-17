@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://brosuot05drdc"]
+
+[ext_resource type="AudioStream" uid="uid://gb16tpptxk5a" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/gonnby_caught.mp3" id="1_q5pg8"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_wmhwi"]
+
+[resource]
+script = ExtResource("2_wmhwi")
+audio = [ExtResource("1_q5pg8")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Gonnby!"
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bpbyofl7wf2mx"]
+
+[ext_resource type="AudioStream" uid="uid://b1t5p5hdv2b6n" path="res://sounds/voice_resources/final_scene/3_4_reaction.mp3" id="1_kilo7"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_hv1lk"]
+
+[resource]
+script = ExtResource("2_hv1lk")
+audio = [ExtResource("1_kilo7")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Distinctuna, you want to understand the thing to better separate yourself from it. You try to communicate. The words don't come out, but the thing seems to hear you. It understands your fear, your need to comprehend, your desire for singularity."
+subtitle_touchscreen = ""

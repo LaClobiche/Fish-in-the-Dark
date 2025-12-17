@@ -8,3 +8,5 @@ script = ExtResource("2_vgrag")
 audio = [ExtResource("1_21jmi")]
 audio_touchscreen = []
 help = true
+subtitle = "If the fish is facing you and struggling, do nothing and let it get tired"
+subtitle_touchscreen = ""

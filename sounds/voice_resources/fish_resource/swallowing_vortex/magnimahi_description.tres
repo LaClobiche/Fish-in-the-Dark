@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VoiceArray" load_steps=4 format=3 uid="uid://cvgmq6dxwwcoe"]
+
+[ext_resource type="Script" path="res://game_resources/voice_array.gd" id="1_exbyk"]
+[ext_resource type="Resource" uid="uid://c5bo4khlcsoxn" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_description_00.tres" id="2_qgeg4"]
+[ext_resource type="Resource" uid="uid://l8uj4wpb8amw" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_description_01.tres" id="3_0tjmn"]
+
+[resource]
+script = ExtResource("1_exbyk")
+voice_array = [ExtResource("2_qgeg4"), ExtResource("3_0tjmn")]
+is_number = false
+number = 0

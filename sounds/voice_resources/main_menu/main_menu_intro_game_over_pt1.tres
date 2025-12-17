@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://0831mryvhb5o"]
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://0831mryvhb5o"]
 
 [ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_pcqdr"]
 [ext_resource type="AudioStream" uid="uid://04spafgjm1ue" path="res://sounds/voice_resources/main_menu/main_menu_intro_game_over0.mp3" id="1_vooju"]
-[ext_resource type="AudioStream" uid="uid://dakfn21o7lraf" path="res://sounds/voice_resources/main_menu/main_menu_intro_game_over1.mp3" id="2_n3dnt"]
 
 [resource]
 script = ExtResource("1_pcqdr")
-audio = [ExtResource("1_vooju"), ExtResource("2_n3dnt")]
+audio = [ExtResource("1_vooju")]
 audio_touchscreen = []
 help = false
+subtitle = "You open your eyes. You have no idea how much time has passed. And you're still standing in front of this strange pond."
+subtitle_touchscreen = ""

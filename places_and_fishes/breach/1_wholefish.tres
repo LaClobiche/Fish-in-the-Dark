@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Fish" load_steps=6 format=3 uid="uid://dbr7q4wopl1nt"]
+
+[ext_resource type="Texture2D" uid="uid://c7ym808iealto" path="res://places_and_fishes/breach/wholefish.png" id="1_dqup0"]
+[ext_resource type="Script" path="res://game_resources/fish.gd" id="1_duhhs"]
+[ext_resource type="Resource" uid="uid://clro8jxybpe2s" path="res://sounds/voice_resources/fish_resource/breach/wholefish_description.tres" id="2_hfurp"]
+[ext_resource type="Resource" uid="uid://em3gnaea533m" path="res://sounds/voice_resources/fish_resource/breach/wholefish.tres" id="3_ahfjq"]
+[ext_resource type="Resource" uid="uid://ix1ybp8n5pqj" path="res://sounds/voice_resources/fish_resource/breach/wholefish_caught.tres" id="4_gk1ry"]
+
+[resource]
+script = ExtResource("1_duhhs")
+name = "Wholefish"
+voice_name = ExtResource("3_ahfjq")
+voice_name_caught = ExtResource("4_gk1ry")
+picture = ExtResource("1_dqup0")
+description = "An immense, indomitable mass. If you look closely, you can see a small patch of water and, beside it, a tiny being."
+voice_description = ExtResource("2_hfurp")
+rarity = 1

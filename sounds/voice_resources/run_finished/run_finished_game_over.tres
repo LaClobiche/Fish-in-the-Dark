@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bjljf3vnlhh8v"]
+
+[ext_resource type="AudioStream" uid="uid://ctluoixllnxuw" path="res://sounds/voice_resources/run_finished/run_finished_game_over.mp3" id="1_i178h"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_xwbd8"]
+
+[resource]
+script = ExtResource("1_xwbd8")
+audio = [ExtResource("1_i178h")]
+audio_touchscreen = []
+help = false
+subtitle = "Suddenly, your rod shatters into fragments. You feel yourself drift away..."
+subtitle_touchscreen = ""

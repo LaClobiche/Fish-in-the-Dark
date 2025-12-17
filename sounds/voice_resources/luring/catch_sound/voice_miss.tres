@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=4 format=3 uid="uid://e61ymlpm1146"]
+
+[ext_resource type="AudioStream" uid="uid://drftc54hh35qf" path="res://sounds/voice_resources/luring/catch_sound/voice_miss0.mp3" id="1_4p6r3"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_iqnks"]
+[ext_resource type="AudioStream" uid="uid://b2ree5f4kvorv" path="res://sounds/voice_resources/luring/catch_sound/voice_miss1.mp3" id="2_qjjpb"]
+
+[resource]
+script = ExtResource("1_iqnks")
+audio = [ExtResource("1_4p6r3"), ExtResource("2_qjjpb")]
+audio_touchscreen = []
+help = false
+subtitle = "You missed a voice."
+subtitle_touchscreen = ""

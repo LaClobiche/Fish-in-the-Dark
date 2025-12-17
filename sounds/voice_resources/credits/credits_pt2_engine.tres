@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://ee1mcbtdjbwk"]
+
+[ext_resource type="AudioStream" uid="uid://d1ef38bxr44cy" path="res://sounds/voice_resources/credits/credits_pt2_engine.mp3" id="1_cj6ho"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_owt7w"]
+
+[resource]
+script = ExtResource("2_owt7w")
+audio = [ExtResource("1_cj6ho")]
+audio_touchscreen = []
+help = false
+subtitle = "Created with Godot Engine"
+subtitle_touchscreen = ""

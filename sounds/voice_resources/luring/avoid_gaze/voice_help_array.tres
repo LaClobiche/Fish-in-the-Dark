@@ -5,10 +5,10 @@
 [ext_resource type="Resource" uid="uid://215dfydvu3rl" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt1_gaze_sound.tres" id="3_y5mf6"]
 [ext_resource type="Resource" uid="uid://d2xglxlqvf2ad" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt2.tres" id="4_fojay"]
 [ext_resource type="Resource" uid="uid://br7lnbopwckc" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt2_shelter_sound.tres" id="5_4dtjj"]
-[ext_resource type="Resource" uid="uid://bdnocml3q3o7f" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt3.tres" id="6_j6wpn"]
+[ext_resource type="Resource" uid="uid://bdnocml3q3o7f" path="res://sounds/voice_resources/luring/avoid_gaze/help_pt0.tres" id="6_j6wpn"]
 
 [resource]
 script = ExtResource("1_cswy7")
-voice_array = [ExtResource("2_2y1lm"), ExtResource("3_y5mf6"), ExtResource("4_fojay"), ExtResource("5_4dtjj"), ExtResource("6_j6wpn")]
+voice_array = [ExtResource("6_j6wpn"), ExtResource("4_fojay"), ExtResource("5_4dtjj"), ExtResource("2_2y1lm"), ExtResource("3_y5mf6")]
 is_number = false
 number = 0

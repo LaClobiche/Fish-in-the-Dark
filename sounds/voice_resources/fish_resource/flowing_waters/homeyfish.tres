@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://b08tpgphelrlx"]
+
+[ext_resource type="AudioStream" uid="uid://bq7l2wq78aheb" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish.mp3" id="1_qweco"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_fxxp8"]
+
+[resource]
+script = ExtResource("2_fxxp8")
+audio = [ExtResource("1_qweco")]
+audio_touchscreen = []
+help = false
+subtitle = "the Homeyfish"
+subtitle_touchscreen = ""

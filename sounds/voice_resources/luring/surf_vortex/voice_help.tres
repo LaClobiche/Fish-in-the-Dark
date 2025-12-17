@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cpn3fogejxg0y"]
+
+[ext_resource type="AudioStream" uid="uid://cf2g5iw1e5duy" path="res://sounds/voice_resources/luring/surf_vortex/voice_help.wav" id="1_ivceq"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_y1g2i"]
+
+[resource]
+script = ExtResource("2_y1g2i")
+audio = [ExtResource("1_ivceq")]
+audio_touchscreen = []
+help = true
+subtitle = "Your bait is drifting toward the vortex, but hungry insects are after it. First, you'll hear a preview of their attack pattern: focus on the rhythm of the loud congo beats. Then, when the insects strike for real, press left or right to dodge on each loud congo."
+subtitle_touchscreen = ""

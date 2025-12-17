@@ -9,5 +9,5 @@ script = ExtResource("3_5kg51")
 audio = [ExtResource("1_idjrm"), ExtResource("2_ru43f")]
 audio_touchscreen = []
 help = false
-play_once = false
-is_number = false
+subtitle = "Open your scoreboard."
+subtitle_touchscreen = ""

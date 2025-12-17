@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_scenes/fishing_run/catching/catching.gd" id="1_d18iw"]
 [ext_resource type="AnimationLibrary" uid="uid://dmkbvbwxe2kqy" path="res://game_scenes/fishing_run/catching/catching_sequences_library_editor.res" id="3_gn5om"]
-[ext_resource type="PackedScene" uid="uid://c672i6lia8s81" path="res://sounds/sound_2d.tscn" id="4_iehmg"]
+[ext_resource type="PackedScene" uid="uid://c672i6lia8s81" path="res://game_scenes/sound_2d/sound_2d.tscn" id="4_iehmg"]
 [ext_resource type="AnimationLibrary" uid="uid://lww83elwybbo" path="res://game_scenes/fishing_run/catching/catching_sequences_library_ingame.res" id="4_kfrsw"]
 
 [sub_resource type="Gradient" id="Gradient_7jxbd"]
@@ -23,8 +23,8 @@ size = Vector2(1354, 80.5)
 
 [node name="Catching" type="Node2D"]
 script = ExtResource("1_d18iw")
-rod_damage = 1
-fish_damage = 4
+rod_damage = 3
+fish_damage = 3
 fish_min_vol = -5
 
 [node name="Sound2DNodes" type="Node2D" parent="."]
@@ -71,7 +71,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="PullingInputTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.7
 one_shot = true
 
 [node name="ReelingInputTimer" type="Timer" parent="."]
@@ -87,6 +87,28 @@ libraries = {
 "catching_sequences_editor_library": ExtResource("3_gn5om"),
 "catching_sequences_library_ingame": ExtResource("4_kfrsw")
 }
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Debug/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Debug/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "State: "
+
+[node name="State" type="Label" parent="Debug/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "current_state"
 
 [connection signal="timeout" from="PullingInputTimer" to="." method="_on_pulling_input_timer_timeout"]
 [connection signal="timeout" from="ReelingSoundTimer" to="." method="_on_reeling_sound_timer_timeout"]

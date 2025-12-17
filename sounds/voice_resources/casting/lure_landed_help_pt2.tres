@@ -8,3 +8,5 @@ script = ExtResource("3_pr6cb")
 audio = [ExtResource("1_bgh77")]
 audio_touchscreen = []
 help = true
+subtitle = "Press left to lure fishes here, press right to reel"
+subtitle_touchscreen = ""

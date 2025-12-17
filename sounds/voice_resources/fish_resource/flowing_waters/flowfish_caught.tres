@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dyvj1frygtjco"]
+
+[ext_resource type="AudioStream" uid="uid://bx0ignh56pgfj" path="res://sounds/voice_resources/fish_resource/flowing_waters/flowfish_caught.mp3" id="1_10k41"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_qt80n"]
+
+[resource]
+script = ExtResource("2_qt80n")
+audio = [ExtResource("1_10k41")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Flowfish!"
+subtitle_touchscreen = ""

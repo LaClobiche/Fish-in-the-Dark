@@ -8,3 +8,5 @@ script = ExtResource("2_r47m3")
 audio = [ExtResource("1_blb5d")]
 audio_touchscreen = []
 help = true
+subtitle = "When you're doing right, you can hear bubbles. When you're doing wrong, you will hear your rod creak."
+subtitle_touchscreen = ""

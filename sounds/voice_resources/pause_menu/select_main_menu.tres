@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://c30ja181efye0"]
+
+[ext_resource type="AudioStream" uid="uid://bs7gqdskynf6j" path="res://sounds/voice_resources/pause_menu/select_main_menu.mp3" id="1_m1oui"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_8bcpq"]
+
+[resource]
+script = ExtResource("2_8bcpq")
+audio = [ExtResource("1_m1oui")]
+audio_touchscreen = []
+help = false
+subtitle = "You want to put down your rod and rethink your options."
+subtitle_touchscreen = ""

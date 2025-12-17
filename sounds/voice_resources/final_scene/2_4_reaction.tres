@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://div4b2f08yr70"]
+
+[ext_resource type="AudioStream" uid="uid://iqvmpgqvmswm" path="res://sounds/voice_resources/final_scene/2_4_reaction.mp3" id="1_w4pr6"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_wekjk"]
+
+[resource]
+script = ExtResource("2_wekjk")
+audio = [ExtResource("1_w4pr6")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Enlighteel, you don't think you can escape darkness. You try to perceive your surroundings differently. Without being able to name your perceptions, you sense that you are definitely not alone."
+subtitle_touchscreen = ""

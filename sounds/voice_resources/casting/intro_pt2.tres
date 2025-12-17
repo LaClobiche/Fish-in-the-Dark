@@ -10,3 +10,5 @@ script = ExtResource("3_qspey")
 audio = [ExtResource("1_tu43j"), ExtResource("2_ka5m4"), ExtResource("3_dp5qa")]
 audio_touchscreen = []
 help = false
+subtitle = "Let's cast!"
+subtitle_touchscreen = ""

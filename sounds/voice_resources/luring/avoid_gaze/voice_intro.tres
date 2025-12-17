@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://do2ksycd36tbh"]
+
+[ext_resource type="AudioStream" uid="uid://gvk1tuqittw5" path="res://sounds/voice_resources/luring/avoid_gaze/voice_intro.mp3" id="1_1c3ha"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_vv2qf"]
+
+[resource]
+script = ExtResource("2_vv2qf")
+audio = [ExtResource("1_1c3ha")]
+audio_touchscreen = []
+help = false
+subtitle = "Move to the right and avoid the Gaze."
+subtitle_touchscreen = ""

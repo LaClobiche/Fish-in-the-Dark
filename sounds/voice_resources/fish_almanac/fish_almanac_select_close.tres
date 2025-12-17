@@ -9,3 +9,5 @@ script = ExtResource("3_whsor")
 audio = [ExtResource("1_nf4tj"), ExtResource("2_iry0f")]
 audio_touchscreen = []
 help = false
+subtitle = "Close your almanac"
+subtitle_touchscreen = ""

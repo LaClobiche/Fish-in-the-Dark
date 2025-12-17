@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cds2n1pwgjrwg"]
+
+[ext_resource type="AudioStream" uid="uid://dmtwfef2kval5" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_description.mp3" id="1_y4apv"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_nvt22"]
+
+[resource]
+script = ExtResource("2_nvt22")
+audio = [ExtResource("1_y4apv")]
+audio_touchscreen = []
+help = false
+subtitle = "The Distinctuna learned a lot from the gaze. It understands its purpose and motives more clearly, but it has no desire to follow this path. It has decided to venture into new waters. Perhaps it will return with its findings? It will depend on the gaze."
+subtitle_touchscreen = ""

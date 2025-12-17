@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://b7sileojimymd"]
+
+[ext_resource type="AudioStream" uid="uid://ophg3vk0x7i1" path="res://sounds/voice_resources/audio_settings/set_to_def.mp3" id="1_sevmf"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_0tj56"]
+
+[resource]
+script = ExtResource("2_0tj56")
+audio = [ExtResource("1_sevmf")]
+audio_touchscreen = []
+help = false
+subtitle = "Set to default"
+subtitle_touchscreen = ""

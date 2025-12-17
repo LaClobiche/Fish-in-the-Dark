@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dc1jn7s3821eo"]
+
+[ext_resource type="AudioStream" uid="uid://by06aaumfoibq" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/ogurnard_description.mp3" id="1_tgn2d"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_gp5sn"]
+
+[resource]
+script = ExtResource("2_gp5sn")
+audio = [ExtResource("1_tgn2d")]
+audio_touchscreen = []
+help = false
+subtitle = "The Ogurnard was not afraid to sacrifice others to ensure its domination of the vortex. With no enemies left, it seeks out anything that will satisfy its appetite. Thinking itself invincible, its devouring desire drives it to explore the Breach, the source of the vortex, from which none of its fellows have returned."
+subtitle_touchscreen = ""

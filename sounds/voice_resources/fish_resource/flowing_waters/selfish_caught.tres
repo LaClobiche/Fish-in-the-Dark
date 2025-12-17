@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dp0siikfacgmg"]
+
+[ext_resource type="AudioStream" uid="uid://brm7hww2u4rjg" path="res://sounds/voice_resources/fish_resource/flowing_waters/selfish_caught.mp3" id="1_cgdaw"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_vb0q7"]
+
+[resource]
+script = ExtResource("2_vb0q7")
+audio = [ExtResource("1_cgdaw")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Selfish!"
+subtitle_touchscreen = ""

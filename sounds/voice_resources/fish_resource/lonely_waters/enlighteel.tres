@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dhonlcde1rhw2"]
+
+[ext_resource type="AudioStream" uid="uid://dupv34ewh8q4u" path="res://sounds/voice_resources/fish_resource/lonely_waters/enlighteel.mp3" id="1_t0ane"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_oxsta"]
+
+[resource]
+script = ExtResource("2_oxsta")
+audio = [ExtResource("1_t0ane")]
+audio_touchscreen = []
+help = false
+subtitle = "the Enlighteel"
+subtitle_touchscreen = ""

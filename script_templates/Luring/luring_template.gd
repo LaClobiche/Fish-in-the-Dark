@@ -25,7 +25,7 @@ func _unhandled_input(event):
 	super._unhandled_input(event)
 	if current_state == State.INTRO:
 		if event.is_action_pressed("left") or event.is_action_pressed("right"):
-			Sound.stop_voice_array_and_queue()
+			Sound.play_next_voice()
 	elif current_state == State.OUTRO:
 		pass
 	else:#current_state == State.LURING

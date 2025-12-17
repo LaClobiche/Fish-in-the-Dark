@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dld7snvi0wbt4"]
+
+[ext_resource type="AudioStream" uid="uid://jf1er0fwd5em" path="res://sounds/voice_resources/audio_settings/music_volume.mp3" id="1_q1dcs"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_kncqp"]
+
+[resource]
+script = ExtResource("2_kncqp")
+audio = [ExtResource("1_q1dcs")]
+audio_touchscreen = []
+help = false
+subtitle = "Change the music volume"
+subtitle_touchscreen = ""

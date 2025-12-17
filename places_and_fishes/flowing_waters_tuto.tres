@@ -5,12 +5,13 @@
 [ext_resource type="Resource" uid="uid://c6fjybfly6vvm" path="res://places_and_fishes/flowing_waters_tuto/2_bubblefish.tres" id="2_xvkmt"]
 [ext_resource type="Resource" uid="uid://dycf4ipu3pga0" path="res://places_and_fishes/flowing_waters_tuto/3_selfish.tres" id="3_8vtpw"]
 [ext_resource type="Resource" uid="uid://8s2nw2uy38dq" path="res://places_and_fishes/flowing_waters_tuto/4_homeyfish.tres" id="4_j7m6y"]
-[ext_resource type="AudioStream" uid="uid://c634kam4xgpxn" path="res://sounds/voice_resources/place_resource/flowing_waters.mp3" id="6_fnqm4"]
+[ext_resource type="Resource" uid="uid://coaq6ofbxmdr4" path="res://sounds/voice_resources/place_resource/flowing_waters.tres" id="6_dqdv7"]
 
 [resource]
 script = ExtResource("1_oeqai")
 name = 0
-voice_name = ExtResource("6_fnqm4")
+text_menu_name = "Flowing Waters"
+voice_name = ExtResource("6_dqdv7")
 fishes_by_rarity = {
 0: ExtResource("1_47cny"),
 1: ExtResource("2_xvkmt"),

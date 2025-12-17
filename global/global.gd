@@ -7,11 +7,14 @@ var places := {
 	Place.PlaceName.FLOWING_WATERS_TUTO : load("res://places_and_fishes/flowing_waters_tuto.tres"),
 	Place.PlaceName.LONELY_WATERS : load("res://places_and_fishes/lonely_waters.tres"),
 	Place.PlaceName.EVERWATCHING_COVE : load("res://places_and_fishes/everwatching_cove.tres"),
+	Place.PlaceName.SWALLOWING_VORTEX : load("res://places_and_fishes/swallowing_vortex.tres"),
+	Place.PlaceName.BREACH : load("res://places_and_fishes/breach.tres")
 }
 
 #### variables determined when the game launches, in scene_handler ####
 
-var touchscreen: bool = false
+var touchscreen: bool = DisplayServer.is_touchscreen_available()
+var debug: bool = OS.is_debug_build()
 
 #### variables changes through the game ####
 
@@ -90,7 +93,7 @@ func get_next_fish(place_name: Place.PlaceName) -> Fish:
 ## return the centered side or the center of the viewport according to given direction.
 func get_viewport_directed_position(direction: Vector2i) -> Vector2:
 	direction = direction.clamp(-Vector2i.ONE, Vector2i.ONE)
-	var viewport_r: Rect2 = get_viewport_rect()
+	var viewport_r: Rect2 = Rect2(0,0, 1280, 720)
 	var viewport_origin := viewport_r.position
 	var viewport_center := viewport_r.get_center()
 	var x_position: float = 0.0

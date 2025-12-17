@@ -8,3 +8,5 @@ script = ExtResource("1_ioil3")
 audio = [ExtResource("1_3fnl0")]
 audio_touchscreen = []
 help = true
+subtitle = "The Gaze scans the area and makes this noise..."
+subtitle_touchscreen = ""

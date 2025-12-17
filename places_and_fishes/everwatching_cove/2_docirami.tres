@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://cbhksxjbj2xk"]
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://cbhksxjbj2xk"]
 
 [ext_resource type="Script" path="res://game_resources/fish.gd" id="1_3nug6"]
 [ext_resource type="Animation" uid="uid://b62x2364xrshe" path="res://places_and_fishes/everwatching_cove/docirami_catching_sequence.res" id="1_vl0kb"]
 [ext_resource type="PackedScene" uid="uid://8hdwm383seom" path="res://game_scenes/fishing_run/luring/avoid_gaze/luring_avoid_gaze.tscn" id="2_e22pg"]
-[ext_resource type="AudioStream" uid="uid://cs78mkiiig1ag" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami_description.mp3" id="2_pt1d7"]
-[ext_resource type="AudioStream" uid="uid://420xajv1cli3" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami.mp3" id="3_f8xpn"]
-[ext_resource type="AudioStream" uid="uid://bremlcimy35b6" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami_caught.mp3" id="4_lv51a"]
+[ext_resource type="Texture2D" uid="uid://coghvdxm1xc1p" path="res://places_and_fishes/everwatching_cove/docirami.png" id="3_02eww"]
+[ext_resource type="Resource" uid="uid://cfef0w4vjfr87" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami_description.tres" id="4_83av2"]
+[ext_resource type="Resource" uid="uid://dy6s5micfr8ea" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami.tres" id="5_uabna"]
+[ext_resource type="Resource" uid="uid://duufm6unuu6jd" path="res://sounds/voice_resources/fish_resource/everwatching_cove/docirami_caught.tres" id="6_w2okh"]
 
 [resource]
 script = ExtResource("1_3nug6")
 name = "Docirami"
-voice_name = ExtResource("3_f8xpn")
-voice_name_caught = ExtResource("4_lv51a")
+voice_name = ExtResource("5_uabna")
+voice_name_caught = ExtResource("6_w2okh")
+picture = ExtResource("3_02eww")
 description = "The \"docirami\" has learned to live with the gaze cast upon him. It predicts what is expected and complies accordingly."
-voice_description = ExtResource("2_pt1d7")
+voice_description = ExtResource("4_83av2")
 rarity = 2
 luring_scene = ExtResource("2_e22pg")
 catching_sequence = ExtResource("1_vl0kb")

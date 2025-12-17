@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cmjqeoo3u3p2u"]
+
+[ext_resource type="AudioStream" uid="uid://ceweisi3m448o" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker_caught.mp3" id="1_lqqrq"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_eag8b"]
+
+[resource]
+script = ExtResource("2_eag8b")
+audio = [ExtResource("1_lqqrq")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Warmseeker!"
+subtitle_touchscreen = ""

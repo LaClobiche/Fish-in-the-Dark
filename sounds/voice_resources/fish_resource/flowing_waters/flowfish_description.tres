@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://b31xr1qn4c7gr"]
+
+[ext_resource type="AudioStream" uid="uid://vsde0r2kgytd" path="res://sounds/voice_resources/fish_resource/flowing_waters/flowfish_description.mp3" id="1_1bq5t"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_5y5p5"]
+
+[resource]
+script = ExtResource("2_5y5p5")
+audio = [ExtResource("1_1bq5t")]
+audio_touchscreen = []
+help = false
+subtitle = "Always pushed by the water's currents. It seems that the Flowfish is continually transforming itself to comply with external pressures."
+subtitle_touchscreen = ""

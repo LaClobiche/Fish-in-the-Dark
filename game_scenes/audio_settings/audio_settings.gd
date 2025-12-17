@@ -9,6 +9,15 @@ enum Menu {
 	QUIT,
 }
 
+var text_menu := {
+	Menu.VOICES : "voices volume",
+#	Menu.MUSIC : "music volume",
+	Menu.AMBIENCE : "ambi. volume",
+	Menu.SOUND_EFFECTS : "SE volume",
+	Menu.DEFAULT : "reset volume",
+	Menu.QUIT : "quit",
+}
+
 var menu_callable := {
 	Menu.VOICES : Callable(change_volume.bind("Voices")),
 #	Menu.MUSIC : Callable(change_volume.bind("Music")),
@@ -19,19 +28,19 @@ var menu_callable := {
 }
 
 var voice_describe := {
-	"Ambience" : load("res://sounds/voice_resources/audio_settings/ambience_volume.mp3"),# Change my voice volume.
+	"Ambience" : load("res://sounds/voice_resources/audio_settings/ambience_volume.tres"),# Change my voice volume.
 #	"Music" : load("res://sounds/voice_resources/audio_settings/music_volume.mp3"),# Change the music volume
-	"SoundEffects" : load("res://sounds/voice_resources/audio_settings/sound_effects_volume.mp3"),# Change the ambience volume
-	"Voices" : load("res://sounds/voice_resources/audio_settings/voice_volume.mp3"), # Change the sound effects volume
-	"Default" : load("res://sounds/voice_resources/audio_settings/default.mp3"), # Reset the volume level for all sounds.
-	"Quit" : load("res://sounds/voice_resources/audio_settings/return.mp3"),# go back to fishing
+	"SoundEffects" : load("res://sounds/voice_resources/audio_settings/sound_effects_volume.tres"),# Change the ambience volume
+	"Voices" : load("res://sounds/voice_resources/audio_settings/voice_volume.tres"), # Change the sound effects volume
+	"Default" : load("res://sounds/voice_resources/audio_settings/default.tres"), # Reset the volume level for all sounds.
+	"Quit" : load("res://sounds/voice_resources/audio_settings/return.tres"),# go back to fishing
 }
 
 
 var sound_selected := {
 	"Ambience" : load("res://sounds/ambience/pond_night_2sec.mp3"),
 	"SoundEffects" : load("res://sounds/effects/rod_damage_crack.tres"),
-	"Voices" : load("res://sounds/voice_resources/audio_settings/voice_volume.mp3"),
+	"Voices" : load("res://sounds/voice_resources/audio_settings/voice_volume.tres"),
 #	"Music" : load(),
 }
 
@@ -58,18 +67,21 @@ var menu_size: int:
 	get:
 		return get_menu_size()
 
-var voice_intro := load("res://sounds/voice_resources/audio_settings/intro.mp3") # Here, you can adjust the volume of my voice.
-var voice_help := load("res://sounds/voice_resources/audio_settings/help.mp3") # Press "left" to change the volume, press "right" to choose other options.
-var voice_default_selected := load("res://sounds/voice_resources/audio_settings/default_selected.mp3") # Every volume level is reset.
+var voice_intro := load("res://sounds/voice_resources/audio_settings/intro.tres") # Here, you can adjust the volume of my voice.
+var voice_help := load("res://sounds/voice_resources/audio_settings/help.tres") # Press "left" to change the volume, press "right" to choose other options.
+var voice_default_selected := load("res://sounds/voice_resources/audio_settings/default_selected.tres") # Every volume level is reset.
 
 var intro := true
+var inputs := true
 
 func _ready():
 	Sound.stop_ambience()
 	scene_intro()
-
+	set_text_menu()
 
 func _unhandled_input(event):
+	if not inputs:
+		return
 	# if it's the main menu intro, only stop the voice and explain the current menu.
 	if intro and (event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("top")):
 		Sound.stop_voice_array_and_queue()
@@ -80,9 +92,15 @@ func _unhandled_input(event):
 		if event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("top"):
 			Sound.stop_voice_array_and_queue()
 		if event.is_action_pressed("left"):
+			if current_menu == Menu.QUIT:
+				inputs = false
+				Signals.menu_selected.emit()
+				await Signals.menu_closed
+				inputs = true
 			select_menu_item(current_menu)
 		if event.is_action_pressed("right"):
 			iterate_through_menu()
+			Signals.menu_index_changed.emit(int(current_menu))
 			describe_menu_item(current_menu)
 
 
@@ -98,15 +116,15 @@ func change_volume(bus_name: String):
 		if levels_index != -1 and levels_index + 1 < levels.size():
 			AudioServer.set_bus_volume_db(index, levels[levels_index + 1])
 			if levels_index + 1 == levels.size() - 1:
-				Sound.play_voice(load("res://sounds/voice_resources/audio_settings/set_to_max.mp3"))
+				Sound.play_voice(load("res://sounds/voice_resources/audio_settings/set_to_max.tres"))
 				await Sound.all_voices_finished
 			if levels_index + 1 == 3:
-				Sound.play_voice(load("res://sounds/voice_resources/audio_settings/set_to_def.mp3"))
+				Sound.play_voice(load("res://sounds/voice_resources/audio_settings/set_to_def.tres"))
 				await Sound.all_voices_finished
 		# if the current volume is in the index and the higher value, go back to lowest value.
 		elif levels_index != -1 and levels_index + 1 == levels.size():
 			AudioServer.set_bus_volume_db(index, levels[0])
-			Sound.play_voice(load("res://sounds/voice_resources/audio_settings/set_to_min.mp3"))
+			Sound.play_voice(load("res://sounds/voice_resources/audio_settings/set_to_min.tres"))
 			await Sound.all_voices_finished
 		# if the current volume is not in the index, set it to delfault.
 		else:
@@ -167,6 +185,16 @@ func set_intro(setter: bool):
 	if Sound.all_voices_finished.is_connected(set_intro.bind(false)):
 		Sound.all_voices_finished.disconnect(set_intro.bind(false))
 	intro = setter
+
+
+func set_text_menu():
+	var text_menu_array: Array[String] = []
+	for item in text_menu:
+		text_menu_array.append(text_menu[item])
+	print(str(text_menu_array) + " " + str(current_menu))
+	Signals.menu_requested.emit(text_menu_array, current_menu)
+	await Signals.menu_opened
+
 
 func iterate_through_menu():
 	current_menu = (current_menu + 1) % menu_size

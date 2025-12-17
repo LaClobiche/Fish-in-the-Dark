@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://m4qhvax8dxfy"]
+
+[ext_resource type="AudioStream" uid="uid://cpxae71v3at8e" path="res://sounds/voice_resources/final_scene/3_3_thought.mp3" id="1_mfdks"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_wif34"]
+
+[resource]
+script = ExtResource("2_wif34")
+audio = [ExtResource("1_mfdks")]
+audio_touchscreen = []
+help = false
+subtitle = "Move forward without fear."
+subtitle_touchscreen = ""

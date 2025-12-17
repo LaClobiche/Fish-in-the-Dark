@@ -7,11 +7,13 @@ enum PlaceName {
 	FLOWING_WATERS_TUTO,
 	LONELY_WATERS,
 	EVERWATCHING_COVE,
+	SWALLOWING_VORTEX,
+	BREACH,
 }
 
-
 @export var name: PlaceName
-@export var voice_name: AudioStream
+@export var text_menu_name: String
+@export var voice_name: VoiceResource
 @export var fishes_by_rarity: Dictionary = {
 	0 : null, 
 	1 : null,
@@ -20,7 +22,8 @@ enum PlaceName {
 }
 
 
-func _init(p_name = PlaceName.FLOWING_WATERS_TUTO, p_voice_name = null, p_fishes_by_rarity = {}):
+func _init(p_name = PlaceName.FLOWING_WATERS_TUTO, p_text_menu_name = "", p_voice_name = null, p_fishes_by_rarity = {}):
 	name = p_name
+	text_menu_name = p_text_menu_name
 	voice_name = p_voice_name
 	fishes_by_rarity = p_fishes_by_rarity

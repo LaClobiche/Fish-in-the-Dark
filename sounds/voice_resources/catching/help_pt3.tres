@@ -8,3 +8,5 @@ script = ExtResource("2_lmx0r")
 audio = [ExtResource("1_bdf4x")]
 audio_touchscreen = []
 help = true
+subtitle = "If the fish doesn't make any noise, you can reel it by alternately pressing \"left\" and \"right\""
+subtitle_touchscreen = ""

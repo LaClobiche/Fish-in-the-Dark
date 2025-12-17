@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dwwhs3m5040l0"]
+
+[ext_resource type="AudioStream" uid="uid://0ays4dq0wcb" path="res://sounds/voice_resources/audio_settings/sound_effects_volume.mp3" id="1_xq4xi"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_otpjq"]
+
+[resource]
+script = ExtResource("2_otpjq")
+audio = [ExtResource("1_xq4xi")]
+audio_touchscreen = []
+help = false
+subtitle = "Change the sound effects volume"
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bxvuivysdxbok"]
+
+[ext_resource type="AudioStream" uid="uid://b57p36jvenwer" path="res://sounds/voice_resources/final_scene/2_intro.mp3" id="1_e43gr"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_sh8q2"]
+
+[resource]
+script = ExtResource("1_sh8q2")
+audio = [ExtResource("1_e43gr")]
+audio_touchscreen = []
+help = false
+subtitle = "The light fades and your body stops being carried away. Calm and darkness prevail. The water gently penetrates your lungs, and the need to breathe disappears."
+subtitle_touchscreen = ""

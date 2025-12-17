@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://btg5y42aw7axq"]
+
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_0bp67"]
+[ext_resource type="AudioStream" uid="uid://c6w18gcyuymsu" path="res://sounds/voice_resources/credits/credits_pt1_author.mp3" id="1_56xq3"]
+
+[resource]
+script = ExtResource("1_0bp67")
+audio = [ExtResource("1_56xq3")]
+audio_touchscreen = []
+help = false
+subtitle = "Game made by Clovis Pion"
+subtitle_touchscreen = ""

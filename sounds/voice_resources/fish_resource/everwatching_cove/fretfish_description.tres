@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://1c4dt6t6bvs"]
+
+[ext_resource type="AudioStream" uid="uid://det10q7bkrtdt" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish_description.mp3" id="1_sj76k"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_rrir2"]
+
+[resource]
+script = ExtResource("2_rrir2")
+audio = [ExtResource("1_sj76k")]
+audio_touchscreen = []
+help = false
+subtitle = "The Fretfish always feels the gaze upon it. It feels insignificant, yet it's afraid of being noticed."
+subtitle_touchscreen = ""

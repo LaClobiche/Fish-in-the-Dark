@@ -11,3 +11,5 @@ script = ExtResource("1_vtfy5")
 audio = [ExtResource("1_p8j5q"), ExtResource("2_rof4n"), ExtResource("3_ok5p5"), ExtResource("4_jh2v2")]
 audio_touchscreen = []
 help = false
+subtitle = "You have a bite!"
+subtitle_touchscreen = ""

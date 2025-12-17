@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://jl8haftgg573"]
+
+[ext_resource type="AudioStream" uid="uid://ckd05ikqpderv" path="res://sounds/voice_resources/fish_resource/everwatching_cove/distinctuna_caught.mp3" id="1_ghxfj"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_r7ryv"]
+
+[resource]
+script = ExtResource("2_r7ryv")
+audio = [ExtResource("1_ghxfj")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Distinctuna!"
+subtitle_touchscreen = ""

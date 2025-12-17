@@ -15,3 +15,7 @@ one_shot = true
 [node name="ReelingTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

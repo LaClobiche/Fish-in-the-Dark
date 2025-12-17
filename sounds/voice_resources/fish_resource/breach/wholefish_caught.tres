@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://ix1ybp8n5pqj"]
+
+[ext_resource type="AudioStream" uid="uid://c1eyx32aad8mq" path="res://sounds/voice_resources/fish_resource/breach/wholefish_caught.mp3" id="1_ma2oq"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_d1160"]
+
+[resource]
+script = ExtResource("2_d1160")
+audio = [ExtResource("1_ma2oq")]
+audio_touchscreen = []
+help = false
+subtitle = "The wholefish has been discovered."
+subtitle_touchscreen = ""

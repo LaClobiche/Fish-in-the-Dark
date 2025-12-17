@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://c5ogcjsdao7dr"]
+
+[ext_resource type="AudioStream" uid="uid://5s2hp1gqy8r1" path="res://sounds/voice_resources/catching/help_flowfish.mp3" id="1_htvf8"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_5whxg"]
+
+[resource]
+script = ExtResource("2_5whxg")
+audio = [ExtResource("1_htvf8")]
+audio_touchscreen = []
+help = true
+subtitle = "If the fish doesn't make any noise, you can reel it by alternately pressing \"left\" and \"right\". Bubbles can be heard if you do this correctly."
+subtitle_touchscreen = ""

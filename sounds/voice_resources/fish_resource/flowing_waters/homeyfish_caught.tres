@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dpbefwr0aw50x"]
+
+[ext_resource type="AudioStream" uid="uid://1bhrk4mrwsnv" path="res://sounds/voice_resources/fish_resource/flowing_waters/homeyfish_caught.mp3" id="1_yixao"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_lbbqh"]
+
+[resource]
+script = ExtResource("2_lbbqh")
+audio = [ExtResource("1_yixao")]
+audio_touchscreen = []
+help = false
+subtitle = "You caught a Homeyfish!"
+subtitle_touchscreen = ""

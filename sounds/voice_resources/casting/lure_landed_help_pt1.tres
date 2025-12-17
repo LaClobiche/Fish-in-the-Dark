@@ -9,3 +9,5 @@ script = ExtResource("3_vxdd6")
 audio = [ExtResource("1_4nu3s"), ExtResource("2_3ay0i")]
 audio_touchscreen = []
 help = true
+subtitle = "Your can reel your fishing rod to explore other waters"
+subtitle_touchscreen = ""

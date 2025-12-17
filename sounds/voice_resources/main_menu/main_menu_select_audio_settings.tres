@@ -9,3 +9,5 @@ script = ExtResource("3_s8apo")
 audio = [ExtResource("1_hp7en"), ExtResource("2_qqdr5")]
 audio_touchscreen = []
 help = false
+subtitle = "Adjust audio for the best fishing experience."
+subtitle_touchscreen = ""

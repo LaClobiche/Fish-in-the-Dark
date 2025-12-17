@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cfxiuyi0n3y2j"]
+
+[ext_resource type="AudioStream" uid="uid://b4mvp860jix01" path="res://sounds/voice_resources/final_scene/1_intro_00.wav" id="1_wggsr"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_rv55l"]
+
+[resource]
+script = ExtResource("2_rv55l")
+audio = [ExtResource("1_wggsr")]
+audio_touchscreen = []
+help = false
+subtitle = ""
+subtitle_touchscreen = ""

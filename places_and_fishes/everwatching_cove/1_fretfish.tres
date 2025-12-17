@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://dfbhqyi7jc0f3"]
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://dfbhqyi7jc0f3"]
 
 [ext_resource type="Script" path="res://game_resources/fish.gd" id="1_fx0kg"]
 [ext_resource type="Animation" uid="uid://cnp0rh2wysyj6" path="res://places_and_fishes/everwatching_cove/fretfish_catching_sequence.res" id="1_whcyv"]
-[ext_resource type="AudioStream" uid="uid://det10q7bkrtdt" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish_description.mp3" id="2_v6fc3"]
 [ext_resource type="PackedScene" uid="uid://8hdwm383seom" path="res://game_scenes/fishing_run/luring/avoid_gaze/luring_avoid_gaze.tscn" id="2_w4rtv"]
-[ext_resource type="AudioStream" uid="uid://dwlk70i03wkfa" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish.mp3" id="3_qf1it"]
-[ext_resource type="AudioStream" uid="uid://bkwedroou3q5l" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish_caught.mp3" id="4_5oedt"]
+[ext_resource type="Texture2D" uid="uid://cjgxmmfcdu54t" path="res://places_and_fishes/everwatching_cove/fretfish.png" id="3_0j27d"]
+[ext_resource type="Resource" uid="uid://1c4dt6t6bvs" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish_description.tres" id="4_m58ea"]
+[ext_resource type="Resource" uid="uid://glsug4s2ohh6" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish.tres" id="5_rljob"]
+[ext_resource type="Resource" uid="uid://c7i6c3m6bncx2" path="res://sounds/voice_resources/fish_resource/everwatching_cove/fretfish_caught.tres" id="6_leem5"]
 
 [resource]
 script = ExtResource("1_fx0kg")
 name = "Fretfish"
-voice_name = ExtResource("3_qf1it")
-voice_name_caught = ExtResource("4_5oedt")
+voice_name = ExtResource("5_rljob")
+voice_name_caught = ExtResource("6_leem5")
+picture = ExtResource("3_0j27d")
 description = "The \"fretfish\" always feels the gaze upon it. It feels insignificant, yet it's afraid of being noticed."
-voice_description = ExtResource("2_v6fc3")
+voice_description = ExtResource("4_m58ea")
 rarity = 1
 luring_scene = ExtResource("2_w4rtv")
 catching_sequence = ExtResource("1_whcyv")

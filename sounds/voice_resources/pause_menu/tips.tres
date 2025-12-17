@@ -9,3 +9,5 @@ script = ExtResource("1_ml7go")
 audio = [ExtResource("1_f47bt"), ExtResource("2_ige25")]
 audio_touchscreen = []
 help = false
+subtitle = "You want some advice"
+subtitle_touchscreen = ""

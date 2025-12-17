@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cfu6aw7ubpsfm"]
+
+[ext_resource type="AudioStream" uid="uid://cql31kdrjc86j" path="res://sounds/voice_resources/final_scene/ask_reaction_help.mp3" id="1_sbkbg"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_4koev"]
+
+[resource]
+script = ExtResource("2_4koev")
+audio = [ExtResource("1_sbkbg")]
+audio_touchscreen = []
+help = true
+subtitle = "Press any \"right\" button to explore ideas. Press any \"left\" button to confirm."
+subtitle_touchscreen = ""

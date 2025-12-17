@@ -11,10 +11,13 @@ extends Luring
 
 #func is_timing_succeed(damage_on: bool = true) -> bool:
 
+
+var voice_miss: VoiceResource = load("res://sounds/voice_resources/luring/catch_sound/voice_miss.tres")
 var sound_to_catch: SoundEffectResource = load("res://sounds/effects/luring/catch_sound/chant.tres")
-var sound_interval := load("res://sounds/effects/bubbles_loop_low.wav")
+var sound_interval := load("res://sounds/effects/bubbles_loop_super_low.wav")
+
 @export var speed = 800
-@export_range(0.0, 1.0) var friction = 0.1
+@export_range(0.0, 1.0) var friction = 0.2
 @export_range(0.0 , 1.0) var acceleration = 0.08
 
 @onready var listener := $Player/AudioListener2D
@@ -28,8 +31,8 @@ var sound_interval := load("res://sounds/effects/bubbles_loop_low.wav")
 var bubble_tween: Tween
 ## dictionary of sound sequences according to fish name, used in set_sequence
 var sequences_dict := {
-	"Warmseeker" : [[Callable(play.bind(300.0, 7.0)), Callable(play.bind(900.0, 7.0))], Callable(set_fish_damage.bind(30)), "single"],
-	"Receiveel" : [[Callable(play.bind(100.0, 5.0, 2.0)), Callable(play.bind(1100.0, 5.0, 2.0)), Callable(play.bind(640.0, 5.0, 2.0))],Callable(set_fish_damage.bind(30)), "single"],
+	"Warmseeker" : [[Callable(play.bind(300.0, 9.0)), Callable(play.bind(900.0, 9.0))], Callable(set_fish_damage.bind(30)), "single"],
+	"Receiveel" : [[Callable(play.bind(100.0, 7.0, 2.0)), Callable(play.bind(1100.0, 7.0, 2.0)), Callable(play.bind(640.0, 7.0, 2.0))],Callable(set_fish_damage.bind(30)), "single"],
 	"Preacheel" : [[],Callable(set_fish_damage.bind(15)), "parallel"],
 	"Enlighteel" : [[],Callable(set_fish_damage.bind(15)), "parallel"]
 }
@@ -38,29 +41,35 @@ var sequence_index := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	Global.current_fish = load("res://places_and_fishes/lonely_waters/4_enlighteel.tres")
+#	if Global.debug: #debug
+#		Global.current_fish = load("res://places_and_fishes/lonely_waters/4_enlighteel.tres")
 	fish_hp_cooldown.timeout.connect(_on_fish_hp_cooldown_timeout)
-#	rod_hp_cooldown.timeout.connect(_on_rod_hp_cooldown_timeout)
-	voice_help = load("res://sounds/voice_resources/luring/catch_sound/voice_help.mp3")
-	voice_intro = load("res://sounds/voice_resources/luring/catch_sound/voice_intro.mp3")
+	voice_help = load("res://sounds/voice_resources/luring/catch_sound/voice_help_array.tres")
+	if Global.current_fish.name == "Enlighteel" or Global.current_fish.name == "Preacheel":
+		voice_help = load("res://sounds/voice_resources/luring/catch_sound/voice_help_multiple_voices_array.tres")
+	voice_intro = load("res://sounds/voice_resources/luring/catch_sound/voice_intro.tres")
 	for node in nodes_to_catch:
-		node.max_distance = 1000.0
+		node.max_distance = 1350.0
 		node.set_panning_strength(60.0)
 	for area in sound_areas:
 		area.body_exited.connect(_on_area_2d_body_exited)
 		area.body_entered.connect(_on_area_2d_body_entered)
 	super._ready()
+	if Global.debug:
+		show() #debug
 
 
 func _physics_process(delta):
-	if inputs:
-		player.velocity.y += delta
+	if inputs and current_state == State.LURING:
+		player.velocity.x += delta
 		var dir = Input.get_axis("left", "right")
 		if dir != 0:
 			player.velocity.x = lerp(player.velocity.x, dir * speed, acceleration)
 		else:
 			player.velocity.x = lerp(player.velocity.x, 0.0, friction)
 		player.move_and_slide()
+		Signals.lure_position.emit(Vector2(320 + (player.global_position.x / 2), 570))
+
 
 
 func _unhandled_input(event):
@@ -68,15 +77,16 @@ func _unhandled_input(event):
 	if inputs:
 		if current_state == State.INTRO:
 			if event.is_action_pressed("left") or event.is_action_pressed("right"):
-				Sound.stop_voice_array_and_queue()
-				scene_luring()
+				Sound.play_next_voice()
 		elif current_state == State.OUTRO:
 			pass
 		else:#current_state == State.LURING
 			if event.is_action_pressed("left") and not Sound.is_se_playing(Sound.effects["move_left"]):
 				Sound.play_se(Sound.effects["move_left"])
+				Signals.rod_state.emit("left")
 			if event.is_action_pressed("right") and not Sound.is_se_playing(Sound.effects["move_right"]):
 				Sound.play_se(Sound.effects["move_right"])
+				Signals.rod_state.emit("right")
 
 
 func set_sequence():
@@ -93,6 +103,14 @@ func set_sequence():
 
 func set_fish_damage(number: int):
 	fish_damage = number
+
+
+func scene_intro():
+	inputs = false
+	Sound.play_voice(voice_intro)
+	Sound.play_voice(voice_help)
+	Sound.all_voices_finished.connect(scene_luring)
+	inputs = true
 
 
 func scene_luring():
@@ -183,7 +201,7 @@ func stop_parallel(node: Node2D):
 func _on_area_2d_body_entered(_body):
 	print("body in")
 	var time: float = fish_hp_cooldown.wait_time
-	play_bubble_until(time, 0.6)
+	play_bubble_until(time, 0.25)
 	fish_hp_cooldown.start()
 
 
@@ -199,6 +217,8 @@ func damage(succeeded: bool):
 		fish_hp -= fish_damage
 	else:
 		Global.current_fishing_rod.take_damage(rod_damage)
+		if not Sound.is_voices_playing():
+			Sound.play_voice(voice_miss)
 
 
 func play_bubble():

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://cc7dqjgad8lps"]
+
+[ext_resource type="AudioStream" uid="uid://b2fivf3d43crx" path="res://sounds/voice_resources/final_scene/3_2_reaction.mp3" id="1_386m6"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_g40b1"]
+
+[resource]
+script = ExtResource("2_g40b1")
+audio = [ExtResource("1_386m6")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Docirami, you try to understand the intentions of this thing to better prepare yourself. Unfortunately, every moment spent observing this mass erodes your sense of free will."
+subtitle_touchscreen = ""

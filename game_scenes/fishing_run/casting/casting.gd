@@ -28,6 +28,7 @@ enum State {
 var damage_if_fail: int = 10
 var inputs: bool = false
 var places_not_completed: Array[Place.PlaceName] = []
+
 var reeling_time_amplitude: float = 0.5
 var state : State = State.PREPARE_TO_CAST
 
@@ -46,24 +47,32 @@ var voices := {
 @onready var casting_timer := $CastingTimer
 @onready var reeling_sound_timer := $ReelingSoundTimer
 @onready var reeling_timer := $ReelingTimer
+@onready var debug_label := $DebugLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hide()
+	if Global.debug:
+		show()
 	casting_timer.timeout.connect(cast_end)
 	reeling_timer.timeout.connect(lure_back)
 	scene_intro()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Global.debug:
+		debug()
+
+
+func debug():
+	debug_label.text = "casting max time: " + str(casting_timer.wait_time) + " | casting time left: " + str(casting_timer.time_left) + "reeling max time: " + str(reeling_timer.wait_time) + " | reeling time left: " + str(reeling_timer.time_left)
 
 
 func _unhandled_input(event):
+	if not inputs:
+		return
 	if event.is_action_pressed("top"):
 		Signals.scene_requested.emit("toggle_pause")
-	elif not inputs:
-		return
 	else:
 		if event.is_action_pressed("left") or event.is_action_pressed("right"):
 			Sound.stop_voice_array_and_queue()
@@ -75,7 +84,10 @@ func _unhandled_input(event):
 				cast_end()
 		elif state == State.REELING:
 			if event.is_action_pressed("left"):
+				Sound.stop_se()
+				Sound.stop_voice_array_and_queue()
 				Global.set_current_fish()
+				print("fish selected, sounds stopped")
 				Signals.scene_requested.emit("luring")
 			if event.is_action_released("right"):
 				reeling(false)
@@ -88,7 +100,7 @@ func cast_start():
 	state = State.CASTING
 	Sound.play_se(Sound.effects["casting_strengthen"])
 	Sound.play_se(Sound.effects["casting_whoosh"])
-	casting_timer.start()
+	casting_timer.start(5.0)
 
 
 func cast_end() :
@@ -109,16 +121,18 @@ func cast_end() :
 	# if the timer stops before, the casting succeeds
 	else:
 		# get place_resource associated with CastingTimer timing.
-		Global.current_place = Global.get_place_resource(get_place_name_from_timer(casting_timer))
 		casting_timer.stop()
+		Signals.rod_state.emit("idle")
 		cast_end_succeed_sounds(time_left)
 		await reeling_sound_timer.timeout
-		cast_new_place_sounds()
-		reeling_timer.wait_time = reeling_sound_timer.wait_time * 3
+		reeling_timer.wait_time = casting_timer.wait_time - time_left
 		reeling_timer.start()
 		reeling_timer.paused = true
+		Global.current_place = Global.get_place_resource(get_place_name_from_timer(reeling_timer))
+		cast_new_place_sounds()
 		state = State.REELING
 		inputs = true
+
 
 
 func cast_end_fail_sounds():
@@ -138,6 +152,7 @@ func cast_end_succeed_sounds(time_left: float):
 	await reeling_sound_timer.timeout
 	Sound.stop_se_specified(Sound.effects["reeling_super_fast"])
 	Sound.play_se(Sound.effects["casting_lure_in"])
+	Signals.casting_lure.emit()
 
 
 func cast_new_place_sounds():
@@ -164,28 +179,37 @@ func casting_help():
 ## returns a non-completed place_name corresponding to timing
 func get_place_name_from_timer(timer: Timer) -> Place.PlaceName:
 	var place_to_return : Place.PlaceName
-	var time: float = timer.wait_time
+	var time: float = casting_timer.wait_time
 	var time_left: float = timer.time_left
-	# get the non completed places
+	# get the non completed places, reverse them
 	places_not_completed = Global.get_places_not_completed()
-	# if the tuto zone (flowing waters) not completed, only choose this one.
+	# if the game is finished, add every places.
+	if places_not_completed.is_empty():
+		for key in Place.PlaceName:
+			places_not_completed.append(Place.PlaceName[key])
+	# always delete "the breach" (final zone) that is only accepssible after the vortex place.
+	if Place.PlaceName.BREACH in places_not_completed:
+		places_not_completed.erase(Place.PlaceName.BREACH)
+	# for the first playthrough, if the tuto zone (flowing waters) not completed, only choose this one.
 	if Place.PlaceName.FLOWING_WATERS_TUTO in places_not_completed and not Saves.data["game_finished"]:
-		return Place.PlaceName.FLOWING_WATERS_TUTO
-	# else get the place from time_left
-	else:
-		# if the almanac is completed, add every places in places_not_completed
-		if places_not_completed.is_empty():
-			for key in Place.PlaceName:
-				places_not_completed.append(Place.PlaceName[key])
-		var time_step := time / places_not_completed.size()
-		var step_starts: float = 0.0
-		var step_ends: float = time_step
-		for place_name in places_not_completed:
-			if step_starts <= time_left and time_left < step_ends:
-				place_to_return = place_name
-			step_starts = step_ends
-			step_ends = step_ends + time_step
-		return place_to_return
+		places_not_completed = [Place.PlaceName.FLOWING_WATERS_TUTO]
+	# for the first playthrough, only allow the vortex as a final place
+	if places_not_completed.size() != 1 and not Saves.data["game_finished"] and Place.PlaceName.SWALLOWING_VORTEX in places_not_completed:
+		places_not_completed.erase(Place.PlaceName.SWALLOWING_VORTEX)
+	# get the place from time_left
+	var time_step := time / places_not_completed.size()
+	print("time: " + str(time))
+	print(places_not_completed)
+	var step_starts: float = 0.0
+	var step_ends: float = time_step
+	for place_name in places_not_completed:
+		print("step start: " + str(step_starts) + "| step end: " + str(step_ends))
+		if step_starts <= time_left and time_left < step_ends:
+			place_to_return = place_name
+			print("return place: " + str(place_name))
+		step_starts = step_ends
+		step_ends = step_ends + time_step
+	return place_to_return
 
 
 ## gives a time to play the reeling sound effect
@@ -200,7 +224,9 @@ func lure_back():
 	state = State.PREPARE_TO_CAST
 	Sound.stop_se()
 	Sound.play_voice(voices["lure_back"])
+	Signals.rod_state.emit("hidden")
 	await Sound.all_voices_finished
+	print("sound finished awaited")
 	inputs = true
 	casting_help()
 

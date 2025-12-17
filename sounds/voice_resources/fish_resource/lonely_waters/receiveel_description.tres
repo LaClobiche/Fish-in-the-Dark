@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bu8jp60uewnyt"]
+
+[ext_resource type="AudioStream" uid="uid://b2udcpc2bsq7w" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel_description.mp3" id="1_pqgge"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_usj0m"]
+
+[resource]
+script = ExtResource("2_usj0m")
+audio = [ExtResource("1_pqgge")]
+audio_touchscreen = []
+help = false
+subtitle = "Filled with hope, the Receiveel has been given an inner light. It is convinced that, thanks to it, it will be able to move on from the lonely waters."
+subtitle_touchscreen = ""

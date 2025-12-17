@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://bw2xmyu8vykyj"]
+
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_g2kjn"]
+[ext_resource type="AudioStream" uid="uid://c3acfo68gp4v8" path="res://sounds/voice_resources/fish_resource/lonely_waters/enlighteel_description.mp3" id="1_ii5lm"]
+
+[resource]
+script = ExtResource("1_g2kjn")
+audio = [ExtResource("1_ii5lm")]
+audio_touchscreen = []
+help = false
+subtitle = "The Enlighteel light is not strong enough to help it escape the Lonely Waters. But it does allow it to see the other inhabitants. The Enlighteel has acknowledged the boundaries of its existence. It has great respect for the way everyone lives in these waters. Are they really lonely?"
+subtitle_touchscreen = ""

@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://d3jkrbhh5i3pf"]
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://d3jkrbhh5i3pf"]
 
 [ext_resource type="Animation" uid="uid://md3uf5jh6wcb" path="res://places_and_fishes/lonely_waters/receiveel_catching_sequence.res" id="1_bxwyn"]
 [ext_resource type="Script" path="res://game_resources/fish.gd" id="1_vg3s6"]
 [ext_resource type="PackedScene" uid="uid://b77jcx07c33su" path="res://game_scenes/fishing_run/luring/catch_sound/luring_catch_sound.tscn" id="2_855et"]
-[ext_resource type="AudioStream" uid="uid://b2udcpc2bsq7w" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel_description.mp3" id="2_h3jgj"]
-[ext_resource type="AudioStream" uid="uid://bsxqcswido65h" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel.mp3" id="3_42cl1"]
-[ext_resource type="AudioStream" uid="uid://b6vkiiup1e1vs" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel_caught.mp3" id="4_pram7"]
+[ext_resource type="Texture2D" uid="uid://briw16mifvj2s" path="res://places_and_fishes/lonely_waters/receiveel.png" id="3_n68on"]
+[ext_resource type="Resource" uid="uid://bu8jp60uewnyt" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel_description.tres" id="4_whu1f"]
+[ext_resource type="Resource" uid="uid://cbfln1a4mdnh7" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel.tres" id="5_gwny4"]
+[ext_resource type="Resource" uid="uid://cims3by8ojfkb" path="res://sounds/voice_resources/fish_resource/lonely_waters/receiveel_caught.tres" id="6_t4qx8"]
 
 [resource]
 script = ExtResource("1_vg3s6")
 name = "Receiveel"
-voice_name = ExtResource("3_42cl1")
-voice_name_caught = ExtResource("4_pram7")
-description = "Filled with hope, the Receiveel has been given an inner light. It is convinced that, thanks to it, he will be able to move on from the lonely waters."
-voice_description = ExtResource("2_h3jgj")
+voice_name = ExtResource("5_gwny4")
+voice_name_caught = ExtResource("6_t4qx8")
+picture = ExtResource("3_n68on")
+description = "Filled with hope, the Receiveel has been given an inner light. It is convinced that, thanks to it, it will be able to move on from the lonely waters."
+voice_description = ExtResource("4_whu1f")
 rarity = 2
 luring_scene = ExtResource("2_855et")
 catching_sequence = ExtResource("1_bxwyn")

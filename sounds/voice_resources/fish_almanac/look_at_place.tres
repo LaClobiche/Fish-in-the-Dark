@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://x3q7ofsmprs1"]
+
+[ext_resource type="AudioStream" uid="uid://c2jvkpw2031o5" path="res://sounds/voice_resources/fish_almanac/look_at_place.mp3" id="1_1ccl4"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_yemd4"]
+
+[resource]
+script = ExtResource("2_yemd4")
+audio = [ExtResource("1_1ccl4")]
+audio_touchscreen = []
+help = false
+subtitle = "Look at the fish found in..."
+subtitle_touchscreen = ""

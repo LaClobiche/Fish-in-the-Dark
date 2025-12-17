@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/path_tip2.mp3-56722a68972fff77743f4e9d44758b3
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

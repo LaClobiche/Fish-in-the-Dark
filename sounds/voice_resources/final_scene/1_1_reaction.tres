@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://ww55d43kgddf"]
+
+[ext_resource type="AudioStream" uid="uid://ocdjvfxpl7n1" path="res://sounds/voice_resources/final_scene/1_1_reaction.mp3" id="1_6c3o1"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_l7pq8"]
+
+[resource]
+script = ExtResource("2_l7pq8")
+audio = [ExtResource("1_6c3o1")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Flowfish, your body follows the forces of the current and lets itself be carried along."
+subtitle_touchscreen = ""

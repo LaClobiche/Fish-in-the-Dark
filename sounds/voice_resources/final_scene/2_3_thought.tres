@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dnicpwd6emxlc"]
+
+[ext_resource type="AudioStream" uid="uid://cqughunhiota6" path="res://sounds/voice_resources/final_scene/2_3_thought.mp3" id="1_tntru"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_3m68p"]
+
+[resource]
+script = ExtResource("2_3m68p")
+audio = [ExtResource("1_tntru")]
+audio_touchscreen = []
+help = false
+subtitle = " Try to find others who may have been swallowed up"
+subtitle_touchscreen = ""

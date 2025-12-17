@@ -1,19 +1,21 @@
-[gd_resource type="Resource" script_class="Fish" load_steps=7 format=3 uid="uid://bqyax3s5atn77"]
+[gd_resource type="Resource" script_class="Fish" load_steps=8 format=3 uid="uid://bqyax3s5atn77"]
 
 [ext_resource type="Script" path="res://game_resources/fish.gd" id="1_hhbb4"]
 [ext_resource type="Animation" uid="uid://y8nq6mdl4wi6" path="res://places_and_fishes/lonely_waters/warmseeker_catching_sequence.res" id="1_vsh6h"]
 [ext_resource type="PackedScene" uid="uid://b77jcx07c33su" path="res://game_scenes/fishing_run/luring/catch_sound/luring_catch_sound.tscn" id="2_iymtm"]
-[ext_resource type="AudioStream" uid="uid://d3mka11fmn785" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker_description.mp3" id="2_njlao"]
-[ext_resource type="AudioStream" uid="uid://1jlroqpspaxc" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker.mp3" id="3_xylry"]
-[ext_resource type="AudioStream" uid="uid://ceweisi3m448o" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker_caught.mp3" id="4_bymwg"]
+[ext_resource type="Texture2D" uid="uid://bqicmevnqi1nu" path="res://places_and_fishes/lonely_waters/warmseeker.png" id="3_4cwk3"]
+[ext_resource type="Resource" uid="uid://gsdrmc2aruu0" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker_description.tres" id="4_gx7ov"]
+[ext_resource type="Resource" uid="uid://k6qs6pu4kxgl" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker.tres" id="5_76h1k"]
+[ext_resource type="Resource" uid="uid://cmjqeoo3u3p2u" path="res://sounds/voice_resources/fish_resource/lonely_waters/warmseeker_caught.tres" id="6_4c1pv"]
 
 [resource]
 script = ExtResource("1_hhbb4")
 name = "Warmseeker"
-voice_name = ExtResource("3_xylry")
-voice_name_caught = ExtResource("4_bymwg")
+voice_name = ExtResource("5_76h1k")
+voice_name_caught = ExtResource("6_4c1pv")
+picture = ExtResource("3_4cwk3")
 description = "The Warmseeker is trapped in the lonely waters. It's always looking for the warmth it believes it once received."
-voice_description = ExtResource("2_njlao")
+voice_description = ExtResource("4_gx7ov")
 rarity = 1
 luring_scene = ExtResource("2_iymtm")
 catching_sequence = ExtResource("1_vsh6h")

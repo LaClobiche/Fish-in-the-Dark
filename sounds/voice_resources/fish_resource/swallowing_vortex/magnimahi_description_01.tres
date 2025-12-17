@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://l8uj4wpb8amw"]
+
+[ext_resource type="AudioStream" uid="uid://br8upc3m5h8rk" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_description_01.mp3" id="1_05gd3"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_6v0lm"]
+
+[resource]
+script = ExtResource("2_6v0lm")
+audio = [ExtResource("1_05gd3")]
+audio_touchscreen = []
+help = false
+subtitle = "Since its willpower alone can't change the cruel laws of the vortex, its only hope is to meet other fellow creatures sharing its vision. It believes that someday, through a series of even more unlikely fortunate events, it will be possible to bring a little fairness to these waters."
+subtitle_touchscreen = ""

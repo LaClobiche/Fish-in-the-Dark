@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://wa4x7lxenv6m"]
+
+[ext_resource type="AudioStream" uid="uid://bu3umyr2t2nwr" path="res://sounds/voice_resources/final_scene/2_3_reaction.mp3" id="1_5x3mq"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_8663x"]
+
+[resource]
+script = ExtResource("2_8663x")
+audio = [ExtResource("1_5x3mq")]
+audio_touchscreen = []
+help = false
+subtitle = "Like the Preacheel, you search relentlessly for individuals who might need your help. But nothing seems to exist except your vain attempts to escape your isolation."
+subtitle_touchscreen = ""

@@ -11,3 +11,5 @@ script = ExtResource("2_xasl1")
 audio = [ExtResource("1_3s0q7"), ExtResource("2_2x1gy"), ExtResource("3_2a6h3"), ExtResource("4_wwjal")]
 audio_touchscreen = []
 help = false
+subtitle = "Your lure has moved to..."
+subtitle_touchscreen = ""

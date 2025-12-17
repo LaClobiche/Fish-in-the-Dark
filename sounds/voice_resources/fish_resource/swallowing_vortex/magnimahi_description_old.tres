@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://dhamqb5t7bacg"]
+
+[ext_resource type="AudioStream" uid="uid://c25ci4wse0mbh" path="res://sounds/voice_resources/fish_resource/swallowing_vortex/magnimahi_description_old.mp3" id="1_jmjtc"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_2ne35"]
+
+[resource]
+script = ExtResource("2_2ne35")
+audio = [ExtResource("1_jmjtc")]
+audio_touchscreen = []
+help = false
+subtitle = "The Magni-Mahi knows that its survival in the vortex results from a series of fortunate events. Born strong, in a current rich in Gonnby fish, it was able to ensure its safety. Since it willpower alone can't change the cruel laws of the vortex, its only hope is to meet other fellow creatures sharing its vision. It believes that someday, through a series of even more unlikely fortunate events, it will be possible to bring a little fairness to these waters."
+subtitle_touchscreen = ""

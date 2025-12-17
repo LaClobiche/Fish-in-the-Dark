@@ -8,3 +8,5 @@ script = ExtResource("1_6gr6a")
 audio = [ExtResource("1_b7jj6")]
 audio_touchscreen = []
 help = true
+subtitle = ""
+subtitle_touchscreen = ""

@@ -4,12 +4,15 @@ extends Resource
 
 @export_group("Name")
 @export var name: String
-@export var voice_name: AudioStream
-@export var voice_name_caught: AudioStream
+@export var voice_name: VoiceResource
+@export var voice_name_caught: VoiceResource
+
+@export_group("Picture")
+@export var picture: CompressedTexture2D
 
 @export_group("Description")
 @export var description: String
-@export var voice_description: AudioStream
+@export var voice_description: Resource
 
 @export_group("Properties")
 @export var rarity: int
@@ -22,11 +25,12 @@ extends Resource
 
 
 func _init(p_name = "", p_voice_name = null,
-		p_voice_name_caught = null, p_description = "", p_voice_description = null,
+		p_voice_name_caught = null, p_picture = null, p_description = "", p_voice_description = null,
 		p_rarity = 0,p_luring_scene = null, p_catching_sequence = null):
 	name = p_name
 	voice_name = p_voice_name
 	voice_name_caught = p_voice_name_caught
+	picture = p_picture
 	description = p_description
 	voice_description = p_voice_description
 	rarity = p_rarity

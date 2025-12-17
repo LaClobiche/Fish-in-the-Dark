@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://btjnk5b7t5gmh"]
+
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="1_ak1h2"]
+[ext_resource type="AudioStream" uid="uid://bdufswqseb74k" path="res://sounds/voice_resources/place_resource/swallowing_vortex.mp3" id="1_yjqnr"]
+
+[resource]
+script = ExtResource("1_ak1h2")
+audio = [ExtResource("1_yjqnr")]
+audio_touchscreen = []
+help = false
+subtitle = "the Swallowing Vortex"
+subtitle_touchscreen = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="VoiceResource" load_steps=3 format=3 uid="uid://ci67hojpadbfi"]
+
+[ext_resource type="AudioStream" uid="uid://frnaqoctj5ri" path="res://sounds/voice_resources/place_resource/everwatching_cove.mp3" id="1_ucrmf"]
+[ext_resource type="Script" path="res://game_resources/voice_resource.gd" id="2_0wuc2"]
+
+[resource]
+script = ExtResource("2_0wuc2")
+audio = [ExtResource("1_ucrmf")]
+audio_touchscreen = []
+help = false
+subtitle = "the Everwatching Cove"
+subtitle_touchscreen = ""
